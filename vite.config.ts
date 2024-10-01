@@ -1,6 +1,9 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import mdx from "@mdx-js/rollup";
+import rehypeMdxTitle from "rehype-mdx-title";
+import rehypePrettyCode from "rehype-pretty-code";
+import moonlightTheme from './assets/moonlight-ii.json' with { type: 'json' };
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -8,7 +11,14 @@ export default defineConfig({
     {
       enforce: "pre",
       ...mdx({
-        /* jsxImportSource: …, otherOptions… */
+        remarkPlugins: [],
+        rehypePlugins: [ [
+          rehypePrettyCode,
+          {
+            keepBackground: false,
+            theme: moonlightTheme,
+          },
+        ],rehypeMdxTitle],
       }),
     },
     react({ include: /\.(jsx|js|mdx|md|tsx|ts)$/ }),
