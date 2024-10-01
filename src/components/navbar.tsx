@@ -18,7 +18,7 @@ const Navbar = () => {
       component="nav"
     >
       <Typography component={Link} to="/" level="h4">
-        /
+        /me
       </Typography>
       <Typography component={Link} to="/projects" level="h4">
         /projects
