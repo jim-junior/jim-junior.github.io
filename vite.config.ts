@@ -4,6 +4,8 @@ import mdx from "@mdx-js/rollup";
 import rehypeMdxTitle from "rehype-mdx-title";
 import rehypePrettyCode from "rehype-pretty-code";
 import moonlightTheme from './assets/moonlight-ii.json' with { type: 'json' };
+import remarkMath from 'remark-math'
+import rehypeKatex from 'rehype-katex'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -11,8 +13,11 @@ export default defineConfig({
     {
       enforce: "pre",
       ...mdx({
-        remarkPlugins: [],
-        rehypePlugins: [ [
+        remarkPlugins: [
+          remarkMath
+        ],
+        rehypePlugins: [
+          rehypeKatex, [
           rehypePrettyCode,
           {
             keepBackground: false,
