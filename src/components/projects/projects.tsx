@@ -8,7 +8,7 @@ import CardContent from "@mui/joy/CardContent";
 import Sheet from "@mui/joy/Sheet";
 import Typography from "@mui/joy/Typography";
 import axios from "axios";
-import { Skeleton, Box, Link } from "@mui/joy";
+import { Skeleton, Box, Link, IconButton } from "@mui/joy";
 
 const BASE_URL = "https://api.github.com/repos/";
 
@@ -63,13 +63,9 @@ function ProjectCard({ repo, documentation }) {
           </Typography>
         </div>
         <ButtonGroup size="sm" variant="soft">
-          <Button
-            component="a"
-            href={repoData ? repoData.html_url : "#"}
-            startDecorator={<SiGithub />}
-          >
-            GitHub
-          </Button>
+          <IconButton component="a" href={repoData ? repoData.html_url : "#"}>
+            <SiGithub />
+          </IconButton>
         </ButtonGroup>
       </CardContent>
       <CardContent orientation="horizontal" sx={{ gap: 2 }}>

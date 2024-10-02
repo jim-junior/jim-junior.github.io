@@ -1,5 +1,6 @@
 import { COMPONENTS } from "../mdx-conponents";
 import CraneOperatorPost from "./blogs/simplifiying-kubernetes.md";
+import CraneOperatorSpecPost from "./blogs/crane-operator-spec.md";
 
 export const posts = [
   {
@@ -13,6 +14,17 @@ export const posts = [
       "https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     cartegory: "CLOUD NATIVE",
     content: <CraneOperatorPost components={COMPONENTS} />,
+  },
+  {
+    title: "Crane-Operator: Simplified Kubernetes Application Deployment",
+    description:
+      "The Crane-Operator Specification: This article talks about the Crane-Operator Specification and guide to building a Kubernetes Operator for deploying applications on Kubernetes.",
+    date: "2024-10-02",
+    slug: "crane-operator-specification",
+    image:
+      "https://www.epsglobal.com/Media-Library/EPSGlobal/Blog/kubernets2.jpg",
+    cartegory: "CLOUD NATIVE",
+    content: <CraneOperatorSpecPost components={COMPONENTS} />,
   },
 ];
 
