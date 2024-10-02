@@ -5,8 +5,9 @@ export const COMPONENTS = {
   h1: (props: any) => (
     <Typography
       sx={{
-        my: 4,
+        my: 5,
         textAlign: "center",
+        fontSize: "2.5rem",
       }}
       level="h1"
       component="h1"

@@ -14,7 +14,7 @@ export default function BlogPostCard({ post }: { post: Post }) {
     <Card sx={{ borderRadius: 0 }}>
       <CardOverflow>
         <AspectRatio>
-          <img src="https://images.unsplash.com/photo-1624995256645-3e497ca1b29c" />
+          <img src={post.image} />
           <Typography
             sx={{
               position: "absolute",
