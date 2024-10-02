@@ -3,6 +3,7 @@ import Home from "./pages/home";
 import BlogPage from "./pages/blog";
 import { posts } from "./components/blog/post-data";
 import BlogPostPage from "./pages/post";
+import ProjectsPage from "./pages/projects";
 
 function getBlogPostRotes() {
   const routes = posts.map((post) => {
@@ -22,6 +23,10 @@ export const router = createBrowserRouter([
   {
     path: "/blog",
     element: <BlogPage />,
+  },
+  {
+    path: "/projects",
+    element: <ProjectsPage />,
   },
   {
     path: "*",

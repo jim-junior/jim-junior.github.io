@@ -23,10 +23,6 @@ const Navbar = () => {
       <Typography component={Link} to="/projects" level="h4">
         /projects
       </Typography>
-
-      <Typography component={Link} to="/projects" level="h4">
-        /research
-      </Typography>
       <Typography component={Link} to="/blog" level="h4">
         /blog
       </Typography>
