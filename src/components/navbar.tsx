@@ -7,6 +7,7 @@ const Navbar = () => {
       sx={{
         bgcolor: "primary.main",
         color: "white",
+        fontFamily: "monospace",
         p: 2,
         display: "flex",
         justifyContent: "space-between",
@@ -17,13 +18,37 @@ const Navbar = () => {
       }}
       component="nav"
     >
-      <Typography component={Link} to="/" level="h4">
+      <Typography
+        sx={{
+          fontFamily: "monospace",
+        }}
+        component={Link}
+        to="/"
+        color="primary"
+        level="h4"
+      >
         /me
       </Typography>
-      <Typography component={Link} to="/projects" level="h4">
+      <Typography
+        sx={{
+          fontFamily: "monospace",
+        }}
+        component={Link}
+        to="/projects"
+        color="primary"
+        level="h4"
+      >
         /projects
       </Typography>
-      <Typography component={Link} to="/blog" level="h4">
+      <Typography
+        sx={{
+          fontFamily: "monospace",
+        }}
+        component={Link}
+        color="primary"
+        to="/blog"
+        level="h4"
+      >
         /blog
       </Typography>
     </Box>
