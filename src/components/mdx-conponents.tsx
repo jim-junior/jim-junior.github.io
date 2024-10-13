@@ -68,6 +68,7 @@ export const COMPONENTS = {
     <Typography
       sx={{
         my: 1,
+        width: "100%",
       }}
       level="body-lg"
       {...props}
@@ -96,6 +97,17 @@ export const COMPONENTS = {
         fontSize: "0.9rem",
         backgroundColor: "#0d1117",
         overflow: "auto",
+      }}
+      {...props}
+    />
+  ),
+  img: (props: any) => (
+    <img
+      style={{
+        maxWidth: "100%",
+        display: "block",
+        margin: "auto",
+        borderRadius: 5,
       }}
       {...props}
     />

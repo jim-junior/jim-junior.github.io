@@ -10,7 +10,19 @@ const BlogPostPage = ({ post }: { post: Post }) => {
         <title>{post.title}</title>
       </Helmet>
       <Navbar />
-      <Container>{post.content}</Container>
+      <Container
+        sx={{
+          mt: 10,
+          mb: 10,
+          p: 5,
+          borderRadius: 2,
+          boxShadow: 3,
+          bgcolor: "background.paper",
+          width: "100%",
+        }}
+      >
+        {post.content}
+      </Container>
     </>
   );
 };
