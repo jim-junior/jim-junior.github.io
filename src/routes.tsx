@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
 import Home from "./pages/home";
 import BlogPage from "./pages/blog";
 import { posts } from "./components/blog/post-data";
@@ -15,7 +15,7 @@ function getBlogPostRotes() {
   return routes;
 }
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     path: "/",
     element: <Home />,
