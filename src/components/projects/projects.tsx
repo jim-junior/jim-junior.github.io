@@ -134,6 +134,10 @@ export default function Projects() {
     <Box sx={{ p: 4 }}>
       <LayoutGridAutofill>
         <ProjectCard
+          repo="jim-junior/raft-python"
+          documentation="https://orbiton.js.org/"
+        />
+        <ProjectCard
           repo="open-ug/gopq-crypto"
           documentation="https://open.cranom.tech/crane-operator/intro"
         />
