@@ -2,7 +2,7 @@ import { COMPONENTS } from "../mdx-conponents";
 import CraneOperatorPost from "./blogs/simplifiying-kubernetes.md";
 import CraneOperatorSpecPost from "./blogs/crane-operator-spec.md";
 import JavaScriptProxies from "./blogs/javascript-proxies-a-beginners-guide.md";
-import OrbitonJSBlog from "./blogs/3-minutes-to-orbiton-js-the-ultimate-javascript-ui-library.md";
+//import OrbitonJSBlog from "./blogs/3-minutes-to-orbiton-js-the-ultimate-javascript-ui-library.md";
 import ReactLibrary from "./blogs/how-to-create-an-npm-library-from-react-components.md";
 import ReactJSMedia from "./blogs/how-to-create-a-responsive-custom-video-player-in-react.md";
 import URLShortner from "./blogs/url-shortner.md";
@@ -53,7 +53,7 @@ export const posts = [
     cartegory: "JAVASCRIPT",
     content: <JavaScriptProxies components={COMPONENTS} />,
   },
-  {
+  /* {
     title: "3 Minutes to Orbiton JS | The Ultimate JavaScript UI library",
     description:
       "Proxies in JavaScript are one of the hidden gems in the language that most JavaScript beginner and intermediate developers do not know of......",
@@ -63,7 +63,7 @@ export const posts = [
       "https://dev-to-uploads.s3.amazonaws.com/uploads/articles/f4o5sini57do8wxonqgk.png",
     cartegory: "JAVASCRIPT",
     content: <OrbitonJSBlog components={COMPONENTS} />,
-  },
+  }, */
   {
     title: "How to Create an NPM Library from React Components",
     description:
