@@ -1,5 +1,7 @@
 # How to create an npm library from react components
 
+> THIS BLOG POST IS STILL OUTDATED AND ARCHIVED. JUST KEPT IT COZ IT WAS MY FIRST BLOG POST THAT WENT VIRAL ON DEV.TO. A CHERISHED CHILDHOOD MEMORY.
+
 In this tutorial I will be showing you how to create an npm library that is composed of react component. This will definitely help you incase you want to reuse code in multiple projects or if you just want to create your own library.
 
 **Table of contents:**
