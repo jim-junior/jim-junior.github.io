@@ -1,5 +1,5 @@
 import { COMPONENTS } from "../mdx-conponents";
-import CraneOperatorPost from "./blogs/simplifiying-kubernetes.md";
+//import CraneOperatorPost from "./blogs/simplifiying-kubernetes.md";
 import CraneOperatorSpecPost from "./blogs/crane-operator-spec.md";
 import JavaScriptProxies from "./blogs/javascript-proxies-a-beginners-guide.md";
 //import OrbitonJSBlog from "./blogs/3-minutes-to-orbiton-js-the-ultimate-javascript-ui-library.md";
@@ -8,7 +8,7 @@ import ReactJSMedia from "./blogs/how-to-create-a-responsive-custom-video-player
 import URLShortner from "./blogs/url-shortner.md";
 
 export const posts = [
-  {
+  /* {
     title:
       "Deploy Kubernetes Applications Effortlessly: One YAML file to Rule Them All",
     description:
@@ -19,13 +19,13 @@ export const posts = [
       "https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     cartegory: "CLOUD NATIVE",
     content: <CraneOperatorPost components={COMPONENTS} />,
-  },
+  }, */
   {
-    title: "Crane-Operator: Simplified Kubernetes Application Deployment",
+    title: "Building a Kubernetes Operator. A Beginner's Guide",
     description:
-      "The Crane-Operator Specification: This article talks about the Crane-Operator Specification and guide to building a Kubernetes Operator for deploying applications on Kubernetes.",
+      "In this article. We shall go through a guide to get started building your own Custom kubernetes Operator. We shall cover different topics like Custom Resource Definitions, Controllers and look at the Kubernetes Controller Runtime.",
     date: "2024-10-01",
-    slug: "crane-operator-specification",
+    slug: "building-a-kubernetes-operator-a-beginners-guide",
     image:
       "https://www.epsglobal.com/Media-Library/EPSGlobal/Blog/kubernets2.jpg",
     cartegory: "CLOUD NATIVE",
