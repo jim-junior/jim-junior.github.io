@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/joy";
 import { typographyClasses } from "@mui/joy/Typography";
-import photo from "../../assets/passport_photo.jpg";
+//import photo from "../../assets/passport_photo.jpg";
 
 const Header = () => {
   return (
@@ -57,13 +57,14 @@ const Header = () => {
           advancing humanity.
         </Typography>
       </Box>
+      {/* 
       <Box sx={{ width: 400, height: 400, borderRadius: 10, ml: "auto" }}>
         <img
           src={photo}
           alt="Beingana Jim Junior Profile photo"
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
-      </Box>
+      </Box> */}
     </Box>
   );
 };
