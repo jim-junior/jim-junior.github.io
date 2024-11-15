@@ -44,17 +44,11 @@ const Header = () => {
         })}
       >
         <Typography level="h1">Hello, I'm Beingana Jim Junior</Typography>
-        <Typography level="h3">
-          I'm a Software Engineering student and a tech enthusiast.
-        </Typography>
+        <Typography level="h3">I'm a Software Engineering student.</Typography>
         <Typography level="body-lg">
           I build open source software to implement various standards and
           technologies in the fields of Cloud Computing, DevOps, and Web
-          Development and Distributed Systems in order to solve fundamental
-          problems in the tech industry. I also write about my experiences and
-          share my knowledge with the community. I am passonate obout the future
-          of computing and the role of technology in solving global problems and
-          advancing humanity.
+          Development and Distributed Systems.
         </Typography>
       </Box>
       {/* 
