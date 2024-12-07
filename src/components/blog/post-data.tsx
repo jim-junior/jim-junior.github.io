@@ -1,4 +1,5 @@
 import { COMPONENTS } from "../mdx-conponents";
+import BuildingKubernetesOperator from "./blogs/building-a-kubernetes-operator.md";
 //import CraneOperatorPost from "./blogs/simplifiying-kubernetes.md";
 //import CraneOperatorSpecPost from "./blogs/crane-operator-spec.md";
 import JavaScriptProxies from "./blogs/javascript-proxies-a-beginners-guide.md";
@@ -19,18 +20,18 @@ export const posts = [
       "https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     cartegory: "CLOUD NATIVE",
     content: <CraneOperatorPost components={COMPONENTS} />,
-  },
+  }, */
   {
     title: "Building a Kubernetes Operator. A Beginner's Guide",
     description:
       "In this article. We shall go through a guide to get started building your own Custom kubernetes Operator. We shall cover different topics like Custom Resource Definitions, Controllers and look at the Kubernetes Controller Runtime.",
-    date: "2024-10-01",
+    date: "2024-12-07",
     slug: "building-a-kubernetes-operator-a-beginners-guide",
     image:
       "https://www.epsglobal.com/Media-Library/EPSGlobal/Blog/kubernets2.jpg",
     cartegory: "CLOUD NATIVE",
-    content: <CraneOperatorSpecPost components={COMPONENTS} />,
-  }, */
+    content: <BuildingKubernetesOperator components={COMPONENTS} />,
+  },
   {
     title: "How to create a responsive custom video player in React",
     description:

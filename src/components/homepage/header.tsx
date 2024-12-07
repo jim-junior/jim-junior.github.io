@@ -1,5 +1,6 @@
-import { Box, Typography } from "@mui/joy";
+import { Box, IconButton, Link, Typography } from "@mui/joy";
 import { typographyClasses } from "@mui/joy/Typography";
+import { FaDev, FaGithub, FaMedium, FaTwitter } from "react-icons/fa";
 //import photo from "../../assets/passport_photo.jpg";
 
 const Header = () => {
@@ -48,10 +49,54 @@ const Header = () => {
           I'm a Software Engineering student at Makerere University
         </Typography>
         <Typography level="body-lg">
-          I build open source software to implement various standards and
+          I am a Web Programmer
+          {/* I build open source software to implement various standards and
           technologies in the fields of Cloud Computing, DevOps, and Web
-          Development and Distributed Systems.
+          Development and Distributed Systems. */}
         </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <Link component={"a"} href="https://github.com/jim-junior">
+            <IconButton
+              sx={{
+                fontSize: "2rem",
+              }}
+            >
+              <FaGithub />
+            </IconButton>
+          </Link>
+          <Link component={"a"} href="https://dev.to/jimjunior">
+            <IconButton
+              sx={{
+                fontSize: "2rem",
+              }}
+            >
+              <FaDev />
+            </IconButton>
+          </Link>
+          <Link component={"a"} href="https://jimjunior.medium.com/">
+            <IconButton
+              sx={{
+                fontSize: "2rem",
+              }}
+            >
+              <FaMedium />
+            </IconButton>
+          </Link>
+          <Link component={"a"} href="https://x.com/jimjuniorb">
+            <IconButton
+              sx={{
+                fontSize: "2rem",
+              }}
+            >
+              <FaTwitter />
+            </IconButton>
+          </Link>
+        </Box>
       </Box>
       {/* 
       <Box sx={{ width: 400, height: 400, borderRadius: 10, ml: "auto" }}>
