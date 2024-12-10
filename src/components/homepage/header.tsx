@@ -46,7 +46,7 @@ const Header = () => {
       >
         <Typography level="h1">Hello, I'm Beingana Jim Junior</Typography>
         <Typography level="h3">
-          I'm a Software Engineering student at Makerere University
+          A Software Engineering student at Makerere University
         </Typography>
         <Typography level="body-lg">
           I am a Web Programmer

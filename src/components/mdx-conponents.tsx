@@ -90,6 +90,7 @@ export const COMPONENTS = {
   ),
   pre: (props: any) => (
     <Box
+      component={"pre"}
       sx={{
         my: 2,
         p: 2,
@@ -108,6 +109,16 @@ export const COMPONENTS = {
         display: "block",
         margin: "auto",
         borderRadius: 5,
+      }}
+      {...props}
+    />
+  ),
+  code: (props: any) => (
+    <Typography
+      component={"code"}
+      sx={{
+        fontFamily: "monospace",
+        color: "green",
       }}
       {...props}
     />

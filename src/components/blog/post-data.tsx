@@ -22,11 +22,11 @@ export const posts = [
     content: <CraneOperatorPost components={COMPONENTS} />,
   }, */
   {
-    title: "Building a Kubernetes Operator. A Beginner's Guide",
+    title: "Building a Kubernetes Operator. A Practical Guide",
     description:
       "In this article. We shall go through a guide to get started building your own Custom kubernetes Operator. We shall cover different topics like Custom Resource Definitions, Controllers and look at the Kubernetes Controller Runtime.",
     date: "2024-12-07",
-    slug: "building-a-kubernetes-operator-a-beginners-guide",
+    slug: "building-a-kubernetes-operator-a-practical-guide",
     image:
       "https://www.epsglobal.com/Media-Library/EPSGlobal/Blog/kubernets2.jpg",
     cartegory: "CLOUD NATIVE",
