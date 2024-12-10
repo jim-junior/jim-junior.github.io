@@ -39,6 +39,7 @@ export const COMPONENTS = {
       level="h4"
       sx={{
         my: 1,
+        fontSize: "1.5rem",
       }}
       component="h4"
       {...props}

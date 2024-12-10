@@ -48,7 +48,7 @@ To understand CRDs you need to first know what a resource is. Pods, Deployments,
 
 Resources are in built within the Kubernetes API. But in our case, we said one of the main resons we build operators is to handle custom problems that Kubernetes does not solve out of the box. In some cases we might need to define our own resource objects. Forexample. Imagine we are building an operator that manages postgreSql databases, we would like to provide an API to define configurations of each database we initiate, we can do this by defining a Custom resource definition `PGDatabase` as an Object that stores the configuration of the database.
 
-__Example of a Custom Resource Definition__
+__Example of a Custom Resource Definition for demostration__
 
 ```yml
 apiVersion: example.com/v1 # Every resource must have an API Version 
@@ -67,13 +67,18 @@ spec:
   envFrom: wordpress-secrets
 ```
 
-Therefore, A custom resource is an extension of the Kubernetes API that is not necessarily available in a default Kubernetes installation. It represents a customization of a particular Kubernetes installation. However, many core Kubernetes functions are now built using custom resources, making Kubernetes more modular.
+Note: CRDs are just definitions of the actually objects or they just represent an actual object in the kubernetes cluster but are not the actual object. For example when you write a yaml file defining how a pod should be scheduled, that yaml just defines but its not the actual pod.
+
+Therefore we can define a CRD as an extension of the Kubernetes API that is not necessarily available in a default Kubernetes installation. It represents a customization of a particular Kubernetes installation. Actually, many core Kubernetes functions are now built using custom resources, making Kubernetes more modular.
 
 ### Controllers
 
-A Kubernetes controller is a software component within Kubernetes that continuously monitors the state of cluster resources and takes action to reconcile the actual state of the cluster with the desired state specified in resource configurations (YAML files).
+Next Lets look at Kubernetes Controllers. As we have seen above, CRDs represent objects or state of objects in the Kubernetes Cluster, but we need something to reconcile or transform that state into actual resources on the cluster, this is where Controllers come in.
 
-A Kubernetes controller is a control loop that monitors a cluster's state and makes changes to move it closer to the desired state
+> A Kubernetes controller is a software component within Kubernetes that continuously monitors the state of cluster resources and takes action to reconcile the actual state of the cluster with the desired state specified in resource configurations (YAML files).
+
+
+![](https://iximiuz.com/writing-kubernetes-controllers-operators/kdpv.png)
 
 Controllers are responsible for managing the lifecycle of Kubernetes objects, such as Pods, Deployments, and Services. Each controller typically handles one or more resource types and performs tasks like creating, updating, or deleting resources based on a declared specification.
 Here's a breakdown of how a Kubernetes controller operates:
@@ -85,16 +90,20 @@ Here's a breakdown of how a Kubernetes controller operates:
 
 ### Controller Runtime
 
-Controller Runtime is a set of libraries and tools in the Kubernetes ecosystem, designed to simplify the process of building and managing Kubernetes controllers and operators. It’s part of the Kubernetes Operator SDK and is widely used to develop custom controllers that can manage Kubernetes resources, including custom resources (CRDs).
+Kubernetes provides a set of tools to build native Controllers and these are Known as the Controller Runtime.
+
+Lets take a deep look into the Controller runtime because its what we shall be using to build out Operators
 
 ## A Deep look into the Controller Runtime
 
 Controller Runtime is a set of libraries and tools in the Kubernetes ecosystem, designed to simplify the process of building and managing Kubernetes controllers and operators. It’s part of the Kubernetes Operator SDK and is widely used to develop custom controllers that can manage Kubernetes resources, including custom resources (CRDs).
-Controller Runtime provides a structured framework for controller logic, handling many of the lower-level details of working with the Kubernetes API, so developers can focus more on defining the behavior of the controller and less on boilerplate code. It is written in Go and builds on the Kubernetes client-go libraries.
+
+Controller Runtime provides a structured framework for controller logic, handling many of the lower-level details of working with the Kubernetes API, so developers can focus more on defining the behavior of the controller and less on boilerplate code. It is written in Go and builds on the Kubernetes `client-go` libraries.
 
 ### Key Components of Controller Runtime
 
 The Controller Runtime has several key components that streamline the process of building and running Kubernetes controllers. Together, these components create a robust framework for building Kubernetes controllers.
+
 The Manager initiates and manages other components; the Controller defines reconciliation logic; the Client simplifies API interactions; the Cache optimizes resource access; Event Sources and Watches enable event-driven behavior; and the Reconcile Loop ensures continuous alignment with the desired state. These components make it easier to build controllers and operators that efficiently manage Kubernetes resources, allowing for custom automation and orchestration at scale.
 
 #### Manager
@@ -105,19 +114,17 @@ It provides shared dependencies (e.g., the Kubernetes client and cache) that can
 
 The Manager also coordinates starting and stopping all controllers it manages, ensuring that they shut down gracefully if the Manager itself is stopped.
 
-#### Controller
+#### 1. Controller
 
-The Controller is the core component that defines the reconciliation logic responsible for adjusting the state of Kubernetes resources.
+The Controller is the core component that defines the reconciliation logic responsible for adjusting the state of Kubernetes resources. It is a control loop that monitors a cluster's state and makes changes to move it closer to the desired state
 
-Each controller watches specific resources, whether built-in (e.g., Pods, Deployments) or custom resources (CRDs).
+![](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*zacjsy7nznxEgFhxJFfC0w.png)
 
-It includes a `Reconcile` function that’s triggered whenever a resource changes, allowing the controller to bring the current state in line with the desired state.
+Each controller watches specific resources, whether built-in (e.g., Pods, Deployments) or custom resources (CRDs). It includes a `Reconcile` function that’s triggered whenever a resource changes, allowing the controller to bring the current state in line with the desired state.
 
-Developers specify which resources the controller should watch, and Controller Runtime will automatically track and respond to events (like create, update, delete) for those resources.
+Developers specify which resources the controller should watch, and Controller Runtime will automatically track and respond to events (like create, update, delete) for those resources. In a controller for managing custom `Foo` resources, the `Reconcile` function might create or delete associated resources based on Foo specifications.
 
-In a controller for managing custom `Foo` resources, the `Reconcile` function might create or delete associated resources based on Foo specifications.
-
-#### Client
+#### 2. Client
 
 The Client is an abstraction that simplifies interactions with the Kubernetes API, enabling CRUD operations on resources.
 
@@ -128,7 +135,7 @@ Controller Runtime’s Client extends the basic Kubernetes `client-go` library, 
 
 Using the Client, developers can create a Pod directly from the controller logic with a single line of code, `client.Create(ctx, pod)`, without having to worry about raw API requests.
 
-#### Event Sources and Watches
+#### 3. Event Sources and Watches
 
 Event Sources and Watches determine the resources that a controller will monitor for changes, providing a way to respond to specific events in the cluster.
 
@@ -139,7 +146,7 @@ Developers can define multiple Watches for a single controller, which is useful 
 
 A controller managing a custom `App` resource might watch Pods, Services, and ConfigMaps, reacting to changes in any of these resources by adjusting the `App` accordingly.
 
-#### Reconcile Loop
+#### 4. Reconcile Loop
 
 The Reconcile loop is the heart of the controller, implementing the main logic that determines the steps to bring resources into the desired state.
 Each controller’s Reconcile function checks the actual state of a resource and then applies necessary changes to make it conform to the desired state.
@@ -156,3 +163,5 @@ Brandon Philips, (November 3, 2016). Introducing Operators: Putting Operational 
 CNCF TAG App-Delivery Operator Working Group, CNCF Operator White Paper - Final Version. Github. [https://github.com/cncf/tag-app-delivery/blob/163962c4b1cd70d085107fc579e3e04c2e14d59c/operator-wg/whitepaper/Operator-WhitePaper_v1-0.md](https://github.com/cncf/tag-app-delivery/blob/163962c4b1cd70d085107fc579e3e04c2e14d59c/operator-wg/whitepaper/Operator-WhitePaper_v1-0.md)
 
 Kubernetes Documentation, Custom Resources. [https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/)
+
+Kubernetes Documentation, Controllers. [https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/](https://kubernetes.io/docs/concepts/architecture/controller/)
