@@ -2,6 +2,8 @@
 
 ![](https://www.epsglobal.com/Media-Library/EPSGlobal/Blog/kubernets2.jpg)
 
+> IS ARTICLE STILL A WORK IN PROGRESS
+
 One of those great revolutionary technologies that have transformed how developers think of and Interact with cloud infrastructure is Kubernetes. Initially Developed at Google, Kubernetes, also known as K8s, is an open source system for automating deployment, scaling, and management of containerized applications. It is Designed on the same principles that allow Google to run billions of containers a week, Kubernetes can scale without increasing your operations team.
 
 But however Amazing and Powerful kubernetes might be, It remains just a container Orchestration technology at the core and will never solve all problems that Software engineers face in the complex world of Software development and Deployment or DevOps. To Solve this Kubernetes provides ways it can be Extended and customized to meet your team's needs. It Provides Client Libraries in many languages. But even better are Kubernetes Operators.
