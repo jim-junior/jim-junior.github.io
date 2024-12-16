@@ -1,6 +1,6 @@
 import { COMPONENTS } from "../mdx-conponents";
 import BuildingKubernetesOperator from "./blogs/building-a-kubernetes-operator.md";
-import ALetterToHer from "./blogs/a-letter-to-her.md";
+//import ALetterToHer from "./blogs/a-letter-to-her.md";
 //import CraneOperatorPost from "./blogs/simplifiying-kubernetes.md";
 //import CraneOperatorSpecPost from "./blogs/crane-operator-spec.md";
 import JavaScriptProxies from "./blogs/javascript-proxies-a-beginners-guide.md";
@@ -10,18 +10,18 @@ import ReactJSMedia from "./blogs/how-to-create-a-responsive-custom-video-player
 import URLShortner from "./blogs/url-shortner.md";
 
 export const posts = [
-  {
+  /* {
     title: "A letter to her",
     description:
       "This is a letter to the one who unknowingly shaped my world. It's a reflection on love that grew gradually, memories that transcend time, and the impact of a person who changed me forever. Though life had other plans, the feelings remain as vivid as ever. This is my way of holding on, of saying what was left unsaid. It's you. It's always been you.",
     date: "2024-12-16",
     slug: "deploy-kubernetes-applications-effortlessly",
     image:
-      "https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
     cartegory: "PERSONAL",
     content: <ALetterToHer components={COMPONENTS} />,
     centered: true,
-  },
+  }, */
   {
     title: "Building a Kubernetes Operator. A Practical Guide",
     description:
