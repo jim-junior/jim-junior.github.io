@@ -16,7 +16,7 @@ export const posts = [
     description:
       "This is a letter to the one who unknowingly shaped my world. It's a reflection on love that grew gradually, memories that transcend time, and the impact of a person who changed me forever. Though life had other plans, the feelings remain as vivid as ever. This is my way of holding on, of saying what was left unsaid. It's you. It's always been you.",
     date: "2024-12-16",
-    slug: "deploy-kubernetes-applications-effortlessly",
+    slug: "a-letter-to-her",
     image: her,
     cartegory: "PERSONAL",
     content: <ALetterToHer components={COMPONENTS} />,
