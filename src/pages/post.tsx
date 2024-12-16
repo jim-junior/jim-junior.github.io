@@ -19,6 +19,7 @@ const BlogPostPage = ({ post }: { post: Post }) => {
           boxShadow: 3,
           bgcolor: "background.paper",
           width: "100%",
+          textAlign: post.centered ? "center" : "inherit",
         }}
       >
         {post.content}

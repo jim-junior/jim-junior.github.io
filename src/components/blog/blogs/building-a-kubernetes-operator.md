@@ -28,7 +28,7 @@ To set up your environment you will first need to have Go installed. The Kuberne
 go version
 ```
 
-Next you will need to have access to a Kubernetes cluster but for development purposes I would advise you use a local cluster from tools like Minikube or Kind. You can visit their websites for the installation steps.
+Next you will need to have access to a Kubernetes cluster but for development purposes I would advise you use a local cluster from tools like [Minikube](https://minikube.sigs.k8s.io/docs/start) or [Kind](https://kind.sigs.k8s.io/). You can visit their websites for the installation steps.
 
 We shall then have to initialize our module that we will use for development. Run
 
@@ -100,6 +100,19 @@ Controller Runtime is a set of libraries and tools in the Kubernetes ecosystem, 
 
 Controller Runtime provides a structured framework for controller logic, handling many of the lower-level details of working with the Kubernetes API, so developers can focus more on defining the behavior of the controller and less on boilerplate code. It is written in Go and builds on the Kubernetes `client-go` libraries.
 
+To use it, you can add it to you golang project by importing it like this:
+
+```go
+package controller
+
+// Controller runtime packages
+import (
+	"sigs.k8s.io/controller-runtime"
+	"sigs.k8s.io/controller-runtime/pkg/client"
+)
+
+```
+
 ### Key Components of Controller Runtime
 
 The Controller Runtime has several key components that streamline the process of building and running Kubernetes controllers. Together, these components create a robust framework for building Kubernetes controllers.
@@ -126,7 +139,9 @@ Developers specify which resources the controller should watch, and Controller R
 
 #### 2. Client
 
-The Client is an abstraction that simplifies interactions with the Kubernetes API, enabling CRUD operations on resources.
+When building a Kubernetes operator, you need some interface to interact with the Kubernetes Cluster and carry out your operations. Just like `kubectl` the comand line client we use, the Controller runtime provided a client library in its SDK tools.
+
+The Client is *an abstraction that simplifies interactions with the Kubernetes API*, enabling CRUD operations on resources.
 
 This component allows for easy creation, reading, updating, and deletion of Kubernetes resources.
 The Client is integrated with the cache to provide efficient access to resources without overloading the API server.
