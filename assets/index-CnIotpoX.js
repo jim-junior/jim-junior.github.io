@@ -881,7 +881,7 @@ First create an npm account if you don't have one.`}),`
 `,r.jsxs(e.p,{children:["To setup the project, we shall need only one package. ",r.jsx(e.code,{children:"django-urlshortner"}),". So lets begin by installing the package using pip. This asumes you have already setup a django project."]}),`
 `,r.jsx(e.pre,{children:r.jsx(e.code,{children:`pip install django-urlshortner
 `})}),`
-`,r.jsxs(e.p,{children:["After you should add the urlshortner app to your ",r.jsx(e.code,{children:"INSTALLED\\_APPS"})," in settings.py"]}),`
+`,r.jsxs(e.p,{children:["After you should add the urlshortner app to your ",r.jsx(e.code,{children:"INSTALLED_APPS"})," in settings.py"]}),`
 `,r.jsx(e.h3,{children:"Configuration"}),`
 `,r.jsx(e.figure,{"data-rehype-pretty-code-figure":"",children:r.jsx(e.pre,{tabIndex:"0","data-language":"py","data-theme":"moonlight-ii",children:r.jsxs(e.code,{"data-language":"py","data-theme":"moonlight-ii",style:{display:"grid"},children:[r.jsxs(e.span,{"data-line":"",children:[r.jsx(e.span,{style:{color:"#C8D3F5"},children:"INSTALLED_APPS "}),r.jsx(e.span,{style:{color:"#86E1FC"},children:"="}),r.jsx(e.span,{style:{color:"#86E1FC"},children:" ["})]}),`
 `,r.jsx(e.span,{"data-line":"",children:r.jsx(e.span,{style:{color:"#858AA6"},children:"    # ...."})}),`
@@ -897,7 +897,7 @@ First create an npm account if you don't have one.`}),`
 `,r.jsx(e.p,{children:"Now you are good to go."}),`
 `,r.jsx(e.h3,{children:"Usage"}),`
 `,r.jsx(e.p,{children:"The library provides a list of utils to create shortened urls."}),`
-`,r.jsxs(e.p,{children:["To create a short version of a url use the ",r.jsx(e.code,{children:"shorten\\_url"})," function from ",r.jsx(e.code,{children:"urlshortner.utils"})," module"]}),`
+`,r.jsxs(e.p,{children:["To create a short version of a url use the ",r.jsx(e.code,{children:"shorten_url"})," function from ",r.jsx(e.code,{children:"urlshortner.utils"})," module"]}),`
 `,r.jsx(e.figure,{"data-rehype-pretty-code-figure":"",children:r.jsx(e.pre,{tabIndex:"0","data-language":"py","data-theme":"moonlight-ii",children:r.jsxs(e.code,{"data-language":"py","data-theme":"moonlight-ii",style:{display:"grid"},children:[r.jsx(e.span,{"data-line":"",children:r.jsx(e.span,{style:{color:"#858AA6"},children:"# python3 manage.py shell"})}),`
 `,r.jsxs(e.span,{"data-line":"",children:[r.jsx(e.span,{style:{color:"#86E1FC"},children:"from"}),r.jsx(e.span,{style:{color:"#C8D3F5"},children:" urlshortner"}),r.jsx(e.span,{style:{color:"#86E1FC"},children:"."}),r.jsx(e.span,{style:{color:"#C8D3F5"},children:"utils "}),r.jsx(e.span,{style:{color:"#86E1FC"},children:"import"}),r.jsx(e.span,{style:{color:"#C8D3F5"},children:" shorten_url"})]}),`
 `,r.jsx(e.span,{"data-line":"",children:" "}),`
@@ -909,7 +909,7 @@ First create an npm account if you don't have one.`}),`
 `,r.jsxs(e.span,{"data-line":"",children:[r.jsx(e.span,{style:{color:"#65BCFF"},children:"print"}),r.jsx(e.span,{style:{color:"#86E1FC"},children:"("}),r.jsx(e.span,{style:{color:"#C8D3F5"},children:"url_route"}),r.jsx(e.span,{style:{color:"#86E1FC"},children:")"})]}),`
 `,r.jsx(e.span,{"data-line":"",children:r.jsx(e.span,{style:{color:"#858AA6"},children:"# >>> 0ee3f0"})})]})})}),`
 `,r.jsxs(e.p,{children:["You can now navigate to you the route that you assigned to ",r.jsx(e.code,{children:"urlshortner.urls"})," in your ",r.jsx(e.code,{children:"URLConf"})," add the returned value att the end of the url. In this case it would be http://localhost:8000/r/0ee3f0/ and this would redirect you to the right URL"]}),`
-`,r.jsxs(e.p,{children:["Sometimes you want to create a custom URL. For example you want to create a short link for a blog about your new product and you want a url that is easy to remember. You can add this easily by adding the value argument to the ",r.jsx(e.code,{children:"shorten\\_url"})," function"]}),`
+`,r.jsxs(e.p,{children:["Sometimes you want to create a custom URL. For example you want to create a short link for a blog about your new product and you want a url that is easy to remember. You can add this easily by adding the value argument to the ",r.jsx(e.code,{children:"shorten_url"})," function"]}),`
 `,r.jsx(e.figure,{"data-rehype-pretty-code-figure":"",children:r.jsx(e.pre,{tabIndex:"0","data-language":"py","data-theme":"moonlight-ii",children:r.jsxs(e.code,{"data-language":"py","data-theme":"moonlight-ii",style:{display:"grid"},children:[r.jsxs(e.span,{"data-line":"",children:[r.jsx(e.span,{style:{color:"#86E1FC"},children:"from"}),r.jsx(e.span,{style:{color:"#C8D3F5"},children:" urlshortner"}),r.jsx(e.span,{style:{color:"#86E1FC"},children:"."}),r.jsx(e.span,{style:{color:"#C8D3F5"},children:"utils "}),r.jsx(e.span,{style:{color:"#86E1FC"},children:"import"}),r.jsx(e.span,{style:{color:"#C8D3F5"},children:" shorten_url"})]}),`
 `,r.jsx(e.span,{"data-line":"",children:" "}),`
 `,r.jsxs(e.span,{"data-line":"",children:[r.jsx(e.span,{style:{color:"#C8D3F5"},children:"url_route "}),r.jsx(e.span,{style:{color:"#86E1FC"},children:"="}),r.jsx(e.span,{style:{color:"#C8D3F5"},children:" shorten_url"}),r.jsx(e.span,{style:{color:"#86E1FC"},children:"("})]}),`
