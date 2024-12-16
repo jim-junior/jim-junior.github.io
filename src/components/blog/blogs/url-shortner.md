@@ -14,7 +14,7 @@ To setup the project, we shall need only one package. `django-urlshortner`. So l
 pip install django-urlshortner
 ```
 
-After you should add the urlshortner app to your `INSTALLED\_APPS` in settings.py
+After you should add the urlshortner app to your `INSTALLED_APPS` in settings.py
 
 ### Configuration
 
@@ -46,7 +46,7 @@ Now you are good to go.
 
 The library provides a list of utils to create shortened urls.
 
-To create a short version of a url use the `shorten\_url` function from `urlshortner.utils` module
+To create a short version of a url use the `shorten_url` function from `urlshortner.utils` module
 
 ```py
 # python3 manage.py shell
@@ -63,7 +63,7 @@ print(url_route)
 
 You can now navigate to you the route that you assigned to `urlshortner.urls` in your `URLConf` add the returned value att the end of the url. In this case it would be http://localhost:8000/r/0ee3f0/ and this would redirect you to the right URL
 
-Sometimes you want to create a custom URL. For example you want to create a short link for a blog about your new product and you want a url that is easy to remember. You can add this easily by adding the value argument to the `shorten\_url` function
+Sometimes you want to create a custom URL. For example you want to create a short link for a blog about your new product and you want a url that is easy to remember. You can add this easily by adding the value argument to the `shorten_url` function
 
 ```py
 from urlshortner.utils import shorten_url
