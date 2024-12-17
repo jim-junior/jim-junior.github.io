@@ -32,6 +32,7 @@ export const posts = [
       "https://www.epsglobal.com/Media-Library/EPSGlobal/Blog/kubernets2.jpg",
     cartegory: "CLOUD NATIVE",
     content: <BuildingKubernetesOperator components={COMPONENTS} />,
+    centered: false,
   },
   {
     title: "How to create a responsive custom video player in React",
