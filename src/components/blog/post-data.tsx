@@ -1,6 +1,6 @@
 import { COMPONENTS } from "../mdx-conponents";
 import BuildingKubernetesOperator from "./blogs/building-a-kubernetes-operator.md";
-//import ALetterToHer from "./blogs/a-letter-to-her.md";
+import ALetterToHer from "./blogs/a-letter-to-her.md";
 //import CraneOperatorPost from "./blogs/simplifiying-kubernetes.md";
 //import CraneOperatorSpecPost from "./blogs/crane-operator-spec.md";
 import JavaScriptProxies from "./blogs/javascript-proxies-a-beginners-guide.md";
@@ -8,20 +8,9 @@ import JavaScriptProxies from "./blogs/javascript-proxies-a-beginners-guide.md";
 import ReactLibrary from "./blogs/how-to-create-an-npm-library-from-react-components.md";
 import ReactJSMedia from "./blogs/how-to-create-a-responsive-custom-video-player-in-react.md";
 import URLShortner from "./blogs/url-shortner.md";
-//import her from "../../assets/her.jpg";
+import her from "../../assets/her.jpg";
 
 export const posts = [
-  /* {
-    title: "A letter to her",
-    description:
-      "This is a letter to the one who unknowingly shaped my world. It's a reflection on love that grew gradually, memories that transcend time, and the impact of a person who changed me forever. Though life had other plans, the feelings remain as vivid as ever. This is my way of holding on, of saying what was left unsaid. It's you. It's always been you.",
-    date: "2024-12-16",
-    slug: "a-letter-to-her",
-    image: her,
-    cartegory: "PERSONAL",
-    content: <ALetterToHer components={COMPONENTS} />,
-    centered: true,
-  }, */
   {
     title: "Building a Kubernetes Operator. A Practical Guide",
     description:
@@ -88,6 +77,17 @@ export const posts = [
       "https://cdn-images-1.medium.com/max/1024/1*xSLFY9zJvUIZLMgeZL8vng.png",
     cartegory: "PYTHON DJANGO",
     content: <URLShortner components={COMPONENTS} />,
+  },
+  {
+    title: "A letter to her",
+    description:
+      "This is a letter to the one who unknowingly shaped my world. It's a reflection on love that grew gradually, memories that transcend time, and the impact of a person who changed me forever. Though life had other plans, the feelings remain as vivid as ever. This is my way of holding on, of saying what was left unsaid. It's you. It's always been you.",
+    date: "2024-12-16",
+    slug: "a-letter-to-her",
+    image: her,
+    cartegory: "PERSONAL",
+    content: <ALetterToHer components={COMPONENTS} />,
+    centered: true,
   },
 ];
 
