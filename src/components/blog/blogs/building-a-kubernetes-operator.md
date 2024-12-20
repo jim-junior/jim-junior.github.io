@@ -788,7 +788,7 @@ func (r *Reconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Resu
 }
 ```
 
-> __Note__: I will not include utility functions imported as `craneKubeUtils` because they are not really necessay for this article but the are basically functions that create Deployements and Services from the CRD Spec. However, in the code hosted on the GitHub repository, you can find them in this file. [https://github.com/jim-junior/crane-operator/blob/main/kube/application.go](https://github.com/jim-junior/crane-operator/blob/main/kube/application.go)
+> __Note__: I will not include utility functions imported as `craneKubeUtils` because they are not really necessary for this article but they are basically functions that create *Deployements* and *Services* from the CRD Spec. However, in the code hosted on the GitHub repository, you can find them in this file. [https://github.com/jim-junior/crane-operator/blob/main/kube/application.go](https://github.com/jim-junior/crane-operator/blob/main/kube/application.go)
 
 
 ## References
@@ -800,3 +800,5 @@ CNCF TAG App-Delivery Operator Working Group, CNCF Operator White Paper - Final 
 Kubernetes Documentation, Custom Resources. [https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/)
 
 Kubernetes Documentation, Controllers. [https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/](https://kubernetes.io/docs/concepts/architecture/controller/)
+
+Youtube, Kubernetes API Versioning: A Deep dive. [https://www.youtube.com/live/-jtGM6WnF1Q?si=-6tfrlwyTf-NSizL](https://www.youtube.com/live/-jtGM6WnF1Q?si=-6tfrlwyTf-NSizL)

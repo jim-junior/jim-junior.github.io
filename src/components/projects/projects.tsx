@@ -138,12 +138,8 @@ export default function Projects() {
           documentation="https://orbiton.js.org/"
         /> */}
         <ProjectCard
-          repo="open-ug/gopq-crypto"
-          documentation="https://open.cranom.tech/crane-operator/intro"
-        />
-        <ProjectCard
-          repo="jim-junior/crane-operator"
-          documentation="https://open.cranom.tech/crane-operator/intro"
+          repo="Orbitonjs/orbiton"
+          documentation="https://orbiton.js.org/"
         />
         <ProjectCard
           repo="jim-junior/reactjs-media"
@@ -155,11 +151,15 @@ export default function Projects() {
         />
         <ProjectCard
           repo="open-ug/ugmobilemoney"
-          documentation="/ugmobilemoney/intro"
+          documentation="https://open.cranom.tech/ugmobilemoney/intro"
         />
         <ProjectCard
-          repo="Orbitonjs/orbiton"
-          documentation="https://orbiton.js.org/"
+          repo="jim-junior/crane-operator"
+          documentation="https://github.com/jim-junior/crane-operator"
+        />
+        <ProjectCard
+          repo="open-ug/gopq-crypto"
+          documentation="https://open.cranom.tech/crane-operator/intro"
         />
       </LayoutGridAutofill>
     </Box>
