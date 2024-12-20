@@ -117,7 +117,7 @@ The Controller Runtime has several key components that streamline the process of
 
 The Manager initiates and manages other components; the Controller defines reconciliation logic; the Client simplifies API interactions; the Cache optimizes resource access; Event Sources and Watches enable event-driven behavior; and the Reconcile Loop ensures continuous alignment with the desired state. These components make it easier to build controllers and operators that efficiently manage Kubernetes resources, allowing for custom automation and orchestration at scale.
 
-#### Manager
+#### 1.  Manager
 
 The Manager is the main entry point of a controller or operator, responsible for initializing and managing the lifecycle of other components, such as controllers, caches, and clients. Developers usually start by creating a Manager in the main function, which acts as the foundational setup for the entire operator or controller.
 
@@ -125,7 +125,7 @@ It provides shared dependencies (e.g., the Kubernetes client and cache) that can
 
 The Manager also coordinates starting and stopping all controllers it manages, ensuring that they shut down gracefully if the Manager itself is stopped.
 
-#### 1. Controller
+#### 2. Controller
 
 The Controller is the core component that defines the reconciliation logic responsible for adjusting the state of Kubernetes resources. It is a control loop that monitors a cluster's state and makes changes to move it closer to the desired state
 
@@ -295,7 +295,7 @@ This is where you define the properties of your CRD.
 
 #### Open API Specification
 
-We can now define the Open API Specification for the CRD. You basically have to transform the above `yaml` into an Open API Specification. You can learn more about Open API Specification on its Documentation. But its pretty straight forward. For the above CRD this is what it would look like.
+We can now define the Open API Specification for the CRD. You basically have to transform the above `yaml` into an Open API Specification. You can learn more about [Open API Specification on its Documentation](https://swagger.io/specification/). But its pretty straight forward. For the above CRD this is what it would look like.
 
 ```yml
 apiVersion: apiextensions.k8s.io/v1
@@ -501,6 +501,295 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 We can now move on to the next section of Implementing the Controller that will transform our CRD state into the desired objects on the kubernetes cluster.
 
 ### Implementing the Controller
+
+Now that we have our CRD definitions implemented, lets move on to creating our controller that will watch the CRD state and transform it into desired Kubernetes onjects which will be Deployements and Services. To accomplish this we shall visits a few of the concepts we metioned earlier about the Controllers. We shall create the following:
+
+- A Manager that will be the entry point of our Controller
+- The Reconcile function that reconciles the CRD state into desired state on the Cluster
+- Utility functions that carry out the tasks our operator intends to accomplish
+
+In the `app-operator/cmd/controller/reconciler.go`, paste this code. Dont wory we shall look at each block in detail and what it accomplishes.
+
+```go
+package controller
+
+import (
+  "context"
+  "errors"
+  "fmt"
+  "os"
+  "path/filepath"
+
+  cranev1 "github.com/jim-junior/crane-operator/api/v1"
+  craneKubeUtils "github.com/jim-junior/crane-operator/kube"
+
+  k8serrors "k8s.io/apimachinery/pkg/api/errors"
+  "k8s.io/apimachinery/pkg/runtime"
+  utilruntime "k8s.io/apimachinery/pkg/util/runtime"
+  "k8s.io/client-go/kubernetes"
+  "k8s.io/client-go/rest"
+  "k8s.io/client-go/tools/clientcmd"
+  "k8s.io/client-go/util/homedir"
+  ctrl "sigs.k8s.io/controller-runtime"
+  "sigs.k8s.io/controller-runtime/pkg/client"
+  "sigs.k8s.io/controller-runtime/pkg/log"
+  "sigs.k8s.io/controller-runtime/pkg/log/zap"
+)
+
+// Global variables for the Kubernetes scheme and logger
+var (
+  scheme   = runtime.NewScheme()
+  setupLog = ctrl.Log.WithName("setup")
+)
+
+// Initialize the scheme by registering the cranev1 API group
+func init() {
+  utilruntime.Must(cranev1.AddToScheme(scheme))
+}
+
+// Reconciler structure to handle reconciliation logic
+type Reconciler struct {
+  client.Client            // Controller-runtime client
+  scheme     *runtime.Scheme // Scheme for managing API types
+  kubeClient *kubernetes.Clientset // Kubernetes clientset for direct API calls
+}
+
+// Reconcile function handles the main logic for the controller
+func (r *Reconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
+  log := log.FromContext(ctx).WithValues("application", req.NamespacedName) // Create contextual logger
+  log.Info("reconciling application")
+
+  // Fetch the Application resource by name and namespace
+  var application cranev1.Application
+  err := r.Client.Get(ctx, req.NamespacedName, &application)
+  if err != nil {
+    // If resource is not found, attempt to clean up associated resources
+    if k8serrors.IsNotFound(err) {
+      err = craneKubeUtils.DeleteApplication(ctx, req, r.kubeClient)
+      if err != nil {
+        return ctrl.Result{}, fmt.Errorf("couldn't delete resources: %s", err)
+      }
+      return ctrl.Result{}, nil
+    }
+  }
+
+  // Create or update the Kubernetes deployment for the Application resource
+  err = craneKubeUtils.ApplyApplication(ctx, req, application, r.kubeClient)
+  if err != nil {
+    return ctrl.Result{}, fmt.Errorf("couldn't create or update deployment: %s", err)
+  }
+
+  return ctrl.Result{}, nil // Reconcile completed successfully
+}
+
+// RunController initializes and starts the Kubernetes controller
+func RunController() {
+  var (
+    config *rest.Config
+    err    error
+  )
+
+  // Determine the kubeconfig file path (used for local development)
+  kubeconfigFilePath := filepath.Join(homedir.HomeDir(), ".kube", "config")
+  if _, err := os.Stat(kubeconfigFilePath); errors.Is(err, os.ErrNotExist) {
+    // If kubeconfig does not exist, try to use in-cluster configuration
+    config, err = rest.InClusterConfig()
+    if err != nil {
+      panic(err.Error()) // Exit if no valid configuration is found
+    }
+  } else {
+    // Load configuration from kubeconfig file
+    config, err = clientcmd.BuildConfigFromFlags("", kubeconfigFilePath)
+    if err != nil {
+      panic(err.Error())
+    }
+  }
+
+  // Create a Kubernetes clientset
+  clientset, err := kubernetes.NewForConfig(config)
+  if err != nil {
+    panic(err.Error())
+  }
+
+  // Set up the logger for the controller
+  ctrl.SetLogger(zap.New())
+
+  // Create a new manager for the controller
+  mgr, err := ctrl.NewManager(config, ctrl.Options{
+    Scheme: scheme,
+  })
+  if err != nil {
+    setupLog.Error(err, "unable to start manager")
+    os.Exit(1)
+  }
+
+  // Create and register the reconciler with the manager
+  err = ctrl.NewControllerManagedBy(mgr).
+    For(&cranev1.Application{}). // Specify the resource type the controller manages
+    Complete(&Reconciler{
+      Client:     mgr.GetClient(),   // Use manager's client
+      scheme:     mgr.GetScheme(),  // Use manager's scheme
+      kubeClient: clientset,        // Use clientset for direct API calls
+    })
+
+  if err != nil {
+    setupLog.Error(err, "unable to create controller")
+    os.Exit(1)
+  }
+
+  // Start the manager and handle graceful shutdown
+  setupLog.Info("starting manager")
+  if err := mgr.Start(ctrl.SetupSignalHandler()); err != nil {
+    setupLog.Error(err, "error running manager")
+    os.Exit(1)
+  }
+}
+```
+
+#### Lets explain the Controller Code
+
+Lets take a deep dive into the code above so we can have a good understanding of whats going on in that file.
+
+At the top of the file we are importing the required libraries that we shall use. Read the comments in this code snippet to understand what each import does.
+
+```go
+import (
+  "context" // Provides functionality for managing and passing context, especially useful in request-scoped operations.
+  "errors"  // Standard Go package for creating and handling errors.
+  "fmt"     // Provides formatted I/O with functions similar to C's printf and scanf.
+  "os"      // Handles OS-level functionalities such as reading environment variables and file system operations.
+  "path/filepath" // Helps in manipulating and building file paths in a cross-platform way.
+
+  cranev1 "github.com/jim-junior/crane-operator/api/v1" // Imports the custom CRD definitions (e.g., Application) for this operator.
+  craneKubeUtils "github.com/jim-junior/crane-operator/kube" // Imports helper utilities for interacting with Kubernetes resources.
+
+  k8serrors "k8s.io/apimachinery/pkg/api/errors" // Provides utilities for working with Kubernetes API errors.
+  "k8s.io/apimachinery/pkg/runtime" // Handles runtime types and schemes for Kubernetes objects.
+  utilruntime "k8s.io/apimachinery/pkg/util/runtime" // Contains utility functions for runtime error handling and recovery.
+  "k8s.io/client-go/kubernetes" // Kubernetes client-go library for interacting with the Kubernetes API server.
+  "k8s.io/client-go/rest" // Provides tools for working with REST configurations, especially for in-cluster access.
+  "k8s.io/client-go/tools/clientcmd" // Handles loading and parsing kubeconfig files for out-of-cluster Kubernetes access.
+  "k8s.io/client-go/util/homedir" // Utility package to get the user's home directory path.
+
+  ctrl "sigs.k8s.io/controller-runtime" // Main package for building controllers using the Kubernetes Controller Runtime.
+  "sigs.k8s.io/controller-runtime/pkg/client" // Provides a dynamic client for interacting with Kubernetes objects.
+  "sigs.k8s.io/controller-runtime/pkg/log" // Utilities for logging within the Controller Runtime framework.
+  "sigs.k8s.io/controller-runtime/pkg/log/zap" // Provides a Zap-based logger for the Controller Runtime.
+)
+```
+
+We have an `init` function that initialize the Kubernetes scheme by registering the API group we defined for our CRD.
+
+Next lets look ar the `RunController` function at the bottom of the file. First we need to get access to a Kuberentes client or clientset that will allow use to interact with the Kubernetes API Server when carrying out CRUD operations on our cluster. That what these first 27 lines are trying to accomplish. We shall call the `RunController` function in the `main.go` file of our program as it will be the entry point of out Kubernetes Operator
+
+```go
+kubeconfigFilePath := filepath.Join(homedir.HomeDir(), ".kube", "config")
+  if _, err := os.Stat(kubeconfigFilePath); errors.Is(err, os.ErrNotExist) {
+    // If kubeconfig does not exist, try to use in-cluster configuration
+    config, err = rest.InClusterConfig()
+    if err != nil {
+      panic(err.Error()) // Exit if no valid configuration is found
+    }
+  } else {
+    // Load configuration from kubeconfig file
+    config, err = clientcmd.BuildConfigFromFlags("", kubeconfigFilePath)
+    if err != nil {
+      panic(err.Error())
+    }
+  }
+
+  // Create a Kubernetes clientset
+  clientset, err := kubernetes.NewForConfig(config)
+  if err != nil {
+    panic(err.Error())
+  }
+```
+
+We then setup logging wth zap. This will help us in debugging
+
+```go
+ctrl.SetLogger(zap.New())
+```
+
+We then setup our Manager. 
+
+```go
+// Create a new manager for the controller
+  mgr, err := ctrl.NewManager(config, ctrl.Options{
+    Scheme: scheme,
+  })
+  if err != nil {
+    setupLog.Error(err, "unable to start manager")
+    os.Exit(1)
+  }
+
+  // Create and register the reconciler with the manager
+  err = ctrl.NewControllerManagedBy(mgr).
+    For(&cranev1.Application{}). // Specify the resource type the controller manages
+    Complete(&Reconciler{
+      Client:     mgr.GetClient(),   // Use manager's client
+      scheme:     mgr.GetScheme(),  // Use manager's scheme
+      kubeClient: clientset,        // Use clientset for direct API calls
+    })
+
+  if err != nil {
+    setupLog.Error(err, "unable to create controller")
+    os.Exit(1)
+  }
+
+  // Start the manager and handle graceful shutdown
+  setupLog.Info("starting manager")
+  if err := mgr.Start(ctrl.SetupSignalHandler()); err != nil {
+    setupLog.Error(err, "error running manager")
+    os.Exit(1)
+  }
+```
+
+This code initializes and starts the core components of the Kubernetes controller. First, a manager (`mgr`) is created using the `ctrl.NewManager` function, which serves as the runtime environment for the controller, handling shared resources, clients, and the scheme that defines the resource types the manager can work with. If the manager cannot start due to configuration issues, an error is logged, and the program exits. Next, a reconciler is created and registered with the manager. The reconciler defines the logic for ensuring the desired state of the custom resource (`Application`) matches the actual state in the cluster. This is done using `ctrl.NewControllerManagedBy`, which specifies the resource type the controller will manage and configures the reconciler with the manager's client, scheme, and a Kubernetes clientset for making direct API calls. If the controller cannot be created or registered, the program exits with an error. Finally, the manager is started using `mgr.Start`, which begins watching the specified resource and handling reconciliation requests. A signal handler is set up to ensure graceful shutdowns. If the manager fails to start, an error is logged, and the program exits. This setup combines the manager and reconciler to enable the operator to monitor and maintain the desired state of custom resources in the Kubernetes cluster.
+
+Next lets define our Reconciler and `Reconcile` function.
+
+We define the Reconciler struct. This is the struct that we used in the `ctrl.NewControllerManagedBy` when we initialized the controller. The struct should have a method called `Reconcile` that handles the main logic for the controller, i.e it reconciles the desired state into actual Kubernetes Objects.
+
+
+
+```go
+type Reconciler struct {
+	client.Client
+	scheme     *runtime.Scheme
+	kubeClient *kubernetes.Clientset
+}
+
+func (r *Reconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
+  log := log.FromContext(ctx).WithValues("application", req.NamespacedName) // Create contextual logger
+  log.Info("reconciling application")
+
+  // Fetch the Application resource by name and namespace
+  var application cranev1.Application
+  err := r.Client.Get(ctx, req.NamespacedName, &application)
+  if err != nil {
+    // If resource is not found, attempt to clean up associated resources
+    if k8serrors.IsNotFound(err) {
+      err = craneKubeUtils.DeleteApplication(ctx, req, r.kubeClient)
+      if err != nil {
+        return ctrl.Result{}, fmt.Errorf("couldn't delete resources: %s", err)
+      }
+      return ctrl.Result{}, nil
+    }
+  }
+
+  // Create or update the Kubernetes deployment for the Application resource
+  err = craneKubeUtils.ApplyApplication(ctx, req, application, r.kubeClient)
+  if err != nil {
+    return ctrl.Result{}, fmt.Errorf("couldn't create or update deployment: %s", err)
+  }
+
+  return ctrl.Result{}, nil // Reconcile completed successfully
+}
+```
+
+> __Note__: I will not include utility functions imported as `craneKubeUtils` because they are not really necessay for this article but the are basically functions that create Deployements and Services from the CRD Spec. However, in the code hosted on the GitHub repository, you can find them in this file. [https://github.com/jim-junior/crane-operator/blob/main/kube/application.go](https://github.com/jim-junior/crane-operator/blob/main/kube/application.go)
+
 
 ## References
 

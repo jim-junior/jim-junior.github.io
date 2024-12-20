@@ -89,20 +89,22 @@ export const COMPONENTS = {
       {...props}
     />
   ),
-  pre: (props: any) => (
-    <Box
-      component={"pre"}
-      sx={{
-        my: 2,
-        p: 2,
-        borderRadius: 5,
-        fontSize: "0.9rem",
-        backgroundColor: "#0d1117",
-        overflow: "auto",
-      }}
-      {...props}
-    />
-  ),
+  pre: (props: any) => {
+    return (
+      <Box
+        component={"pre"}
+        sx={{
+          my: 2,
+          p: 2,
+          borderRadius: 5,
+          fontSize: "0.9rem",
+          backgroundColor: "#0d1117",
+          overflow: "auto",
+        }}
+        {...props}
+      />
+    );
+  },
   img: (props: any) => (
     <img
       style={{
