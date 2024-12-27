@@ -45,16 +45,17 @@ const WorkExperience = () => {
           </ListItem>
           <ListItem>
             - Design and develop user-friendly and responsive frontend
-            interfaces using modern web technologies.
+            interfaces.
+          </ListItem>
+          <ListItem>
+            - Build robust and scalable backend systems and APIs to support
+            application functionality.
           </ListItem>
           <ListItem>
             - Oversee deployment processes to ensure seamless integration and
-            delivery of web solutions.
+            delivery.
           </ListItem>
-          <ListItem>
-            - Recording of financial transactions: Incomes and other
-            receivables.
-          </ListItem>
+          <ListItem>- Recording of financial transactions</ListItem>
         </List>
       </Box>
     </Box>

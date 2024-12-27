@@ -32,14 +32,6 @@ const Education = () => {
           Bachelors of Science in Software Engineering
         </Typography>
         <Typography>Makerere University, 2022 - Present</Typography>
-        <Typography
-          sx={{
-            fontWeight: "bold",
-          }}
-        >
-          Advanced Level Certificate
-        </Typography>
-        <Typography>Riviera High School, 2021</Typography>
       </Box>
     </Box>
   );

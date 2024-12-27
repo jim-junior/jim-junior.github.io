@@ -13,7 +13,7 @@ const ResumePage = () => {
   return (
     <>
       <Helmet>
-        <title>Projects</title>
+        <title>Beingana Jim Junior's CV</title>
       </Helmet>
       <Navbar />
       <Container>

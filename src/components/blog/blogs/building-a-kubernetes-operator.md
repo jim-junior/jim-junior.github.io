@@ -2,8 +2,6 @@
 
 ![](https://www.epsglobal.com/Media-Library/EPSGlobal/Blog/kubernets2.jpg)
 
-> IS ARTICLE STILL A WORK IN PROGRESS
-
 One of those great revolutionary technologies that have transformed how developers think of and Interact with cloud infrastructure is Kubernetes. Initially Developed at Google, Kubernetes, also known as K8s, is an open source system for automating deployment, scaling, and management of containerized applications. It is Designed on the same principles that allow Google to run billions of containers a week, Kubernetes can scale without increasing your operations team.
 
 Despite its remarkable capabilities, Kubernetes is fundamentally a container orchestration technology. While it greatly simplifies deployment and scaling, it doesn't address all challenges that software engineers encounter in software development and DevOps. To Solve this Kubernetes provides ways it can be Extended and customized to meet your team's needs. It Provides Client Libraries in many languages. But even better are Kubernetes Operators.
@@ -19,7 +17,7 @@ In this article. We shall go through a guide to get started building your own Cu
 There are a few thing we need to know and have before continuing with this tutorial
 
 - A good understanding of Kubernetes and how to use it.
-- Programming Knowledge in GoLang
+- Programming Knowledge in the Go Programming Language.
 - Access to a Kubernetes Cluster (You can try it locally using Minikube or Kind)
 
 To set up your environment you will first need to have Go installed. The Kubernetes Golang Client usually requires a specific Go version so depending on your time of reading this article it might have changed but for now i will use `go1.21.6`. To know what version you are using, run
@@ -805,7 +803,7 @@ func main() {
 Now that we are done writing the code for our controller, we can test it. First you will have to have you kubernetes cluster running and you config setup. Make sure the host machine that you are running it on is already connected to the kubernetes cluster. you can verify this by running any `kubectl` command such as:
 
 ```bash
-kubctl get nodes
+kubectl get nodes
 # If it setup it might return something like this
 # NAME       STATUS   ROLES           AGE    VERSION
 # minikube   Ready    control-plane   228d   v1.27.4
@@ -864,9 +862,72 @@ Since we now know the kubernetes operator works, Lets move on to deploying it. T
 - Publish it to the Docker registry
 - We can they deploy it on our cluster.
 
-#### Generate a Docker image for the operator
+We shall move on to generating a container image for the Kubernetes Operator. We shall use the [golang]() image as our base image for the container since this is a golang project. Copy this code and add it to your `DockerFile` in the root of you project.
 
-We shall move on to generating 
+```dockerfile
+# Building the binary of the App
+FROM golang:1.22.5 AS build
+
+# `boilerplate` should be replaced with your project name
+WORKDIR /go/src/boilerplate
+
+# Copy all the Code and stuff to compile everything
+COPY . .
+
+# Downloads all the dependencies in advance (could be left out, but it's more clear this way)
+RUN go mod download
+
+# Builds the application as a staticly linked one, to allow it to run on alpine
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -installsuffix cgo -o app .
+
+
+# Moving the binary to the 'final Image' to make it smaller
+FROM alpine:latest as release
+
+WORKDIR /app
+
+
+# `boilerplate` should be replaced here as well
+COPY --from=build /go/src/boilerplate/app .
+
+# Add packages
+RUN apk -U upgrade \
+  && apk add --no-cache dumb-init ca-certificates \
+  && chmod +x /app/app
+
+
+ENTRYPOINT [ "/app/app" ]
+```
+
+You can then build the container using docker and then publish it to a container registry of your choice.
+
+Then next is to deploy our cluster. We shall create a Kubernetes deployment for our Operator. Below i have a simple Kubernetes *Deployment* object for the operator.
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crane-operator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: crane-operator
+  template:
+    metadata:
+      labels:
+        app: crane-operator
+    spec:
+      containers:
+      - name: controller
+        image: jimjuniorb/crane-operator:latest
+```
+
+__Congrats!!!__ you now have a running Kubernetes operator on your cluster. You can now adjust it in what ever way you would like.
+
+I would recommend looking into frameworks like Operator SDK or Kube builder if you want to build more complex Operators. I have also included a Github Action workflow file for deploying the Operator using GitHub actions each time a new Release tag is created.
+
+Well thats it for Today. Thanks for following through till the End of this article. Below are a few references i used that you might find helpful.
 
 
 ## References
