@@ -4,6 +4,7 @@ import BlogPage from "./pages/blog";
 import { posts } from "./components/blog/post-data";
 import BlogPostPage from "./pages/post";
 import ProjectsPage from "./pages/projects";
+import ResumePage from "./pages/resume";
 
 function getBlogPostRotes() {
   const routes = posts.map((post) => {
@@ -27,6 +28,10 @@ export const router = createHashRouter([
   {
     path: "/projects",
     element: <ProjectsPage />,
+  },
+  {
+    path: "/cv",
+    element: <ResumePage />,
   },
   {
     path: "*",

@@ -45,6 +45,17 @@ const Navbar = () => {
           fontFamily: "monospace",
         }}
         component={Link}
+        to="/cv"
+        color="primary"
+        level="h4"
+      >
+        /cv
+      </Typography>
+      <Typography
+        sx={{
+          fontFamily: "monospace",
+        }}
+        component={Link}
         color="primary"
         to="/blog"
         level="h4"

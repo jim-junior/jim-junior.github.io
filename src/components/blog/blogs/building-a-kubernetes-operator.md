@@ -751,13 +751,11 @@ Next lets define our Reconciler and `Reconcile` function.
 
 We define the Reconciler struct. This is the struct that we used in the `ctrl.NewControllerManagedBy` when we initialized the controller. The struct should have a method called `Reconcile` that handles the main logic for the controller, i.e it reconciles the desired state into actual Kubernetes Objects.
 
-
-
 ```go
 type Reconciler struct {
-	client.Client
-	scheme     *runtime.Scheme
-	kubeClient *kubernetes.Clientset
+  client.Client
+  scheme     *runtime.Scheme
+  kubeClient *kubernetes.Clientset
 }
 
 func (r *Reconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
@@ -789,6 +787,86 @@ func (r *Reconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Resu
 ```
 
 > __Note__: I will not include utility functions imported as `craneKubeUtils` because they are not really necessary for this article but they are basically functions that create *Deployements* and *Services* from the CRD Spec. However, in the code hosted on the GitHub repository, you can find them in this file. [https://github.com/jim-junior/crane-operator/blob/main/kube/application.go](https://github.com/jim-junior/crane-operator/blob/main/kube/application.go)
+
+Next in your `main.go` file import the `RunController` function from the `controller` package and call it in you `main()` function.
+
+```go
+package main
+
+import "github.com/jim-junior/crane-operator/cmd/controller"
+
+func main() {
+  controller.RunController()
+}
+```
+
+### Testing the Controller
+
+Now that we are done writing the code for our controller, we can test it. First you will have to have you kubernetes cluster running and you config setup. Make sure the host machine that you are running it on is already connected to the kubernetes cluster. you can verify this by running any `kubectl` command such as:
+
+```bash
+kubctl get nodes
+# If it setup it might return something like this
+# NAME       STATUS   ROLES           AGE    VERSION
+# minikube   Ready    control-plane   228d   v1.27.4
+
+# If its not setup it might return an error like: 
+# E1222 11:35:37.597805   25720 memcache.go:265] couldn't get current server API group list: Get "http://localhost:8080/api?timeout=32s": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.
+```
+
+If all is well you can move on to test our controller by running:
+
+```bash
+go run main.go 
+```
+
+The expected log output is something like this
+
+```log
+{"level":"info","ts":"2024-12-22T11:08:23+03:00","logger":"setup","msg":"starting manager"}
+{"level":"info","ts":"2024-12-22T11:08:23+03:00","logger":"controller-runtime.metrics","msg":"Starting metrics server"}
+{"level":"info","ts":"2024-12-22T11:08:23+03:00","msg":"Starting EventSource","controller":"application","controllerGroup":"cloud.cranom.tech","controllerKind":"Application","source":"kind source: *v1.Application"}
+{"level":"info","ts":"2024-12-22T11:08:23+03:00","msg":"Starting Controller","controller":"application","controllerGroup":"cloud.cranom.tech","controllerKind":"Application"}
+{"level":"info","ts":"2024-12-22T11:08:23+03:00","logger":"controller-runtime.metrics","msg":"Serving metrics server","bindAddress":":8080","secure":false}
+{"level":"info","ts":"2024-12-22T11:08:23+03:00","msg":"Starting workers","controller":"application","controllerGroup":"cloud.cranom.tech","controllerKind":"Application","worker count":1}
+```
+
+If your getting an error or having a hard time running the controller for some reason, you can open an issue on the Github Repository where the source code is hosted or you can leave it in the comment section if your reading this article on Dev.to or Medium.
+
+If all is good. We can now try applying an example CRD and test if our operator is carrying out its expected functionality.
+
+In the `yaml/examples` directory of the github repository i have placed there a cofigurations or our custom `Application` resource. These configuration are for deploying a Wordpress instance with a Mysql database. there are three files. `mysql.yaml`, `wp-secrets.yml` and `wordpress.yml`.
+
+You can apply them by running tthe `kubectl apply` commands in this order.
+
+```bash
+# Secrets for the Environment Variables
+kubectl apply yaml/examples/wp-secrets.yml
+# Mysql instance
+kubectl apply yaml/examples/mysql.yml
+# Wordpress instance
+kubectl apply yaml/examples/wordpress.yml
+```
+
+You can also copy the code from these files on Github
+
+- [https://github.com/jim-junior/crane-operator/blob/main/yaml/examples/mysql.yaml](https://github.com/jim-junior/crane-operator/blob/main/yaml/examples/mysql.yaml)
+- [https://github.com/jim-junior/crane-operator/blob/main/yaml/examples/wordpress.yml](https://github.com/jim-junior/crane-operator/blob/main/yaml/examples/wordpress.yml)
+- [https://github.com/jim-junior/crane-operator/blob/main/yaml/examples/wp-secrets.yml](https://github.com/jim-junior/crane-operator/blob/main/yaml/examples/wp-secrets.yml)
+
+The configurations in those files are for a Wordpress application that will listen on the node port of `30080`.
+
+### Deploying the Operator
+
+Since we now know the kubernetes operator works, Lets move on to deploying it. To deploy it, we shall have to carry out the following steps.
+
+- Generate a docker image for the operator
+- Publish it to the Docker registry
+- We can they deploy it on our cluster.
+
+#### Generate a Docker image for the operator
+
+We shall move on to generating 
 
 
 ## References

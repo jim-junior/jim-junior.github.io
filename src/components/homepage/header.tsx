@@ -1,7 +1,13 @@
 import { Box, IconButton, Link, Typography } from "@mui/joy";
 import { typographyClasses } from "@mui/joy/Typography";
-import { FaDev, FaGithub, FaMedium, FaTwitter } from "react-icons/fa";
-//import photo from "../../assets/passport_photo.jpg";
+import {
+  FaDev,
+  FaGithub,
+  FaLinkedin,
+  FaMedium,
+  FaTwitter,
+} from "react-icons/fa";
+import photo from "../../assets/passport_photo.jpg";
 
 const Header = () => {
   return (
@@ -73,6 +79,18 @@ const Header = () => {
               <FaGithub />
             </IconButton>
           </Link>
+          <Link
+            component={"a"}
+            href="https://www.linkedin.com/in/jim-junior-beingana/"
+          >
+            <IconButton
+              sx={{
+                fontSize: "2rem",
+              }}
+            >
+              <FaLinkedin />
+            </IconButton>
+          </Link>
           <Link component={"a"} href="https://dev.to/jimjunior">
             <IconButton
               sx={{
@@ -102,14 +120,14 @@ const Header = () => {
           </Link>
         </Box>
       </Box>
-      {/* 
+
       <Box sx={{ width: 400, height: 400, borderRadius: 10, ml: "auto" }}>
         <img
           src={photo}
           alt="Beingana Jim Junior Profile photo"
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
-      </Box> */}
+      </Box>
     </Box>
   );
 };
