@@ -143,7 +143,7 @@ export default function Projects() {
         />
         <ProjectCard
           repo="jim-junior/reactjs-media"
-          documentation="https://open.cranom.tech/reactjs-media/intro"
+          documentation="https://orbiton.js.org/open-ug/reactjs-media/intro"
         />
         <ProjectCard
           repo="jim-junior/django-urlshortner"
@@ -151,15 +151,11 @@ export default function Projects() {
         />
         <ProjectCard
           repo="open-ug/ugmobilemoney"
-          documentation="https://open.cranom.tech/ugmobilemoney/intro"
+          documentation="https://orbiton.js.org/open-ug/ugmobilemoney/intro"
         />
         <ProjectCard
           repo="jim-junior/crane-operator"
-          documentation="https://github.com/jim-junior/crane-operator"
-        />
-        <ProjectCard
-          repo="open-ug/gopq-crypto"
-          documentation="https://open.cranom.tech/crane-operator/intro"
+          documentation="https://orbiton.js.org/open-ug/blog/building-a-kubernetes-operator"
         />
       </LayoutGridAutofill>
     </Box>
