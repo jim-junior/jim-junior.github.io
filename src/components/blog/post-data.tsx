@@ -15,7 +15,7 @@ export const posts = [
     title: "Building a Kubernetes Operator. A Practical Guide",
     description:
       "In this article. We shall go through a guide to get started building your own Custom kubernetes Operator. We shall cover different topics like Custom Resource Definitions, Controllers and look at the Kubernetes Controller Runtime.",
-    date: "2024-12-07",
+    date: "2024-12-28",
     slug: "building-a-kubernetes-operator-a-practical-guide",
     image:
       "https://www.epsglobal.com/Media-Library/EPSGlobal/Blog/kubernets2.jpg",

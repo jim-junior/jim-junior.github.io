@@ -29,6 +29,21 @@ const Skills = () => {
             fontWeight: "bold",
           }}
         >
+          S.E Skills{": "}
+          <Typography
+            sx={{
+              fontWeight: "normal",
+            }}
+          >
+            Web Development (Full stack), Mobile Development, Software
+            Deployment and Delivery (DevOps)
+          </Typography>
+        </Typography>
+        <Typography
+          sx={{
+            fontWeight: "bold",
+          }}
+        >
           Programming Languages{": "}
           <Typography
             sx={{
@@ -36,7 +51,7 @@ const Skills = () => {
             }}
           >
             JavaScript, Python, Go, Rust, C#, HTML & CSS, SQL, LaTex, Shell
-            Script
+            Script, Kotlin
           </Typography>
         </Typography>
         <Typography
@@ -51,7 +66,7 @@ const Skills = () => {
             }}
           >
             Django, Express, Go Fiber, React, Next JS, Flask, Pandas,
-            TensorFlow, Pytorch
+            TensorFlow, Pytorch, React Native, Jetpack Compose
           </Typography>
         </Typography>
         <Typography
@@ -65,7 +80,7 @@ const Skills = () => {
               fontWeight: "normal",
             }}
           >
-            Docker, Kubernetes, Git, Circle CI
+            Docker, Kubernetes, Git, Circle CI, Redis
           </Typography>
         </Typography>
         <Typography
