@@ -61,9 +61,6 @@ const Header = () => {
           technologies in the fields of Cloud Computing, DevOps, and Web
           Development and Distributed Systems. */}
         </Typography>
-        <Typography level="body-lg">
-          Currently venturing into Artificial Intelligence
-        </Typography>
         <Box
           sx={{
             display: "flex",
