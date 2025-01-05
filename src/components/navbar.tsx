@@ -40,7 +40,7 @@ const Navbar = () => {
       >
         /projects
       </Typography>
-      <Typography
+      {/* <Typography
         sx={{
           fontFamily: "monospace",
         }}
@@ -50,7 +50,7 @@ const Navbar = () => {
         level="h4"
       >
         /cv
-      </Typography>
+      </Typography> */}
       <Typography
         sx={{
           fontFamily: "monospace",
