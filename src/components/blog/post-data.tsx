@@ -8,9 +8,23 @@ import OrbitonJSBlog from "./blogs/3-minutes-to-orbiton-js-the-ultimate-javascri
 import ReactLibrary from "./blogs/how-to-create-an-npm-library-from-react-components.md";
 import ReactJSMedia from "./blogs/how-to-create-a-responsive-custom-video-player-in-react.md";
 import URLShortner from "./blogs/url-shortner.md";
+import EventDrivenArchitecture from "./blogs/event-driven-architecture.md";
 //import her from "../../assets/her.jpg";
 
 export const posts = [
+  {
+    title:
+      "A Practical Introduction to The Event Driven Architecture using Redis Pub/Sub",
+    description:
+      "In this article. We shall have an Introductory guide to the Event Driven Architecture using the Redis Pub/Sub. We shall explore different concepts with practical examples.",
+    date: "2025-01-06",
+    slug: "a-practical-guide-to-the-event-driven-architecture",
+    image:
+      "https://www.cncf.io/wp-content/uploads/2023/10/Screenshot-2023-10-27-at-16.36.16.png",
+    cartegory: "SOFTWARE ARCHITECTURE",
+    content: <EventDrivenArchitecture components={COMPONENTS} />,
+    centered: false,
+  },
   {
     title: "Building a Kubernetes Operator. A Practical Guide",
     description:
