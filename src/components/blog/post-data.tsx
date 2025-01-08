@@ -9,9 +9,21 @@ import ReactLibrary from "./blogs/how-to-create-an-npm-library-from-react-compon
 import ReactJSMedia from "./blogs/how-to-create-a-responsive-custom-video-player-in-react.md";
 import URLShortner from "./blogs/url-shortner.md";
 import EventDrivenArchitecture from "./blogs/event-driven-architecture.md";
+import React from "react";
 //import her from "../../assets/her.jpg";
 
-export const posts = [
+export type Post = {
+  title: string;
+  description: string;
+  date: string;
+  slug: string;
+  image: string;
+  content: React.ReactElement;
+  cartegory: string;
+  centered?: boolean;
+};
+
+export const posts: Array<Post> = [
   {
     title:
       "A Practical Introduction to The Event Driven Architecture using Redis Pub/Sub",
@@ -93,5 +105,3 @@ export const posts = [
     content: <ReactLibrary components={COMPONENTS} />,
   },
 ];
-
-export type Post = (typeof posts)[0];

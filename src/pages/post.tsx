@@ -3,8 +3,12 @@ import { Box, Container, IconButton, Tooltip } from "@mui/joy";
 import { Post } from "../components/blog/post-data";
 import { Helmet } from "react-helmet-async";
 import { FaDev, FaMedium, FaPrint } from "react-icons/fa";
+import { useReactToPrint } from "react-to-print";
+import { useRef } from "react";
 
 const BlogPostPage = ({ post }: { post: Post }) => {
+  const contentRef = useRef(null);
+  const reactToPrintFn = useReactToPrint({ contentRef });
   return (
     <>
       <Helmet>
@@ -22,6 +26,9 @@ const BlogPostPage = ({ post }: { post: Post }) => {
             sx={{
               mx: 1,
               fontSize: "2rem",
+            }}
+            onClick={() => {
+              reactToPrintFn();
             }}
           >
             <FaPrint />
@@ -59,6 +66,7 @@ const BlogPostPage = ({ post }: { post: Post }) => {
           width: "100%",
           textAlign: post.centered ? "center" : "inherit",
         }}
+        ref={contentRef}
       >
         {post.content}
       </Container>

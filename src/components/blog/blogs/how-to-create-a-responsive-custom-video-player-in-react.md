@@ -6,7 +6,7 @@ Video players are essential for applications that showcase video content. While 
 
 In this article, we'll guide you through creating a responsive custom video player using a library I built called `reactjs-media`. This approach lets you avoid the limitations of the default HTML5 player and the complexity of building a video player from scratch. The reactjs-media library provides more react approach to building your custom player with a wide range of features and customization options.
 
-> UPDATE: The reactjs-media documentation was shifted to open.cranom.tech
+> UPDATE: The reactjs-media documentation was shifted to [https://orbiton.js.org/open-ug/reactjs-media/intro](https://orbiton.js.org/open-ug/reactjs-media/intro)
 
 
 <!--truncate-->
