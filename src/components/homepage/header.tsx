@@ -55,8 +55,8 @@ const Header = () => {
           A Software Engineering student at Makerere University
         </Typography>
         <Typography level="body-lg">
-          I Program for the Web, Write Technical articles and build and
-          Contribute to Open Source Software.
+          I Program for the Web, a full stack dev, Write Technical articles and
+          build and Contribute to Open Source Software.
           {/* I build open source software to implement various standards and
           technologies in the fields of Cloud Computing, DevOps, and Web
           Development and Distributed Systems. */}

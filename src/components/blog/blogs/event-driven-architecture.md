@@ -22,7 +22,7 @@ In Redis Pub/Sub, we have a *Publisher* that publishes messages across different
 
 ![Image showing producer](/eda1.jpg)
 
-> Note: In this article we use Redis's Pub/Sub because of its simplicity and realatively easy learning curve but Redis Pub/Sub wont demonstrate the full functionality of an Event Driven System, however there are other more complex software systems such as RabbitMQ or Apache Kafka that provide a wide range of functionality and Protocals such as AMPQ that can be used to build more large scale systems, however these have a steep learning curve and wont be ideal for demonstration purposes in this article.
+> Note: In this article we use Redis's Pub/Sub because of its simplicity and realatively easy learning curve but Redis Pub/Sub wont demonstrate the full functionality of an Event Driven System, however there are other more complex software systems such as RabbitMQ or Apache Kafka that provide a wide range of functionality and Protocals such as AMQP and MQTT(Commonly used in IoT application) that can be used to build more large scale systems, however these have a steep learning curve and wont be ideal for demonstration purposes in this article.
 
 
 
