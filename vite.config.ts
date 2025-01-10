@@ -5,6 +5,7 @@ import rehypeMdxTitle from "rehype-mdx-title";
 import rehypePrettyCode from "rehype-pretty-code";
 import moonlightTheme from './assets/moonlight-ii.json' with { type: 'json' };
 import remarkMath from 'remark-math'
+import remarkGFM from "remark-gfm"
 import rehypeKatex from 'rehype-katex'
 
 // https://vitejs.dev/config/
@@ -14,6 +15,7 @@ export default defineConfig({
       enforce: "pre",
       ...mdx({
         remarkPlugins: [
+          remarkGFM,
           remarkMath
         ],
         rehypePlugins: [

@@ -36,7 +36,7 @@ At my lowest, you were the one I talked to.
 
 When I made my worst decision, you were the only one who warned me.
 
-My turning point—my rise from the ashes—was because of you.
+My turning point, my rise from the ashes was because of you.
 
 Oooh, I wish you could be there at my best, to see the version of me you inspired.
 
@@ -66,13 +66,13 @@ Maybe, just maybe, we would have been.
 
 \
 
-I probably will never know what your perspective of our time together was. 
+I probably will never know what your perspective of our time together was.
 
-Maybe you’ve forgotten, or maybe it was never as significant for you as it was for me. 
+Maybe you’ve forgotten, or maybe it was never as significant for you as it was for me.
 
-But to me, those moments were everything. 
+But to me, those moments were everything.
 
-You showed me a kind of love that didn’t demand, didn’t push, didn’t rush—but simply existed. 
+You showed me a kind of love that didn’t demand, didn’t push, didn’t rush—but simply existed.
 
 And even if our paths never cross again, you’ll always be the one I remember when the world goes quiet.
 

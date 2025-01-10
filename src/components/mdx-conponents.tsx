@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Typography, Link, Sheet, Box } from "@mui/joy";
+import { Typography, Link, Sheet, Box, Table } from "@mui/joy";
 
 export const COMPONENTS = {
   h1: (props: any) => (
@@ -122,6 +122,22 @@ export const COMPONENTS = {
       sx={{
         fontFamily: "monospace",
         color: "green",
+      }}
+      {...props}
+    />
+  ),
+  table: (props: any) => (
+    <Table
+      aria-labelledby="tableTitle"
+      stickyHeader
+      hoverRow
+      sx={{
+        "--TableCell-headBackground": "var(--joy-palette-background-level1)",
+        "--Table-headerUnderlineThickness": "1px",
+        "--TableRow-hoverBackground": "var(--joy-palette-background-level1)",
+        "--TableCell-paddingY": "4px",
+        "--TableCell-paddingX": "8px",
+        "--TableCell-footerBackground": "var(--joy-palette-background-level1)",
       }}
       {...props}
     />
