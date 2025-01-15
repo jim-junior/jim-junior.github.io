@@ -1,4 +1,4 @@
-# A Practical Introduction to the Event Driven Architecture using Redis Pub/Sub
+# A Practical Introduction to the Event Driven Architecture using Redis
 
 ![Event Driven Architecture](https://www.cncf.io/wp-content/uploads/2023/10/Screenshot-2023-10-27-at-16.36.16.png)
 
@@ -6,9 +6,16 @@
 
 After working with microservices on a variety of projects, I have developed a strong appreciation for a specific software design architecture, The Event Driven Architecture(EDA). The Event Driven Architecture is a software design pattern that allows systems to detect, process, manage, and react to real-time events as they happen. An event-driven architecture uses events to trigger and communicate between decoupled services. This ability to communicate between decoupled services is why the EDA is perfect for microservices.
 
-In this article, I will explore event-driven architecture in depth, with practical code snippets that demonstrate how to utilize Redis's Pub/Sub functionality.
+In this article, I will explore event-driven architecture in depth, explain how it works, and demonstrate how to it works using a command line tool i built that utilises Redis and its different components to demonstrate how the Event Driven Architecture works.
 
-Redis Pub/Sub (publish/subscribe) is a messaging pattern provided by Redis that facilitates communication between different components of a system. In this pattern, publishers send messages to specific channels without needing to know who receives them, while subscribers listen to these channels to receive the messages in real-time. This decoupling of publishers and subscribers makes Redis Pub/Sub a lightweight and efficient solution for building event-driven system
+That being said, to fully follow along with the Practical demonstrations in this article, you will need to download the tool from Github. I CLI tool is compiled for all platforms Windows, Linux and MacOS. You can [download the tool from the releases page of the repository](https://github.com/jim-junior/eda/releases). The tool is written in Go and uses Redis as the event broker.
+
+You will also need a Redis server running on your local machine. You can download and install Redis from the [Redis website](https://redis.io/download). Or you can use a Docker Container(Recommended) to run Redis. You can run the following command to run Redis in a Docker Container.
+
+```bash
+docker run -d -p 6379:6379 redis
+```
+
 
 ## How the Event-Driven Architecture Works
 
@@ -18,19 +25,20 @@ An event is any change in state of the system and can be anything ranging from c
 
 The event-driven architecture enables different components of a system to run independently of each other by introducing a middleman known as an **Event broker** that routes events to different intended destination components. This means that applications and devices do not need to know where they are sending information or where the information they are consuming comes from. Rather they focus on carrying out there intended functionality.
 
-In Redis Pub/Sub, we have a *Publisher* that publishes messages across different *Message Channels* and *Consumers* that can listen to different message channels for events/messages sent.
 
 ![Image showing producer](/eda1.jpg)
 
-> Note: In this article we use Redis's Pub/Sub because of its simplicity and realatively easy learning curve but Redis Pub/Sub wont demonstrate the full functionality of an Event Driven System, however there are other more complex software systems such as RabbitMQ or Apache Kafka that provide a wide range of functionality and Protocals such as AMQP and MQTT(Commonly used in IoT application) that can be used to build more large scale systems, however these have a steep learning curve and wont be ideal for demonstration purposes in this article.
+> Note: In this article we use Redis's because of its simplicity and realatively easy learning curve but Redis wont demonstrate the full functionality of an Event Driven System, however there are other more complex software systems such as RabbitMQ or Apache Kafka that provide a wide range of functionality and Protocals such as AMQP and MQTT(Commonly used in IoT application) that can be used to build more large scale systems, however these have a steep learning curve and wont be ideal for demonstration purposes in this article.
 
 ## Concepts
 
-With this high level understanding of how the Event-Driven Architecture works, lets look and some of its core concepts. These will give you a platform to weigh the strengths of this architecture to others and possibly give you a basis on deciding when to apply it in your projects.
+With this high level understanding of how the Event-Driven Architecture works, lets look and some of its core concepts. These will give you a platform to weigh the strengths of this architecture to others and possibly give you a basis on deciding when to apply it in your projects. We sha;; use the tool to demonstrate these concepts.
 
 ### The Event broker
 
 An *Event Broker* is a middleware platform that routes events from source to desired destination. This is accomplished using the publish-subscribe messaging pattern. In this pattern, independent system components connect to the event broker and exchange messages through the Event Broker.
+
+Multiple event brokers Exist, some of the most popular ones include Apache Kafka, RabbitMQ, AWS EventBridge, and Redis. In this article, we will use Redis as our event broker.
 
 ### Event Portals
 
@@ -53,17 +61,7 @@ When an event is published to the event broker, the event Broker requires some m
 
 This ensures that subscribers only recieve events that they need and also event brokers can effeciently and effectively route the events to the right intended consumers.
 
-Below is a Go example of a publisher publishing an event to a specific Topic(Note that we refer to them as Channels when using Redis terminology) in Redis Pub/Sub
 
-```go
-err := redisClient.Publish(
-  context.Background(), 
-  // The topic
-  "channel-name",
-  // The event payload
-  "Event payload",
-)
-```
 
 ### Event Mesh
 

@@ -26,9 +26,9 @@ export type Post = {
 export const posts: Array<Post> = [
   {
     title:
-      "A Practical Introduction to The Event Driven Architecture using Redis Pub/Sub",
+      "A Practical Introduction to The Event Driven Architecture using Redis",
     description:
-      "In this article. We shall have an Introductory guide to the Event Driven Architecture using the Redis Pub/Sub. We shall explore different concepts with practical examples.",
+      "In this article. We shall have an Introductory guide to the Event Driven Architecture using the Redis. We shall explore different concepts with practical examples.",
     date: "2025-01-06",
     slug: "a-practical-guide-to-the-event-driven-architecture",
     image:
@@ -104,4 +104,15 @@ export const posts: Array<Post> = [
     cartegory: "REACT JS",
     content: <ReactLibrary components={COMPONENTS} />,
   },
+  /* {
+    title: "A letter to her",
+    description:
+      "This is a letter to the one who unknowingly shaped my world. It's a reflection on love that grew gradually, memories that transcend time, and the impact of a person who changed me forever. Though life had other plans, the feelings remain as vivid as ever. This is my way of holding on, of saying what was left unsaid. It's you. It's always been you.",
+    date: "2024-12-16",
+    slug: "a-letter-to-her",
+    image: her,
+    cartegory: "PERSONAL",
+    content: <ALetterToHer components={COMPONENTS} />,
+    centered: true,
+  }, */
 ];
