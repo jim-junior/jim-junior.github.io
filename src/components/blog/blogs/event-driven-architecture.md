@@ -8,7 +8,7 @@ In this article, we’ll explore the principles of event-driven architecture, di
 
 To follow along with the demonstrations, you’ll need the following:
 
-- [Download the CLI tool from GitHub](https://github.com/jim-junior/eda/releases) (available for Windows, Linux, and macOS).
+- [Download the CLI tool from GitHub](https://github.com/jim-junior/eda/releases) (available for Windows, Linux, and macOS) Make sure to download the latest release.
 - Have a Redis server running locally. You can install Redis from the official website or use Docker for easier setup (recommended):
 
 ## How the Event-Driven Architecture Works
