@@ -1,4 +1,4 @@
-# A Practical Introduction to the Event Driven Architecture using Redis
+# A Practical Introduction to the Event Driven Architecture
 
 ![Event Driven Architecture](https://www.cncf.io/wp-content/uploads/2023/10/Screenshot-2023-10-27-at-16.36.16.png)
 
