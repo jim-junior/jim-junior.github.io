@@ -1546,7 +1546,7 @@ First create an npm account if you don't have one.`}),`
 `,t.jsx(e.p,{children:"In this article, we’ll explore the principles of event-driven architecture, discuss its core concepts, and demonstrate how it works using a custom-built command-line tool. This tool, written in Go and powered by Redis, serves as a practical example of EDA in action."}),`
 `,t.jsx(e.p,{children:"To follow along with the demonstrations, you’ll need the following:"}),`
 `,t.jsxs(e.ul,{children:[`
-`,t.jsxs(e.li,{children:[t.jsx(e.a,{href:"https://github.com/jim-junior/eda/releases",children:"Download the CLI tool from GitHub"})," (available for Windows, Linux, and macOS)."]}),`
+`,t.jsxs(e.li,{children:[t.jsx(e.a,{href:"https://github.com/jim-junior/eda/releases",children:"Download the CLI tool from GitHub"})," (available for Windows, Linux, and macOS) Make sure to download the latest release."]}),`
 `,t.jsx(e.li,{children:"Have a Redis server running locally. You can install Redis from the official website or use Docker for easier setup (recommended):"}),`
 `]}),`
 `,t.jsx(e.h2,{children:"How the Event-Driven Architecture Works"}),`
