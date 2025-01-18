@@ -25,11 +25,10 @@ export type Post = {
 
 export const posts: Array<Post> = [
   {
-    title:
-      "A Practical Introduction to The Event Driven Architecture using Redis",
+    title: "A Practical Introduction to The Event Driven Architecture",
     description:
       "In this article. We shall have an Introductory guide to the Event Driven Architecture using the Redis. We shall explore different concepts with practical examples.",
-    date: "2025-01-06",
+    date: "2025-01-18",
     slug: "a-practical-guide-to-the-event-driven-architecture",
     image:
       "https://www.cncf.io/wp-content/uploads/2023/10/Screenshot-2023-10-27-at-16.36.16.png",
