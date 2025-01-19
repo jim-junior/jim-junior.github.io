@@ -52,11 +52,14 @@ const Header = () => {
       >
         <Typography level="h1">Hello, I'm Beingana Jim Junior</Typography>
         <Typography level="h3">
-          A Software Engineering student at Makerere University
+          A passionate Software Engineering student at Makerere University
         </Typography>
         <Typography level="body-lg">
-          I Program for the Web, a full stack dev, Write Technical articles and
-          build and Contribute to Open Source Software.
+          I specialize in Web Development, DevOps, and Deep Learning, combining
+          my skills to craft innovative solutions. Beyond my studies, I’m an
+          avid technical writer, sharing insights through articles, and an
+          active contributor to the open-source community, building tools that
+          make a difference.
           {/* I build open source software to implement various standards and
           technologies in the fields of Cloud Computing, DevOps, and Web
           Development and Distributed Systems. */}

@@ -1,7 +1,7 @@
 import { COMPONENTS } from "../mdx-conponents";
 import BuildingKubernetesOperator from "./blogs/building-a-kubernetes-operator.md";
-import ALetterToHer from "./blogs/a-letter-to-her.md";
-//import CraneOperatorPost from "./blogs/simplifiying-kubernetes.md";
+//import ALetterToHer from "./blogs/a-letter-to-her.md";
+import CognitiveModeling from "./blogs/cognitive-modeling.md";
 //import CraneOperatorSpecPost from "./blogs/crane-operator-spec.md";
 import JavaScriptProxies from "./blogs/javascript-proxies-a-beginners-guide.md";
 import OrbitonJSBlog from "./blogs/3-minutes-to-orbiton-js-the-ultimate-javascript-ui-library.md";
@@ -10,7 +10,7 @@ import ReactJSMedia from "./blogs/how-to-create-a-responsive-custom-video-player
 import URLShortner from "./blogs/url-shortner.md";
 import EventDrivenArchitecture from "./blogs/event-driven-architecture.md";
 import React from "react";
-import her from "../../assets/her.jpg";
+//import her from "../../assets/her.jpg";
 
 export type Post = {
   title: string;
@@ -24,6 +24,19 @@ export type Post = {
 };
 
 export const posts: Array<Post> = [
+  {
+    title:
+      "From Frustration to Flow: How Cognitive Modeling Shapes Better Developer Tools, Libraries, and Frameworks",
+    description:
+      "In this article. We shall have explore how Cognitive Modeling can be used to shape better developer tools, libraries and frameworks. We shall look at different real world examples where it has played a key role in the success of certain tools.",
+    date: "2025-01-19",
+    slug: "cognitive-modeling-for-better-developer-tools",
+    image:
+      "https://infiniticube.com/wp-content/uploads/2024/05/20-Key-Elements-for-Real-Life-Applications-of-Cognitive-Models-2.webp",
+    cartegory: "SOFTWARE DESIGN",
+    content: <CognitiveModeling components={COMPONENTS} />,
+    centered: false,
+  },
   {
     title: "A Practical Introduction to The Event Driven Architecture",
     description:
@@ -66,7 +79,7 @@ export const posts: Array<Post> = [
     date: "2022-08-08",
     slug: "creating-a-url-shortener-service-in-python-django",
     image:
-      "https://cdn-images-1.medium.com/max/1024/1*xSLFY9zJvUIZLMgeZL8vng.png",
+      "https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fzqnl7ongem2tduxe49s7.png",
     cartegory: "PYTHON DJANGO",
     content: <URLShortner components={COMPONENTS} />,
   },
@@ -77,7 +90,7 @@ export const posts: Array<Post> = [
     date: "2022-03-12",
     slug: "javascript-proxies-a-beginners-guide",
     image:
-      "https://cdn-images-1.medium.com/max/1024/1*QPgIerxoNPJbe6A1ZE5GRQ.png",
+      "https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fj1uhtplbinmdsfaoeymn.png",
     cartegory: "JAVASCRIPT",
     content: <JavaScriptProxies components={COMPONENTS} />,
   },
@@ -103,7 +116,7 @@ export const posts: Array<Post> = [
     cartegory: "REACT JS",
     content: <ReactLibrary components={COMPONENTS} />,
   },
-  {
+  /* {
     title: "A letter to her",
     description:
       "This is a letter to the one who unknowingly shaped my world. It's a reflection on love that grew gradually, memories that transcend time, and the impact of a person who changed me forever. Though life had other plans, the feelings remain as vivid as ever. This is my way of holding on, of saying what was left unsaid. It's you. It's always been you.",
@@ -113,5 +126,5 @@ export const posts: Array<Post> = [
     cartegory: "PERSONAL",
     content: <ALetterToHer components={COMPONENTS} />,
     centered: true,
-  },
+  }, */
 ];
