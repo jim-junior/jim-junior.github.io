@@ -1,6 +1,6 @@
 import { COMPONENTS } from "../mdx-conponents";
 import BuildingKubernetesOperator from "./blogs/building-a-kubernetes-operator.md";
-//import ALetterToHer from "./blogs/a-letter-to-her.md";
+import ALetterToHer from "./blogs/a-letter-to-her.md";
 //import CraneOperatorPost from "./blogs/simplifiying-kubernetes.md";
 //import CraneOperatorSpecPost from "./blogs/crane-operator-spec.md";
 import JavaScriptProxies from "./blogs/javascript-proxies-a-beginners-guide.md";
@@ -10,7 +10,7 @@ import ReactJSMedia from "./blogs/how-to-create-a-responsive-custom-video-player
 import URLShortner from "./blogs/url-shortner.md";
 import EventDrivenArchitecture from "./blogs/event-driven-architecture.md";
 import React from "react";
-//import her from "../../assets/her.jpg";
+import her from "../../assets/her.jpg";
 
 export type Post = {
   title: string;
@@ -103,7 +103,7 @@ export const posts: Array<Post> = [
     cartegory: "REACT JS",
     content: <ReactLibrary components={COMPONENTS} />,
   },
-  /* {
+  {
     title: "A letter to her",
     description:
       "This is a letter to the one who unknowingly shaped my world. It's a reflection on love that grew gradually, memories that transcend time, and the impact of a person who changed me forever. Though life had other plans, the feelings remain as vivid as ever. This is my way of holding on, of saying what was left unsaid. It's you. It's always been you.",
@@ -113,5 +113,5 @@ export const posts: Array<Post> = [
     cartegory: "PERSONAL",
     content: <ALetterToHer components={COMPONENTS} />,
     centered: true,
-  }, */
+  },
 ];

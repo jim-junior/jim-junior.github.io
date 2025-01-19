@@ -8,6 +8,7 @@ export const COMPONENTS = {
         my: 5,
         textAlign: "center",
         fontSize: "2.5rem",
+        fontFamily: "charter, sans-serif",
       }}
       level="h1"
       component="h1"
@@ -19,6 +20,7 @@ export const COMPONENTS = {
       level="h2"
       sx={{
         my: 3,
+        fontFamily: "charter, sans-serif",
       }}
       component="h2"
       {...props}
@@ -29,6 +31,7 @@ export const COMPONENTS = {
       level="h3"
       sx={{
         my: 2,
+        fontFamily: "charter, sans-serif",
       }}
       component="h3"
       {...props}
@@ -40,6 +43,7 @@ export const COMPONENTS = {
       sx={{
         my: 1,
         fontSize: "1.5rem",
+        fontFamily: "charter, sans-serif",
       }}
       component="h4"
       {...props}
@@ -50,6 +54,7 @@ export const COMPONENTS = {
       level="h5"
       sx={{
         my: 1,
+        fontFamily: "charter, sans-serif",
       }}
       component="h5"
       {...props}
@@ -60,6 +65,7 @@ export const COMPONENTS = {
       level="h6"
       sx={{
         my: 1,
+        fontFamily: "charter, sans-serif",
       }}
       component="h6"
       {...props}
@@ -70,6 +76,7 @@ export const COMPONENTS = {
       sx={{
         my: 1,
         width: "100%",
+        fontFamily: "charter, sans-serif",
       }}
       level="body-lg"
       {...props}
