@@ -157,6 +157,10 @@ export default function Projects() {
           repo="jim-junior/crane-operator"
           documentation="https://orbiton.js.org/open-ug/blog/building-a-kubernetes-operator"
         />
+        <ProjectCard
+          repo="jim-junior/eda"
+          documentation="https://orbiton.js.org/open-ug/blog/a-practical-guide-to-the-event-driven-architecture"
+        />
       </LayoutGridAutofill>
     </Box>
   );

@@ -38,7 +38,7 @@ const Navbar = () => {
         color="primary"
         level="h4"
       >
-        /projects
+        /code
       </Typography>
       {/* <Typography
         sx={{
