@@ -82,7 +82,7 @@ export const COMPONENTS = {
       {...props}
     />
   ),
-  a: (props: any) => <Link {...props} />,
+  a: (props: any) => <Link target="_blank" {...props} />,
   blockquote: (props: any) => (
     <Sheet
       sx={{
