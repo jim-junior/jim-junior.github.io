@@ -8,6 +8,7 @@ function BlogPosts() {
     <Box sx={{ py: 4 }}>
       <LayoutGridPosts>
         {posts.map((post) => {
+          if (post.hidden) return null;
           if (post.itemType === "post") {
             return <BlogPostCard key={post.slug} post={post} />;
           } else {

@@ -14,16 +14,7 @@ import Typography from "@mui/joy/Typography";
 import Button from "@mui/joy/Button";
 import { Link as RouterLink } from "react-router-dom";
 import { FaBookmark, FaChevronRight, FaHome, FaShare } from "react-icons/fa";
-
-interface Post {
-  id: string;
-  title: string;
-  description: string;
-  image?: string;
-  date: string;
-  readTime: string;
-  category: string;
-}
+import { Post } from "../blog/post-data";
 
 interface Publication {
   id: string;
