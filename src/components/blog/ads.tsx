@@ -2,11 +2,22 @@ import { Box, Sheet, Typography } from "@mui/joy";
 import React from "react";
 import { Img } from "reactjs-media";
 
-const AdContainer = ({ imageSrc }: { imageSrc: string }) => {
+const AdContainer = ({
+  imageSrc,
+  link,
+  text,
+}: {
+  imageSrc: string;
+  link: string;
+  text?: string;
+}) => {
   return (
     <Box
+      component={"a"}
+      href={link}
       sx={{
         display: "flex",
+        flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
         my: 5,
@@ -23,17 +34,18 @@ const AdContainer = ({ imageSrc }: { imageSrc: string }) => {
           boxShadow: 1,
         }}
       >
-        <img src={imageSrc} alt="ad" />
+        <Img src={imageSrc} alt="ad" />
       </Sheet>
       <Typography
+        level="body-xs"
         sx={{
           mt: 2,
-          fontSize: "0.875rem",
-          color: "text.secondary",
+          //fontSize: "0.875rem",
+          //color: "text.secondary",
           textAlign: "center",
         }}
       >
-        Advertisement
+        Advertisement {text ? "| " + text : ""}
       </Typography>
     </Box>
   );
