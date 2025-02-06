@@ -8,7 +8,7 @@ import OrbitonJSBlog from "./blogs/3-minutes-to-orbiton-js-the-ultimate-javascri
 import ReactLibrary from "./blogs/how-to-create-an-npm-library-from-react-components.md";
 import ReactJSMedia from "./blogs/how-to-create-a-responsive-custom-video-player-in-react.md";
 import URLShortner from "./blogs/url-shortner.md";
-import EventDrivenArchitecture from "./blogs/event-driven-architecture.md";
+import EventDrivenArchitecture from "./blogs/event-driven-architecture.mdx";
 import React from "react";
 import her from "../../assets/her.jpg";
 
