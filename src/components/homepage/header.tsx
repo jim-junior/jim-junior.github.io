@@ -60,9 +60,6 @@ const Header = () => {
           my studies, I’m an avid technical writer, sharing insights through
           articles, and an active contributor to the open-source community,
           building tools that make a difference.
-          {/* I build open source software to implement various standards and
-          technologies in the fields of Cloud Computing, DevOps, and Web
-          Development and Distributed Systems. */}
         </Typography>
         <Box
           sx={{
