@@ -13,3 +13,13 @@ Developer tools, whether SDKs, CLIs, or frameworks are themselves software produ
 In this article, we’ll explore how cognitive modeling has been and can be used to design successful software platforms for technical audiences. We’ll examine real-world examples where cognitive modeling has played a key role in the success of technologies, focusing on [React](https://react.dev/) and [PyTorch](https://pytorch.org/), two tools developed at Meta (formerly Facebook). Despite competing against more powerful, established alternatives, these tools rapidly gained widespread adoption due to their intuitive design and developer-centric approach.
 
 We’ll also discuss how emerging technologies leverage cognitive modeling to challenge world-class, established tools, and how legacy platforms are adapting to remain relevant. Together, these examples will highlight the transformative power of cognitive modeling in the design and development of software tools.
+
+## What is Cognitive Modeling
+
+## Why it matters
+
+## Cognitive Modeling in Developer Tools
+
+### React Case Study
+
+### Pytorch Case Study

@@ -75,8 +75,8 @@ export const DeepLearningPublication: Publication = {
 };
 
 export const posts: Array<Post | Publication> = [
-  DeepLearningPublication,
-  /*{
+  //sDeepLearningPublication,
+  {
     title:
       "From Frustration to Flow: How Cognitive Modeling Shapes Better Developer Tools, Libraries, and Frameworks",
     description:
@@ -89,7 +89,7 @@ export const posts: Array<Post | Publication> = [
     content: <CognitiveModeling components={COMPONENTS} />,
     centered: false,
     itemType: "post",
-  }, */
+  },
   {
     title: "A Practical Introduction to The Event Driven Architecture",
     description:
