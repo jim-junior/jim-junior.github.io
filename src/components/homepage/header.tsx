@@ -50,9 +50,9 @@ const Header = () => {
           },
         })}
       >
-        <Typography level="h1">Hello, I'm Beingana Jim Junior</Typography>
+        <Typography level="h1">Beingana Jim Junior</Typography>
         <Typography level="h3">
-          A passionate Software Engineering student at Makerere University
+          A Software Engineering student at Makerere University
         </Typography>
         <Typography level="body-lg">
           I specialize in AI/Deep Learning, Web Development, DevOps and Cloud
