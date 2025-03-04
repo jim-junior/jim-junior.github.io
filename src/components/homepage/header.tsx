@@ -1,12 +1,6 @@
 import { Box, IconButton, Link, Typography } from "@mui/joy";
 import { typographyClasses } from "@mui/joy/Typography";
-import {
-  FaDev,
-  FaGithub,
-  FaLinkedin,
-  FaMedium,
-  FaTwitter,
-} from "react-icons/fa";
+import { FaDev, FaGithub, FaLinkedin, FaMedium } from "react-icons/fa";
 import photo from "../../assets/passport_photo.jpg";
 
 const Header = () => {
@@ -104,15 +98,6 @@ const Header = () => {
               }}
             >
               <FaMedium />
-            </IconButton>
-          </Link>
-          <Link component={"a"} href="https://x.com/jimjuniorb">
-            <IconButton
-              sx={{
-                fontSize: "2rem",
-              }}
-            >
-              <FaTwitter />
             </IconButton>
           </Link>
         </Box>
