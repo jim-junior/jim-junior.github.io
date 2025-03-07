@@ -116,7 +116,6 @@ export const PublicationDetailPage = ({
                   <Typography level="body-xs">
                     {new Date(post.date).toLocaleDateString()}
                   </Typography>
-                  <Typography level="body-xs">{post.readTime}</Typography>
                 </Box>
 
                 <Link
