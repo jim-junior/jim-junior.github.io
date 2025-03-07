@@ -23,3 +23,7 @@ We’ll also discuss how emerging technologies leverage cognitive modeling to ch
 ### React Case Study
 
 ### Pytorch Case Study
+
+## Conclusion
+
+## Reference

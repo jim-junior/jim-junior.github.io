@@ -2,7 +2,7 @@ import { COMPONENTS } from "../mdx-conponents";
 import BuildingKubernetesOperator from "./blogs/building-a-kubernetes-operator.md";
 import ALetterToHer from "./blogs/a-letter-to-her.md";
 import CognitiveModeling from "./blogs/cognitive-modeling.md";
-//import CraneOperatorSpecPost from "./blogs/crane-operator-spec.md";
+import SupervisedLearning from "./blogs/deep-learning/supervised-learning.md";
 import JavaScriptProxies from "./blogs/javascript-proxies-a-beginners-guide.md";
 import OrbitonJSBlog from "./blogs/3-minutes-to-orbiton-js-the-ultimate-javascript-ui-library.md";
 import ReactLibrary from "./blogs/how-to-create-an-npm-library-from-react-components.md";
@@ -43,39 +43,35 @@ export const DeepLearningPublication: Publication = {
     "A series of blog post explaining Different deep learning concepts",
   posts: [
     {
-      title:
-        "From Frustration to Flow: How Cognitive Modeling Shapes Better Developer Tools, Libraries, and Frameworks",
+      title: "An Introduction to Supervised Learning",
       description:
-        "In this article. We shall have explore how Cognitive Modeling can be used to shape better developer tools, libraries and frameworks. We shall look at different real world examples where it has played a key role in the success of certain tools.",
+        "In this article we shall take a look at Supervised Learning models, how they work and different concepts associated with it.",
       date: "2025-01-19",
-      slug: "cognitive-modeling-for-better-developer-tools",
+      slug: "an-introduction-to-supervised-learning",
       image:
         "https://infiniticube.com/wp-content/uploads/2024/05/20-Key-Elements-for-Real-Life-Applications-of-Cognitive-Models-2.webp",
-      cartegory: "SOFTWARE DESIGN",
-      content: <CognitiveModeling components={COMPONENTS} />,
+      cartegory: "DEEP LEARNING",
+      content: <SupervisedLearning components={COMPONENTS} />,
       centered: false,
       itemType: "post",
-    },
-    {
-      title: "A Practical Introduction to The Event Driven Architecture",
-      description:
-        "In this article. We shall have an Introductory guide to the Event Driven Architecture using the Redis. We shall explore different concepts with practical examples.",
-      date: "2025-01-18",
-      slug: "a-practical-guide-to-the-event-driven-architecture",
-      image:
-        "https://www.cncf.io/wp-content/uploads/2023/10/Screenshot-2023-10-27-at-16.36.16.png",
-      cartegory: "SOFTWARE ARCHITECTURE",
-      content: <EventDrivenArchitecture components={COMPONENTS} />,
-      centered: false,
-      itemType: "post",
-      audio:
-        "https://res.cloudinary.com/blurify-ml/video/upload/v1737739518/Event-Driven_Architecture__A_Practical_Introduction_mvky8r.wav",
     },
   ],
 };
 
 export const posts: Array<Post | Publication> = [
-  //sDeepLearningPublication,
+  DeepLearningPublication,
+  {
+    title: "An Introduction to Supervised Learning",
+    description:
+      "In this article we shall take a look at Supervised Learning models, how they work and different concepts associated with it.",
+    date: "2025-01-19",
+    slug: "an-introduction-to-supervised-learning",
+    image: "/sl.png",
+    cartegory: "DEEP LEARNING",
+    content: <SupervisedLearning components={COMPONENTS} />,
+    centered: false,
+    itemType: "post",
+  },
   {
     title:
       "From Frustration to Flow: How Cognitive Modeling Shapes Better Developer Tools, Libraries, and Frameworks",
