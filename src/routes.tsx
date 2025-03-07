@@ -8,6 +8,11 @@ import ResumePage from "./pages/resume";
 import PublicationPage from "./pages/publication";
 
 function getBlogPostRotes() {
+  const publicationRoutes: {
+    element: JSX.Element;
+    path: string;
+  }[] = [];
+
   const routes = posts.map((post) => {
     if (post.itemType == "post") {
       return {
@@ -15,12 +20,21 @@ function getBlogPostRotes() {
         path: `/blog/${post.slug}`,
       };
     } else {
+      const pubroutes = post.posts.map((p) => {
+        return {
+          element: <BlogPostPage post={p} key={p.slug} />,
+          path: `/blog/publication/${post.id}/${p.slug}`,
+        };
+      });
+      publicationRoutes.push(...pubroutes);
       return {
         element: <PublicationPage publication={post} key={post.id} />,
         path: `/blog/publication/${post.id}`,
       };
     }
   });
+
+  routes.push(...publicationRoutes);
   return routes;
 }
 

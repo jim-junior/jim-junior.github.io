@@ -1,10 +1,10 @@
 import Navbar from "../components/navbar";
 import { Container, Divider } from "@mui/joy";
-import BlogPosts from "../components/blog/blog-posts";
 import { Helmet } from "react-helmet-async";
 import PublicationDetailPage from "../components/publication/page";
+import { Publication } from "../components/blog/post-data";
 
-const PublicationPage = ({ publication }) => {
+const PublicationPage = ({ publication }: { publication: Publication }) => {
   return (
     <>
       <Helmet>
@@ -13,7 +13,7 @@ const PublicationPage = ({ publication }) => {
       <Navbar />
       <Container>
         <Divider />
-        <PublicationDetailPage />
+        <PublicationDetailPage publication={publication} />
       </Container>
     </>
   );

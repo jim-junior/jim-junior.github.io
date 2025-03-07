@@ -61,18 +61,6 @@ export const DeepLearningPublication: Publication = {
 export const posts: Array<Post | Publication> = [
   DeepLearningPublication,
   {
-    title: "An Introduction to Supervised Learning",
-    description:
-      "In this article we shall take a look at Supervised Learning models, how they work and different concepts associated with it.",
-    date: "2025-01-19",
-    slug: "an-introduction-to-supervised-learning",
-    image: "/sl.png",
-    cartegory: "DEEP LEARNING",
-    content: <SupervisedLearning components={COMPONENTS} />,
-    centered: false,
-    itemType: "post",
-  },
-  {
     title:
       "From Frustration to Flow: How Cognitive Modeling Shapes Better Developer Tools, Libraries, and Frameworks",
     description:

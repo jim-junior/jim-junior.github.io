@@ -1,6 +1,6 @@
 import { Box } from "@mui/joy";
 import LayoutGridPosts from "./grid-layout";
-import BlogPostCard from "./post-card";
+import BlogPostCard, { PublicationCard } from "./post-card";
 import { posts } from "./post-data";
 
 function BlogPosts() {
@@ -12,7 +12,7 @@ function BlogPosts() {
           if (post.itemType === "post") {
             return <BlogPostCard key={post.slug} post={post} />;
           } else {
-            return null; //<PublicationCard key={post.id} publication={post} />;
+            return <PublicationCard key={post.id} publication={post} />;
           }
         })}
       </LayoutGridPosts>

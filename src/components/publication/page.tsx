@@ -14,50 +14,14 @@ import Typography from "@mui/joy/Typography";
 import Button from "@mui/joy/Button";
 import { Link as RouterLink } from "react-router-dom";
 import { FaBookmark, FaChevronRight, FaHome, FaShare } from "react-icons/fa";
-import { Post } from "../blog/post-data";
+import { Publication } from "../blog/post-data";
 
-interface Publication {
-  id: string;
-  title: string;
-  description: string;
-  coverImage?: string;
-  author: {
-    name: string;
-    avatar: string;
-  };
-  posts: Post[];
-  tags: string[];
-  updatedAt: string;
-}
-
-export const PublicationDetailPage = () => {
+export const PublicationDetailPage = ({
+  publication,
+}: {
+  publication: Publication;
+}) => {
   // In a real app, you would fetch the publication data based on the id
-  const publication: Publication = {
-    id: "1",
-    title: "JavaScript Fundamentals",
-    description:
-      "A comprehensive guide to mastering JavaScript from basics to advanced concepts. Perfect for beginners and intermediate developers looking to strengthen their foundation.",
-    coverImage: "/images/cover.jpg",
-    author: {
-      name: "John Doe",
-      avatar: "/images/avatar.jpg",
-    },
-    posts: [
-      {
-        id: "1",
-        title: "Variables and Data Types",
-        description:
-          "Understanding JavaScript variables, data types, and their usage in modern web development.",
-        image: "/images/post1.jpg",
-        date: "2024-02-01",
-        readTime: "5 min read",
-        category: "Basics",
-      },
-      // Add more posts as needed
-    ],
-    tags: ["JavaScript", "Web Development", "Programming"],
-    updatedAt: "2024-02-01",
-  };
 
   return (
     <Box sx={{ maxWidth: "1200px", margin: "0 auto", p: 3 }}>
@@ -93,20 +57,6 @@ export const PublicationDetailPage = () => {
         }}
       >
         <CardContent sx={{ position: "relative", zIndex: 1 }}>
-          <Box sx={{ mb: 2 }}>
-            {publication.tags.map((tag) => (
-              <Chip
-                key={tag}
-                size="sm"
-                variant="soft"
-                color="primary"
-                sx={{ mr: 1 }}
-              >
-                {tag}
-              </Chip>
-            ))}
-          </Box>
-
           <Typography level="h1" sx={{ mb: 2 }}>
             {publication.title}
           </Typography>
@@ -114,45 +64,6 @@ export const PublicationDetailPage = () => {
           <Typography level="body-lg" sx={{ mb: 3 }}>
             {publication.description}
           </Typography>
-
-          <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 2 }}>
-            <Box
-              component="img"
-              src={publication.author.avatar}
-              alt={publication.author.name}
-              sx={{
-                width: 40,
-                height: 40,
-                borderRadius: "50%",
-              }}
-            />
-            <Box>
-              <Typography level="body-sm" fontWeight="lg">
-                {publication.author.name}
-              </Typography>
-              <Typography level="body-xs">
-                Last updated:{" "}
-                {new Date(publication.updatedAt).toLocaleDateString()}
-              </Typography>
-            </Box>
-          </Box>
-
-          <Box sx={{ display: "flex", gap: 1 }}>
-            <Button
-              variant="outlined"
-              color="neutral"
-              startDecorator={<FaBookmark />}
-            >
-              Save for later
-            </Button>
-            <Button
-              variant="outlined"
-              color="neutral"
-              startDecorator={<FaShare />}
-            >
-              Share
-            </Button>
-          </Box>
         </CardContent>
       </Card>
 
@@ -163,7 +74,7 @@ export const PublicationDetailPage = () => {
 
       <Grid container spacing={2}>
         {publication.posts.map((post) => (
-          <Grid key={post.id} xs={12} md={6} lg={4}>
+          <Grid key={post.slug} xs={12} md={6} lg={4}>
             <Card
               variant="outlined"
               sx={{
@@ -187,12 +98,6 @@ export const PublicationDetailPage = () => {
               )}
 
               <CardContent>
-                <Box sx={{ mb: 1 }}>
-                  <Chip size="sm" variant="soft" color="primary">
-                    {post.category}
-                  </Chip>
-                </Box>
-
                 <Typography level="title-md" sx={{ mb: 1 }}>
                   {post.title}
                 </Typography>
@@ -216,7 +121,7 @@ export const PublicationDetailPage = () => {
 
                 <Link
                   component={RouterLink}
-                  to={`/blog/${post.id}`}
+                  to={`/blog/publication/${publication.id}/${post.slug}`}
                   overlay
                   underline="none"
                   sx={{ mt: 2 }}
