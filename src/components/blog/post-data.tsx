@@ -48,8 +48,7 @@ export const DeepLearningPublication: Publication = {
         "In this article we shall take a look at Supervised Learning models, how they work and different concepts associated with it.",
       date: "2025-01-19",
       slug: "an-introduction-to-supervised-learning",
-      image:
-        "https://infiniticube.com/wp-content/uploads/2024/05/20-Key-Elements-for-Real-Life-Applications-of-Cognitive-Models-2.webp",
+      image: "/sl.png",
       cartegory: "DEEP LEARNING",
       content: <SupervisedLearning components={COMPONENTS} />,
       centered: false,
