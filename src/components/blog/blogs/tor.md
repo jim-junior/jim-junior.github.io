@@ -1,0 +1,114 @@
+# How to deploy an anonymous website on the Dark Web
+
+![](https://cdn.mos.cms.futurecdn.net/hK9M3qPnakKGmDP9cDwPTh.jpg)
+
+Have you ever wondered what the Dark Web is? How to access it? Or even better, how to deploy rour site to the dark web? Well i got you today. In this article we shall look at how you can deploy your site on the Tor network, which is a Dark web that allows clients and Servers to navigate and exist on the Internet Anonymously.
+
+The Internet is not all you see, it's divided into 2 parts, The Clearnet and The Darknet. They are differentiated by Tracebility. You see on the Clearnet, when a message is sent over the network, its easy to trace the client that sent it and the destination server that it was sent to. Thats not the case on the Darknet, on the Darknet the location/IP address of the server and the client are not tracable. The client sends a message to the server but doesnt know where its located.
+
+Take an example of [youtube.com](https://www.youtube.com), If we do an [NS Loopkup](https://www.nslookup.io/domains/youtube.com/webservers/), we can identify the IP Address, Location and ISP of the server, in this case as of now its, 142.251.12.190 with location in Singapore and Google LLS ISP.
+
+This tracebility is due to the underlying design of the TCP/IP Protocal where communication whether using TCP or UDP for communication, the IP address of the server and client traceable and known.
+
+Even in cases where we try to hide the our identity over the internet, there is still some form of tracebility. In large organisations, they usually try to make the client address private and all traffic is router through a NAT. This keeps the address of the client hidden but the IP Address of the NAT is public to the Internet. Another way we attempt to navigate the internet anonymously is using VPN Systems, these work by routing the traffic from the client through a relay system or server and then this routes the traffic to the destination server. However much the IP Address of the client does not make it to the mainstream Internet, that of the VPN System is public to the Internet. Generally, there is always some form of tracebility on the Clearnet
+
+On the Darknet this tracebility is not there, Darknets are designed with confidentiality, privacy, and freedom in mind, so maximum anonimity is ensured. Notice i just said "Darknets", this is because there are more than one form of Darknet. Actually the term "Darknet" refers to any overlay network that requires special software configurations and authorisation to access and is not indexed by search engines. Some forms of darknet technologies include I2P (Invisible Internet Project), Freenet, ZeroNet etc. But the most popular so far if Tor (The Onion Router) and its the one we shall be discussing and using in this article.
+
+## The Onion Router (Tor)
+
+[The Onion Router](https://www.torproject.org/), often known as Tor, is one of the forms of darknet technologies that is under operation and so far the most popular. It runs on a core technology known as Onion Routing that was developed in the mid 1990's by the United States Naval Research Laboratory to protect American intelligence communications online. In 2004, the Naval Research Laboratory released the code for Tor under a free license and now runs on free and open-source software and more than seven thousand volunteer-operated relays worldwide.
+
+It is built with the principles of confidentiality, privacy, and freedom in mind. It enables anonymous communication over the internet between clients and servers. To accomplish this, strong encryption algorithms/technologies like SSL/TLS and relay servers are utilised to prevent message [Man-in-the-Middle (MITM) attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) and Tracebility respectively.
+
+### How it works
+
+Lets take a look at how Onion Routing works. In Onion Routing, a message is encupsulatied with multiple layers of encryption, analogous to the layers of an onion, this message is then passed through a series of network nodes/relay servers known as "onion routers" that peel of a layer of encryption one by one at each node until the message arrives at the destination server. This mechanism provides confidentiality. THe diagram below shows how these encryption layers are peeled off at deferent nodes in the network
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Tor_Circuit_Diagram.svg/1024px-Tor_Circuit_Diagram.svg.png)
+
+When a client send a newtork request over the Tor network through the Tor Browser (The web browser used to browse the Tor Network). The browser first send the request to a gateway node known as the Entry Guard. This is the Entry Point into the Tor Network, however the ENtry guard is not aware that it is the Entry point of the network and also where the message came from another relay node or from a client. The Entry guard then connects to another relay called Middle Relay which also connects to another Middle Relay. The last relay in the chain is the Exist Relay which connects to the website. Each relay knows only the previous system and the next one, but never the whole chain. In the point of view of the website, its being accessed through Tor and is aware of the address of the Exit Relay cannot know anything else beyond that. This chanining of relay servers is what enables Tor to eliminate tracebility.
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Tor_Onion_Service_Diagram.svg/1024px-Tor_Onion_Service_Diagram.svg.png)
+
+
+One last thing we need to know when accessing a hidden service is the Onion Address. Unlike normal websites which we access using their URLs, hidden services are accessed using a special type of addresses called onion addresses. Each Onion Address contains an opaque non-mnemonic string of 16 characters followed by a special TLD (top level domain) address of .onion. All .onion addresses are not part of the typical DNS on the Internet hence arent accessible over traditional internet clients. Here is an example of an Onion Address: http://zsuwmakpr3gfryt6.onion
+
+
+## Deploying on the Tor Network
+
+Now that we have a general understanding of how the Tor network works, lets move on to deploying a simple website to the Tor Network. We shall do this by following a series of steps. Before continuing ensure you have a Linux server or Virtual Machine running.
+
+### 1. Installing Tor Services
+
+To use the Tor network, you are required to have two main components, The Tor Browser and the Tor Server. The Tor browser can be installed on almost all platforms, head over to [this page to download it for your platform](https://www.torproject.org/download/). On the other hand, as far as I know The Tor server is a linux program so you are required to have a linux Instance running. If your using a debian system run the following commands to install it.
+
+```sh
+apt-get update
+apt-get install tor
+apt-get install torbrowser-launcher
+```
+
+### Setting up your Web Application/Server
+
+Depending on the tech stack of your application or website, you will be required to start your website on the local host address (127.0.0.1) listening at a specific port, for example port `3000`. Ensure that the port your listening to is not exposed outside the server as this will make you site accessible over the Clearnet hindering the anonymity we are aiming for.
+
+### Add the Website to Tor
+
+Now that we have our web server listening on localhost, we can configure our Tor program to designate this server as a Tor hidden service. We do this by editing Tor configuration file `/etc/tor/torrc` as follows:
+
+```sh
+############### This section is just for location-hidden services ###
+
+## Once you have configured a hidden service, you can look at the
+## contents of the file ".../hidden_service/hostname" for the address
+## to tell people.
+##
+## HiddenServicePort x y:z says to redirect requests on port x to the
+## address y:z.
+
+HiddenServiceDir /var/lib/tor/hidden_service/
+HiddenServicePort 80 127.0.0.1:3000
+
+```
+
+When you open the `torrc` file, you will find the lines `HiddenServiceDir` and `HiddenServicePort` commented, so you will have to uncomment them and also modify the `HiddenServicePort` to make sure that it points to the port at which you application is listening.
+
+### Running the Tor Service
+
+After setting up the required configuration, we can then run the Tor Service to perform all necessary actions and register our site to the Tor network. It will also create private and public keys for encryption and also create an onion address for your site. To run the Tor Service, simply run the command `tor`
+
+```bash
+$ tor
+
+Nov 13 17:18:09.832 [notice] Tor 0.3.4.8 (git-5da0e95e4871a0a1) running on Linux with Libevent 2.1.8-stable, OpenSSL 1.1.0h, Zlib 1.2.8, Liblzma 5.2.2, and Libzstd 1.3.5.
+Nov 13 17:18:09.851 [notice] Tor can’t help you if you use it wrong! Learn how to be safe at https://www.torproject.org/download/download#warning
+Nov 13 17:18:09.947 [notice] Read configuration file “/etc/tor/torrc”.
+…
+…
+…
+Nov 13 17:18:36.000 [notice] Bootstrapped 90%: Establishing a Tor circuit
+Nov 13 17:18:37.000 [notice] Tor has successfully opened a circuit. Looks like client functionality is working.
+Nov 13 17:18:37.000 [notice] Bootstrapped 100%: Done
+
+```
+
+You can also use a service like `nohup` inorder to run it as a backgroud process
+
+```sh
+nohup tor &
+```
+
+The Tor program will create two files under the directory `/var/lib/tor/hidden_services/` which include the Private Key and a `hostname` file containing the onion address of your site. Ensure to keep the Private Key secure and confidential.
+
+You can now get your onion address by reading the contents of the `hostname` file
+
+```sh
+cd /var/lib/tor/hidden_service/
+
+cat hostname
+
+zjsytjmah6hiyw1h.onion
+```
+
+Lastly, open the Tor Browser and head to the onion address provided and you will be able to access your anonymous site.
+

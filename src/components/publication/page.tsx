@@ -1,19 +1,14 @@
-import React from "react";
-import { useParams } from "react-router-dom";
 import Box from "@mui/joy/Box";
 import Breadcrumbs from "@mui/joy/Breadcrumbs";
 import Card from "@mui/joy/Card";
 import CardContent from "@mui/joy/CardContent";
 import CardOverflow from "@mui/joy/CardOverflow";
-import Chip from "@mui/joy/Chip";
-import Divider from "@mui/joy/Divider";
 import Grid from "@mui/joy/Grid";
 import Link from "@mui/joy/Link";
 import AspectRatio from "@mui/joy/AspectRatio";
 import Typography from "@mui/joy/Typography";
-import Button from "@mui/joy/Button";
 import { Link as RouterLink } from "react-router-dom";
-import { FaBookmark, FaChevronRight, FaHome, FaShare } from "react-icons/fa";
+import { FaChevronRight, FaHome } from "react-icons/fa";
 import { Publication } from "../blog/post-data";
 
 export const PublicationDetailPage = ({

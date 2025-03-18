@@ -1,6 +1,5 @@
 import { COMPONENTS } from "../mdx-conponents";
 import BuildingKubernetesOperator from "./blogs/building-a-kubernetes-operator.md";
-import ALetterToHer from "./blogs/a-letter-to-her.md";
 import CognitiveModeling from "./blogs/cognitive-modeling.md";
 import SupervisedLearning from "./blogs/deep-learning/supervised-learning.md";
 import JavaScriptProxies from "./blogs/javascript-proxies-a-beginners-guide.md";
@@ -8,9 +7,9 @@ import OrbitonJSBlog from "./blogs/3-minutes-to-orbiton-js-the-ultimate-javascri
 import ReactLibrary from "./blogs/how-to-create-an-npm-library-from-react-components.md";
 import ReactJSMedia from "./blogs/how-to-create-a-responsive-custom-video-player-in-react.md";
 import URLShortner from "./blogs/url-shortner.md";
+import DarkWeb from "./blogs/tor.md";
 import EventDrivenArchitecture from "./blogs/event-driven-architecture.mdx";
 import React from "react";
-import her from "../../assets/her.jpg";
 
 export type Post = {
   title: string;
@@ -46,7 +45,7 @@ export const DeepLearningPublication: Publication = {
       title: "An Introduction to Supervised Learning",
       description:
         "In this article we shall take a look at Supervised Learning models, how they work and different concepts associated with it.",
-      date: "2025-01-19",
+      date: "2025-03-08",
       slug: "an-introduction-to-supervised-learning",
       image: "/sl.png",
       cartegory: "DEEP LEARNING",
@@ -56,9 +55,22 @@ export const DeepLearningPublication: Publication = {
     },
   ],
 };
+// 0705650532
 
 export const posts: Array<Post | Publication> = [
   DeepLearningPublication,
+  {
+    title: "How to deploy a website on the Dark Web",
+    description:
+      "In this article we shall look at how you can deploy your site on the Tor network, which is a Dark web that allows clients and Servers to navigate and exist on the Internet Anonymously.",
+    date: "2025-01-19",
+    slug: "how-to-deploy-a-website-on-the-dark-web",
+    image: "https://cdn.mos.cms.futurecdn.net/hK9M3qPnakKGmDP9cDwPTh.jpg",
+    cartegory: "NETWORKING",
+    content: <DarkWeb components={COMPONENTS} />,
+    centered: false,
+    itemType: "post",
+  },
   {
     title:
       "From Frustration to Flow: How Cognitive Modeling Shapes Better Developer Tools, Libraries, and Frameworks",
@@ -160,18 +172,5 @@ export const posts: Array<Post | Publication> = [
     cartegory: "REACT JS",
     content: <ReactLibrary components={COMPONENTS} />,
     itemType: "post",
-  },
-  {
-    title: "A letter to her",
-    description:
-      "This is a letter to the one who unknowingly shaped my world. It's a reflection on love that grew gradually, memories that transcend time, and the impact of a person who changed me forever. Though life had other plans, the feelings remain as vivid as ever. This is my way of holding on, of saying what was left unsaid. It's you. It's always been you.",
-    date: "2024-12-16",
-    slug: "a-letter-to-her",
-    image: her,
-    cartegory: "PERSONAL",
-    content: <ALetterToHer components={COMPONENTS} />,
-    centered: true,
-    itemType: "post",
-    hidden: true,
   },
 ];
