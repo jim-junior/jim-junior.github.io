@@ -103,12 +103,26 @@ const Header = () => {
         </Box>
       </Box>
 
-      <Box sx={{ width: 400, height: 400, borderRadius: 10, ml: "auto" }}>
-        <img
+      <Box
+        className="imgcover"
+        sx={{ width: 400, height: 400, borderRadius: 10, ml: "auto" }}
+      >
+        {/*<img
           src={photo}
           alt="Beingana Jim Junior Profile photo"
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
-        />
+        />*/}
+        <input type="checkbox" id="invert" />
+        <label htmlFor="invert"></label>
+        <input type="checkbox" id="sepia" />
+        <label htmlFor="sepia"></label>
+        <div className="content">
+          <div className="film">
+            <div className="effect">
+              <div className="grain"></div>
+            </div>
+          </div>
+        </div>
       </Box>
     </Box>
   );
