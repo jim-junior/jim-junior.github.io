@@ -37,7 +37,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url(http://localhost:5173/photo.jpg) no-repeat center center;
+  background: url(/photo.jpg) no-repeat center center;
 
 
 

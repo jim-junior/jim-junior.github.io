@@ -1,7 +1,12 @@
 import { Box, IconButton, Link, Typography } from "@mui/joy";
 import { typographyClasses } from "@mui/joy/Typography";
-import { FaDev, FaGithub, FaLinkedin, FaMedium } from "react-icons/fa";
-import photo from "../../assets/passport_photo.jpg";
+import {
+  FaDev,
+  FaGithub,
+  FaLinkedin,
+  FaMedium,
+  FaTwitter,
+} from "react-icons/fa";
 
 const Header = () => {
   return (
@@ -46,7 +51,16 @@ const Header = () => {
       >
         <Typography level="h1">Beingana Jim Junior</Typography>
         <Typography level="h3">
-          Software Engineering student at Makerere University
+          I{" "}
+          <s
+            style={{
+              fontWeight: "normal",
+              opacity: 0.8,
+            }}
+          >
+            used to skip lectures
+          </s>{" "}
+          am doing Software Engineering at Makerere University
         </Typography>
         <Typography level="body-lg">
           I specialize in AI/Deep Learning, Web Development, DevOps and Cloud
@@ -98,6 +112,15 @@ const Header = () => {
               }}
             >
               <FaMedium />
+            </IconButton>
+          </Link>
+          <Link component={"a"} href="https://x.com/Jim_Junior_">
+            <IconButton
+              sx={{
+                fontSize: "2rem",
+              }}
+            >
+              <FaTwitter />
             </IconButton>
           </Link>
         </Box>
