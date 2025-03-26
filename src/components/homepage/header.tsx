@@ -7,8 +7,19 @@ import {
   FaMedium,
   FaTwitter,
 } from "react-icons/fa";
+import React from "react";
 
 const Header = () => {
+  const data = [
+    "am a Software Engineering Student at Makerere University",
+    "am a Web Developer",
+    "am a Deep Learning Engineer",
+    "am a Cloud Computing Specialist",
+    "am a DevOps Engineer",
+    "am a Technical Writer",
+    "am an Open Source Contributor",
+  ];
+  const [text, randomText] = useTextDecryption(data);
   return (
     <Box
       sx={[
@@ -49,20 +60,45 @@ const Header = () => {
           },
         })}
       >
-        <Typography level="h1">Beingana Jim Junior</Typography>
-        <Typography level="h3">
-          I{" "}
-          <s
-            style={{
-              fontWeight: "normal",
-              opacity: 0.8,
+        <Typography
+          sx={{
+            fontFamily: "monospace",
+          }}
+          level="h1"
+        >
+          Beingana Jim Junior
+        </Typography>
+        <Typography
+          level="h3"
+          sx={{
+            fontFamily: "monospace",
+            mb: "2rem",
+            background: "black",
+            WebkitTextFillColor: "transparent",
+            WebkitBackgroundClip: "text",
+            overflow: "hidden",
+            whiteSpace: "nowrap",
+          }}
+        >
+          I {text}
+          <Typography
+            sx={{
+              background:
+                "radial-gradient(45% 100% at 50% 50%, var(--joy-palette-text-primary) 64%, rgba(var(--joy-palette-neutral-mainChannel) / .45) 100%)",
+              WebkitTextFillColor: "transparent",
+              WebkitBackgroundClip: "text",
+              opacity: 0.25,
             }}
           >
-            used to skip lectures
-          </s>{" "}
-          am doing Software Engineering at Makerere University
+            {randomText}
+          </Typography>
         </Typography>
-        <Typography level="body-lg">
+        <Typography
+          sx={{
+            fontFamily: "monospace",
+          }}
+          level="body-lg"
+        >
           I specialize in AI/Deep Learning, Web Development, DevOps and Cloud
           Computing, combining my skills to craft innovative solutions. Beyond
           my studies, I’m an avid technical writer, sharing insights through
@@ -152,3 +188,53 @@ const Header = () => {
 };
 
 export default Header;
+
+function randomString(length: number) {
+  let result = "";
+  const characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  const charactersLength = characters.length;
+  for (let i = 0; i < length; i++)
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  return result;
+}
+
+function useCharReplace(text: string) {
+  const [index, setIndex] = React.useState(1);
+  const [randomText, setRandomText] = React.useState(
+    randomString(text.length - 1)
+  );
+  const indexRef = React.useRef(index);
+
+  React.useEffect(() => {
+    setIndex(1);
+    setRandomText(randomString(text.length - 1));
+    indexRef.current = 1;
+    const interval = window.setInterval(() => {
+      indexRef.current += 1;
+      if (indexRef.current === text.length + 1) {
+        clearInterval(interval);
+      } else {
+        setIndex(indexRef.current);
+        setRandomText(randomString(text.length - indexRef.current));
+      }
+    }, 50);
+    return () => {
+      clearInterval(interval);
+    };
+  }, [text]);
+
+  return [text.slice(0, index), randomText];
+}
+
+function useTextDecryption(texts: Array<string>, interval: number = 8000) {
+  const [dataIndex, setDataIndex] = React.useState(0);
+  const [text, randomText] = useCharReplace(texts[dataIndex]);
+  React.useEffect(() => {
+    setTimeout(() => {
+      setDataIndex((dataIndex) => (dataIndex + 1) % texts.length);
+    }, interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dataIndex, interval]);
+  return [text, randomText];
+}
