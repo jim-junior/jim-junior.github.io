@@ -39,8 +39,6 @@
   justify-content: center;
   background: url(/photo.jpg) no-repeat center center;
 
-
-
   background-size: cover;
   transition: var(--trsn);
 }
