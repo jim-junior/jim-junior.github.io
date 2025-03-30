@@ -12,10 +12,8 @@ import React from "react";
 const Header = () => {
   const data = [
     "am a Software Engineering Student at Makerere University",
+    "am an aspiring DevOps R&D Engineer",
     "am a Web Developer",
-    "am a Deep Learning Engineer",
-    "am a Cloud Computing Specialist",
-    "am a DevOps Engineer",
     "am a Technical Writer",
     "am an Open Source Contributor",
   ];
@@ -99,11 +97,11 @@ const Header = () => {
           }}
           level="body-lg"
         >
-          I specialize in AI/Deep Learning, Web Development, DevOps and Cloud
-          Computing, combining my skills to craft innovative solutions. Beyond
-          my studies, I’m an avid technical writer, sharing insights through
-          articles, and an active contributor to the open-source community,
-          building tools that make a difference.
+          I specialize in Web Development, DevOps and Cloud Computing, combining
+          my skills to craft innovative solutions. Beyond my studies, I’m an
+          avid technical writer, sharing insights through articles, and an
+          active contributor to the open-source community, building tools that
+          make a difference.
         </Typography>
         <Box
           sx={{
