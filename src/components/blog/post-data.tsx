@@ -8,6 +8,7 @@ import ReactLibrary from "./blogs/how-to-create-an-npm-library-from-react-compon
 import ReactJSMedia from "./blogs/how-to-create-a-responsive-custom-video-player-in-react.md";
 import URLShortner from "./blogs/url-shortner.md";
 import DarkWeb from "./blogs/tor.md";
+import ETCD from "./blogs/etcd.md";
 import EventDrivenArchitecture from "./blogs/event-driven-architecture.mdx";
 import React from "react";
 
@@ -23,6 +24,9 @@ export type Post = {
   audio?: string;
   itemType: "post";
   hidden?: boolean;
+  medium?: string;
+  dev?: string;
+  premium?: boolean;
 };
 
 export type Publication = {
@@ -60,6 +64,32 @@ export const DeepLearningPublication: Publication = {
 export const posts: Array<Post | Publication> = [
   DeepLearningPublication,
   {
+    title:
+      "A Deep dive into etcd: The Distributed Key-Value Store Powering Cloud Infrastructure",
+    description:
+      "In this article, we will explore etcd, a distributed key-value store that is widely used in cloud-native applications and microservices architectures. We will cover its architecture, features, and use cases, as well as provide practical examples of how to use etcd in your own projects.",
+    date: "2025-04-15",
+    slug: "introduction-to-etcd-the-distributed-key-value-store",
+    image:
+      "https://miro.medium.com/v2/resize:fit:4800/format:webp/1*adNIWr58Qp_oURAmNtqgHg.png",
+    cartegory: "CLOUD NATIVE",
+    content: <ETCD components={COMPONENTS} />,
+    centered: false,
+    itemType: "post",
+  },
+  {
+    title: "Understanding the Raft Concensus Algorithm",
+    description:
+      "In this article, we will explore the Raft consensus algorithm, a distributed consensus algorithm that is widely used in cloud-native applications and microservices architectures.",
+    date: "2025-03-30",
+    slug: "understanding-the-raft-consensus-algorithm",
+    image: "https://raft.github.io/logo/solo.svg",
+    cartegory: "CLOUD NATIVE",
+    content: <ETCD components={COMPONENTS} />,
+    centered: false,
+    itemType: "post",
+  },
+  {
     title: "How to deploy a website on the Dark Web",
     description:
       "In this article we shall look at how you can deploy your site on the Tor network, which is a Dark web that allows clients and Servers to navigate and exist on the Internet Anonymously.",
@@ -70,7 +100,11 @@ export const posts: Array<Post | Publication> = [
     content: <DarkWeb components={COMPONENTS} />,
     centered: false,
     itemType: "post",
+    medium:
+      "https://medium.com/devops-dev/how-to-deploy-an-anonymous-website-on-the-dark-web-3c357129b245",
+    premium: true,
   },
+
   {
     title:
       "From Frustration to Flow: How Cognitive Modeling Shapes Better Developer Tools, Libraries, and Frameworks",
