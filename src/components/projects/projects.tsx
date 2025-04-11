@@ -138,12 +138,24 @@ export default function Projects() {
           documentation="https://orbiton.js.org/"
         /> */}
         <ProjectCard
+          repo="open-ug/conveyor"
+          documentation="https://orbiton.js.org/open-ug/blog/building-a-kubernetes-operator"
+        />
+        <ProjectCard
+          repo="open-ug/conveyor-cli"
+          documentation="https://orbiton.js.org/open-ug/blog/building-a-kubernetes-operator"
+        />
+        <ProjectCard
           repo="Orbitonjs/orbiton"
           documentation="https://orbiton.js.org/"
         />
         <ProjectCard
           repo="jim-junior/reactjs-media"
           documentation="https://orbiton.js.org/open-ug/reactjs-media/intro"
+        />
+        <ProjectCard
+          repo="crane-cloud/mira-new"
+          documentation="https://orbiton.js.org/open-ug/blog/a-practical-guide-to-the-event-driven-architecture"
         />
         <ProjectCard
           repo="jim-junior/django-urlshortner"
