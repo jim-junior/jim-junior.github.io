@@ -1,6 +1,6 @@
 import { COMPONENTS } from "../mdx-conponents";
 import BuildingKubernetesOperator from "./blogs/building-a-kubernetes-operator.md";
-import CognitiveModeling from "./blogs/cognitive-modeling.md";
+//import CognitiveModeling from "./blogs/cognitive-modeling.md";
 import SupervisedLearning from "./blogs/deep-learning/supervised-learning.md";
 import JavaScriptProxies from "./blogs/javascript-proxies-a-beginners-guide.md";
 import OrbitonJSBlog from "./blogs/3-minutes-to-orbiton-js-the-ultimate-javascript-ui-library.md";
@@ -8,7 +8,7 @@ import ReactLibrary from "./blogs/how-to-create-an-npm-library-from-react-compon
 import ReactJSMedia from "./blogs/how-to-create-a-responsive-custom-video-player-in-react.md";
 import URLShortner from "./blogs/url-shortner.md";
 import DarkWeb from "./blogs/tor.md";
-import ETCD from "./blogs/etcd.md";
+//import ETCD from "./blogs/etcd.md";
 import EventDrivenArchitecture from "./blogs/event-driven-architecture.mdx";
 import React from "react";
 
@@ -63,7 +63,7 @@ export const DeepLearningPublication: Publication = {
 
 export const posts: Array<Post | Publication> = [
   DeepLearningPublication,
-  {
+  /*{
     title:
       "A Deep dive into etcd: The Distributed Key-Value Store Powering Cloud Infrastructure",
     description:
@@ -88,7 +88,7 @@ export const posts: Array<Post | Publication> = [
     content: <ETCD components={COMPONENTS} />,
     centered: false,
     itemType: "post",
-  },
+  },*/
   {
     title: "How to deploy a website on the Dark Web",
     description:
@@ -105,7 +105,7 @@ export const posts: Array<Post | Publication> = [
     premium: true,
   },
 
-  {
+  /*{
     title:
       "From Frustration to Flow: How Cognitive Modeling Shapes Better Developer Tools, Libraries, and Frameworks",
     description:
@@ -118,7 +118,7 @@ export const posts: Array<Post | Publication> = [
     content: <CognitiveModeling components={COMPONENTS} />,
     centered: false,
     itemType: "post",
-  },
+  },*/
   {
     title: "A Practical Introduction to The Event Driven Architecture",
     description:
