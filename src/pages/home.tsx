@@ -1,7 +1,7 @@
 import { Container } from "@mui/joy";
-import Header from "../components/homepage/header";
 import Navbar from "../components/navbar";
 import { Helmet } from "react-helmet-async";
+import LockedIn from "../components/homepage/LockedIn";
 
 const Home = () => {
   return (
@@ -11,7 +11,7 @@ const Home = () => {
       </Helmet>
       <Navbar />
       <Container>
-        <Header />
+        <LockedIn />
       </Container>
     </>
   );
