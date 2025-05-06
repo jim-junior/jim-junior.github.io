@@ -21,13 +21,6 @@ function ProjectCard({ repo, documentation }) {
     });
   }, [repo]);
 
-  function getDescription(description) {
-    if (description.length > 100) {
-      return description.slice(0, 100) + "...";
-    }
-    return description;
-  }
-
   function getLanguageColor(language) {
     switch (language) {
       case "JavaScript":
@@ -59,7 +52,7 @@ function ProjectCard({ repo, documentation }) {
             {repoData ? repoData.name : <Skeleton />}
           </Typography>
           <Typography>
-            {repoData ? getDescription(repoData.description) : <Skeleton />}
+            {repoData ? repoData.description : <Skeleton />}
           </Typography>
         </div>
         <ButtonGroup size="sm" variant="soft">
@@ -133,17 +126,13 @@ export default function Projects() {
   return (
     <Box sx={{ p: 4 }}>
       <LayoutGridAutofill>
-        {/* <ProjectCard
-          repo="jim-junior/raft-python"
-          documentation="https://orbiton.js.org/"
-        /> */}
+        <ProjectCard
+          repo="crane-cloud/mira-new"
+          documentation="https://github.com/crane-cloud/mira-new"
+        />
         <ProjectCard
           repo="open-ug/conveyor"
           documentation="https://github.com/open-ug/conveyor"
-        />
-        <ProjectCard
-          repo="open-ug/conveyor-cli"
-          documentation="https://github.com/open-ug/conveyor-cli"
         />
         <ProjectCard
           repo="Orbitonjs/orbiton"
@@ -152,10 +141,6 @@ export default function Projects() {
         <ProjectCard
           repo="jim-junior/reactjs-media"
           documentation="https://orbiton.js.org/open-ug/reactjs-media/intro"
-        />
-        <ProjectCard
-          repo="crane-cloud/mira-new"
-          documentation="https://github.com/crane-cloud/mira-new"
         />
         <ProjectCard
           repo="jim-junior/django-urlshortner"

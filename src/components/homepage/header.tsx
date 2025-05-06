@@ -1,18 +1,13 @@
 import { Box, IconButton, Link, Typography } from "@mui/joy";
 import { typographyClasses } from "@mui/joy/Typography";
-import {
-  FaDev,
-  FaGithub,
-  FaLinkedin,
-  FaMedium,
-  FaTwitter,
-} from "react-icons/fa";
+import { FaDev, FaGithub, FaLinkedin, FaMedium } from "react-icons/fa";
 import React from "react";
+import photo from "../../assets/passport_photo.jpg";
 
 const Header = () => {
   const data = [
     "am a Software Engineering Student at Makerere University",
-    "am an aspiring DevOps R&D Engineer",
+    "am a DevOps Engineer",
     "am a Web Developer",
     "am a Technical Writer",
     "am an Open Source Contributor",
@@ -103,6 +98,28 @@ const Header = () => {
           active contributor to the open-source community, building tools that
           make a difference.
         </Typography>
+        <Typography
+          sx={{
+            fontFamily: "monospace",
+          }}
+          level="body-lg"
+        >
+          I am currently building PQ-TLS a TLS implementation to Protect the
+          Internet of the future against Quantum Computer Attacks.
+        </Typography>
+        <Typography
+          sx={{
+            fontFamily: "monospace",
+          }}
+          level="body-lg"
+        >
+          I am also building{" "}
+          <Link href="https://www.open.ug" target="_blank">
+            Open UG
+          </Link>{" "}
+          a Non-Profit Organization that aims to build Foundational Open Source
+          Software to support the Tech Ecosystem in Uganda and Africa.
+        </Typography>
         <Box
           sx={{
             display: "flex",
@@ -148,15 +165,6 @@ const Header = () => {
               <FaMedium />
             </IconButton>
           </Link>
-          <Link component={"a"} href="https://x.com/Jim_Junior_">
-            <IconButton
-              sx={{
-                fontSize: "2rem",
-              }}
-            >
-              <FaTwitter />
-            </IconButton>
-          </Link>
         </Box>
       </Box>
 
@@ -164,22 +172,11 @@ const Header = () => {
         className="imgcover"
         sx={{ width: 400, height: 400, borderRadius: 10, ml: "auto" }}
       >
-        {/*<img
+        <img
           src={photo}
           alt="Beingana Jim Junior Profile photo"
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
-        />*/}
-        <input type="checkbox" id="invert" />
-        <label htmlFor="invert"></label>
-        <input type="checkbox" id="sepia" />
-        <label htmlFor="sepia"></label>
-        <div className="content">
-          <div className="film">
-            <div className="effect">
-              <div className="grain"></div>
-            </div>
-          </div>
-        </div>
+        />
       </Box>
     </Box>
   );
