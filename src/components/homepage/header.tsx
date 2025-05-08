@@ -115,7 +115,7 @@ const Header = () => {
         >
           I am also building{" "}
           <Link href="https://www.open.ug" target="_blank">
-            Open UG
+            Open UG Labs
           </Link>{" "}
           a Non-Profit Organization that aims to build Foundational Open Source
           Software to support the Tech Ecosystem in Uganda and Africa.
