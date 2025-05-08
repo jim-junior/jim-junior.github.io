@@ -9,6 +9,7 @@ import ReactJSMedia from "./blogs/how-to-create-a-responsive-custom-video-player
 import URLShortner from "./blogs/url-shortner.md";
 import DarkWeb from "./blogs/tor.md";
 //import ETCD from "./blogs/etcd.md";
+import Thoughts from "./blogs/hierarchy.md";
 import EventDrivenArchitecture from "./blogs/event-driven-architecture.mdx";
 import React from "react";
 
@@ -205,6 +206,18 @@ export const posts: Array<Post | Publication> = [
       "https://media.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F9g61nl2hsvczgjgdx4ta.png",
     cartegory: "REACT JS",
     content: <ReactLibrary components={COMPONENTS} />,
+    itemType: "post",
+  },
+  {
+    title: "Thoughts",
+    description:
+      "3:00 AM. I am sitting in my room, looking at the ceiling and thinking about life. I have been thinking about this for a while now and I think it is time to put it down on paper.",
+    date: "2021-01-28",
+    slug: "thoughts",
+    image:
+      "https://images.newscientist.com/wp-content/uploads/2021/11/12153123/four_main_theories_consciousnesspri205909083.jpg",
+    cartegory: "LIFE",
+    content: <Thoughts components={COMPONENTS} />,
     itemType: "post",
   },
 ];
