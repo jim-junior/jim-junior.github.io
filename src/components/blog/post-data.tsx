@@ -9,7 +9,7 @@ import ReactJSMedia from "./blogs/how-to-create-a-responsive-custom-video-player
 import URLShortner from "./blogs/url-shortner.md";
 import DarkWeb from "./blogs/tor.md";
 //import ETCD from "./blogs/etcd.md";
-import Thoughts from "./blogs/hierarchy.md";
+//import Thoughts from "./blogs/hierarchy.md";
 import EventDrivenArchitecture from "./blogs/event-driven-architecture.mdx";
 import React from "react";
 
@@ -208,7 +208,7 @@ export const posts: Array<Post | Publication> = [
     content: <ReactLibrary components={COMPONENTS} />,
     itemType: "post",
   },
-  {
+  /*{
     title: "Thoughts",
     description:
       "3:00 AM. I am sitting in my room, looking at the ceiling and thinking about life. I have been thinking about this for a while now and I think it is time to put it down on paper.",
@@ -219,5 +219,5 @@ export const posts: Array<Post | Publication> = [
     cartegory: "LIFE",
     content: <Thoughts components={COMPONENTS} />,
     itemType: "post",
-  },
+  },*/
 ];
