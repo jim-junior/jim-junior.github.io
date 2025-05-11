@@ -10,6 +10,7 @@ import URLShortner from "./blogs/url-shortner.md";
 import DarkWeb from "./blogs/tor.md";
 //import ETCD from "./blogs/etcd.md";
 //import Thoughts from "./blogs/hierarchy.md";
+import Scheduler from "./blogs/conveyor-scheduling.md";
 import EventDrivenArchitecture from "./blogs/event-driven-architecture.mdx";
 import React from "react";
 
@@ -90,6 +91,19 @@ export const posts: Array<Post | Publication> = [
     centered: false,
     itemType: "post",
   },*/
+  {
+    title: "Designing the Conveyor CI Scheduling Algorithm",
+    description:
+      "In this article, we will explore the Conveyor Scheduling Algorithm, a scheduling algorithm.",
+    date: "2025-05-15",
+    slug: "conveyor-scheduling-algorithm",
+    image:
+      "https://fulcrum.rocks/blog/wp-content/uploads/2022/04/ci-cd-pipeline-7.png",
+    cartegory: "CLOUD NATIVE",
+    content: <Scheduler components={COMPONENTS} />,
+    centered: false,
+    itemType: "post",
+  },
   {
     title: "How to deploy a website on the Dark Web",
     description:
