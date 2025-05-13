@@ -92,9 +92,9 @@ export const posts: Array<Post | Publication> = [
     itemType: "post",
   },*/
   {
-    title: "Designing the Conveyor CI Scheduling Algorithm",
+    title: "Designing the Conveyor CI Scheduling Mechanism",
     description:
-      "In this article, we will explore the Conveyor Scheduling Algorithm, a scheduling algorithm.",
+      "In this article, we will explore the Conveyor Scheduling Mechanism.",
     date: "2025-05-15",
     slug: "conveyor-scheduling-algorithm",
     image:
