@@ -23,7 +23,7 @@ The algorithm was to take inspiration and be a combination of multiple OS schedu
 
 To solve the issue of the possibility of overloading the server with tasks that require system resources than available, First i had to remove the instant execution of tasks and introduce a task queue, this would enable me to be able to incorporate a [FIFO-like](https://en.wikipedia.org/wiki/FIFO_(computing_and_electronics)) architecture as the base algorithm for scheduling tasks in a normal flow. Taking into consideration that in certain organisations, CI/CD tools are designed with the concept of having some tasks prioritized due to multiple factors, say if they would like to prioritize tasks from paying users. I also decided to incorporate a [Priority Scheduling Algorithm](https://en.wikipedia.org/wiki/Dynamic_priority_scheduling) as the second level algorithm. Lastly, I had to introduce a [constraint based scheduling](https://www.sciencedirect.com/science/article/pii/S1474667017377388) algorithm as the last determining algorithm, these constraints can be the available system resources etc. To support such a complex algorithm, I had to introduce [heuristics](https://en.wikipedia.org/wiki/Heuristic) that are computed by the Driver from a resource specification or defined directly in the resource specification. These heuristics can be task priority, available node resources etc.
 
-On the issue of horizontal scalability, I thought of a consensus algorithm in the driver runtime to ensure a distributed architecture among the Driver instances with also advantages that come with a consensus algorithm like fault tolerance and more. I decided to consider [the Raft Consensus Algorithm](https://raft.github.io/) mainly because of its simplicity and also its proven to work well in the Cloud Native ecosystem with projects like ETCD, Docker, Kubernetes etc using it.
+On the issue of horizontal scalability, I decided to incorprate NATS Jetsream Consumers. This would enable distributed processing of Driver tasks laveraging the already existing powerfull features that NATS Jetstream offers out of the box.
 
 ## How the Mechanism works
 
@@ -73,16 +73,16 @@ Function addTaskToQueue(task):
 
 ### Horizontal Scaling
 
-When it comes to horizontal scaling, I decided to re-engineer the Drivers to run as a distributed system in cases where there are multiple driver instances running. This distributed system is powered by the Raft consensus algorithm.
+When it comes to horizontal scaling, I decided to re-engineer the Drivers to run as a distributed system in cases where there are multiple driver instances running. This distributed system is powered by NATS JetStream Consumers
 
-In this scenario, when the drivers start or are restarted, the raft leader election begins and the leader is chosen among the driver instances. This leader is the one that will run the above scheduling algorithm to select what driver instance is suitable for running the task. In cases where the leader crashes, a new leader election will begin again and a new leader will be chosen. This implementation ensures that the drivers can scale up to multiple instances running on multiple nodes just connected via a distributed network.
+At the core each Conveyor CI Driver operates as a [JetStream Consumer](https://docs.nats.io/nats-concepts/jetstream/consumers). They listen to a [stream](https://docs.nats.io/nats-concepts/jetstream/streams) which filters out required messages and pushes them to the driver. The driver then carries out the required tasks depending on the payload recieved from the stream.
 
-This introduction off consensus ensures that the system can scale horizontally and it also introduces other extra advantages that the raft algorithm provides to distributed systems one of the most important being fault tolerance
+The Drivers are configured to use Explicit acknowledgement with the value set to 1 so that each task it handles one by one and this would prevent a possibility of one driver handling multiple tasks at once possibly causing resource contention. Acknowledgement occurs once the message is recieved by the driver. We also set the Delivery policy to All, so that no task is skipped and all tasks are handled. Another feature that Jet
 
-Here is a simple diagram demonstrating this process visually
+By utilising JetStream, it enables driver to be able to infinitly scale horizontally and become more failt torolent by utilizing various inbuilt NATS features.
 
-![](/img/drivers.png)
+![](/img/drivers1.png)
 
 ## Conclusion
 
-Designing a robust scheduling algorithm for Conveyor CI Drivers was a necessary and will definetely improve the functionality and reliability of the Drivers when the scheduling mechanism is added to the Conveyor CI codebase. By combining FIFO, priority-based, and constraint-aware scheduling with a distributed consensus model like Raft, I’ve managed to creat a system that not only prevents resource overloads but also opens the door for true horizontal scaling and more features like fault tolorence. This isn’t just a theoretical improvement—it directly addresses real-world pain points for teams running concurrent workloads on shared infrastructure. There’s still room to refine and optimize, but this foundation sets the stage for building CI/CD systems that are both resilient and adaptive under pressure. This might be the greatest improvement to Conveyor CI yet.
+Designing a robust scheduling algorithm for Conveyor CI Drivers was a necessary and will definetely improve the functionality and reliability of the Drivers when the scheduling mechanism is added to the Conveyor CI codebase. By combining FIFO, priority-based, and constraint-aware scheduling with a distributed model powered by JetStream, I’ve managed to create a system that not only prevents resource overloads but also opens the door for true horizontal scaling and more features like fault tolorence. This isn’t just a theoretical improvement—it directly addresses real-world pain points for teams running concurrent workloads on shared infrastructure. There’s still room to refine and optimize, but this foundation sets the stage for building CI/CD systems that are both resilient and adaptive under pressure. This might be the greatest improvement to Conveyor CI yet.
