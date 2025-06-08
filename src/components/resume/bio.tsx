@@ -24,12 +24,12 @@ const Bio = () => {
           ml: 1,
         }}
       >
-        Passionate Software Engineer with expertise in Web and Mobile
-        Development, Cloud Computing, DevOps and Data Science. I am dedicated to
-        building innovative and efficient solutions, leveraging cutting-edge
-        technologies to solve complex problems. A strong advocate for
-        collaboration and knowledge sharing, I actively build and contribute to
-        open-source software, supporting the global developer community.
+        Passionate Software Engineer with expertise in Web Development, Cloud
+        Computing and DevOps. I am dedicated to building innovative and
+        efficient solutions, leveraging cutting-edge technologies to solve
+        complex problems. A strong advocate for collaboration and knowledge
+        sharing, I actively build and contribute to open-source software,
+        supporting the global developer community.
       </Typography>
       <Typography
         sx={{

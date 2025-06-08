@@ -80,6 +80,20 @@ const Certifications = () => {
             FreeCodeCamp, 2021
           </Typography>
         </Typography>
+        <Typography
+          sx={{
+            fontWeight: "bold",
+          }}
+        >
+          International Computer Driving Licence (ICDL){" - "}
+          <Typography
+            sx={{
+              fontWeight: "normal",
+            }}
+          >
+            ICDL, 2020
+          </Typography>
+        </Typography>
       </Box>
     </Box>
   );

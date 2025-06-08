@@ -40,6 +40,9 @@ const WorkExperience = () => {
         </Typography>
         <List component="ul">
           <ListItem>
+            - Developed and maintained a Business Information System.
+          </ListItem>
+          <ListItem>
             - Gather and analyze requirements, translating them into clear and
             actionable technical specifications.
           </ListItem>
@@ -52,8 +55,8 @@ const WorkExperience = () => {
             Django Rest Framework to support application functionality.
           </ListItem>
           <ListItem>
-            - Oversee deployment processes using Kubernetes and Docker to ensure
-            seamless integration and delivery.
+            - Oversee deployment processes using Docker to ensure seamless
+            integration and delivery.
           </ListItem>
         </List>
       </Box>

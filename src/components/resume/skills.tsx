@@ -50,8 +50,8 @@ const Skills = () => {
               fontWeight: "normal",
             }}
           >
-            JavaScript, Python, Go, Rust, C#, HTML & CSS, SQL, LaTex, Shell
-            Script, Kotlin
+            JavaScript, Python, Go, Rust, HTML & CSS, SQL, LaTex, Shell Script,
+            Kotlin
           </Typography>
         </Typography>
         <Typography
@@ -65,8 +65,8 @@ const Skills = () => {
               fontWeight: "normal",
             }}
           >
-            Django, Express, Go Fiber, React, Next JS, Flask, Pandas,
-            TensorFlow, Pytorch, React Native, Jetpack Compose
+            Django, Express, Go Fiber, React, Next JS, React Native, Jetpack
+            Compose
           </Typography>
         </Typography>
         <Typography
