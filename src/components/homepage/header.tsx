@@ -110,15 +110,6 @@ const Header = () => {
           }}
           level="body-lg"
         >
-          I am currently building PQ-TLS a TLS implementation to Protect the
-          Internet of the future against Quantum Computer Attacks.
-        </Typography>
-        <Typography
-          sx={{
-            fontFamily: "monospace",
-          }}
-          level="body-lg"
-        >
           I am also building{" "}
           <Link href="https://www.open.ug" target="_blank">
             Open UG Labs
