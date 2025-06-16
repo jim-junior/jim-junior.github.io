@@ -95,14 +95,13 @@ const Header = () => {
         <Typography
           sx={{
             fontFamily: "monospace",
+            fontStyle: "italic",
+            color: "var(--joy-palette-neutral-500)",
           }}
           level="body-lg"
         >
-          I specialize in Web Development, DevOps and Cloud Computing, combining
-          my skills to craft innovative solutions. Beyond my studies, I’m an
-          avid technical writer, sharing insights through articles, and an
-          active contributor to the open-source community, building tools that
-          make a difference.
+          "We are all in the gutter, but some of us are looking to the stars" -
+          Oscar Wilde
         </Typography>
         <Typography
           sx={{
@@ -114,8 +113,6 @@ const Header = () => {
           <Link href="https://www.open.ug" target="_blank">
             Open UG Labs
           </Link>{" "}
-          a Non-Profit Organization that aims to build Foundational Open Source
-          Software to support the Tech Ecosystem in Uganda and Africa.
         </Typography>
         <Box
           sx={{
