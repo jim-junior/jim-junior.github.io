@@ -11,6 +11,7 @@ import DarkWeb from "./blogs/tor.md";
 //import ETCD from "./blogs/etcd.md";
 //import Thoughts from "./blogs/hierarchy.md";
 import Scheduler from "./blogs/conveyor-scheduling.md";
+import ContributingToCDR from "./blogs/contributing-to-conveyor.md";
 import EventDrivenArchitecture from "./blogs/event-driven-architecture.mdx";
 import React from "react";
 
@@ -91,6 +92,19 @@ export const posts: Array<Post | Publication> = [
     centered: false,
     itemType: "post",
   },*/
+  {
+    title: "A Guide to contributing to the Conveyor CI Driver Runtime",
+    description:
+      "In this article, we will explore how to contribute to the Conveyor CI Driver Runtime (CDR). We will cover the basics of the CDR, how to set up your development environment, and how to contribute to the project.",
+    date: "2025-06-20",
+    slug: "contributing-to-conveyor-ci-driver-runtime",
+    image:
+      "https://fulcrum.rocks/blog/wp-content/uploads/2022/04/ci-cd-pipeline-7.png",
+    cartegory: "CLOUD NATIVE",
+    content: <ContributingToCDR components={COMPONENTS} />,
+    centered: false,
+    itemType: "post",
+  },
   {
     title: "Designing the Conveyor CI Scheduling Mechanism",
     description:
