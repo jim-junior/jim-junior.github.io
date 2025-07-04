@@ -1,5 +1,11 @@
-# Institution, Hierarchy and the myth of Individualism
+# Hierarchy, Institution and the myth of Individualism
 
+## 1. Hierarchy
 
+You've finished a level of life and find yourself at the lowest playing level of the stage your in. You have to climb this hierarchy to the top. You've set a goal, and you will do anything to achieve it. The top of your hierarchy is achieving your goal. Youve joined an new team, being team leader is your goal, joined a new company, being at the top on the company is your goal. Maximum money, **POWER**, fame, knowledge etc, what ever it is, it can all be seen as a game of hierarcies. And your a player at level one. This is how the world is built. Or maybe how I see it in my world view.
 
-I've been thinking of the Dark Era, 10^100 years from now. When the last black hole releases the last hawking radiation. Low energy particles floating through the infinite universe. A point of maximum entropy. What next. Is that all. The trillions of lives, consciousnesses, the meaning. Will all that be gone and all for nothing. I hope not. Mainly because my life, ambitions and goals can't, and I believe wont be for nothing. 
+So question is, how do you climb up this hierarchy? See there is no one method, ngl I dont think i know the right answer, but i have a playbook, one that has been perfected over millions of years, actually billions.
+
+## 2. Institution
+
+## 3. The Myth Of Individualism

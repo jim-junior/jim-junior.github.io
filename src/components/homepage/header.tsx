@@ -110,8 +110,8 @@ const Header = () => {
           level="body-lg"
         >
           I am also building{" "}
-          <Link href="https://www.open.ug" target="_blank">
-            Open UG Labs
+          <Link href="https://conveyor.open.ug/" target="_blank">
+            Conveyor CI
           </Link>{" "}
         </Typography>
         <Box

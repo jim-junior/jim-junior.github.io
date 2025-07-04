@@ -9,7 +9,7 @@ import ReactJSMedia from "./blogs/how-to-create-a-responsive-custom-video-player
 import URLShortner from "./blogs/url-shortner.md";
 import DarkWeb from "./blogs/tor.md";
 //import ETCD from "./blogs/etcd.md";
-//import Thoughts from "./blogs/hierarchy.md";
+import Thoughts from "./blogs/hierarchy.md";
 import Scheduler from "./blogs/conveyor-scheduling.md";
 import ContributingToCDR from "./blogs/contributing-to-conveyor.md";
 import EventDrivenArchitecture from "./blogs/event-driven-architecture.mdx";
@@ -236,16 +236,15 @@ export const posts: Array<Post | Publication> = [
     content: <ReactLibrary components={COMPONENTS} />,
     itemType: "post",
   },
-  /*{
-    title: "Thoughts",
-    description:
-      "3:00 AM. I am sitting in my room, looking at the ceiling and thinking about life. I have been thinking about this for a while now and I think it is time to put it down on paper.",
+  {
+    title: "Institution, Hierarchy and the myth of Individualism",
+    description: "World View...",
     date: "2021-01-28",
-    slug: "thoughts",
+    slug: "institution-hierarchy-and-the-myth-of-individualism",
     image:
       "https://images.newscientist.com/wp-content/uploads/2021/11/12153123/four_main_theories_consciousnesspri205909083.jpg",
-    cartegory: "LIFE",
+    cartegory: "THOUGHTS",
     content: <Thoughts components={COMPONENTS} />,
     itemType: "post",
-  },*/
+  },
 ];
