@@ -38,7 +38,7 @@ const Navbar = () => {
         color="primary"
         level="h4"
       >
-        /code
+        /code👨🏾‍💻
       </Typography>
       {/* <Typography
         sx={{
@@ -61,6 +61,17 @@ const Navbar = () => {
         level="h4"
       >
         /blog
+      </Typography>
+      <Typography
+        sx={{
+          fontFamily: "monospace",
+        }}
+        component={Link}
+        color="primary"
+        to="/tv"
+        level="h4"
+      >
+        /tv🍿
       </Typography>
     </Box>
   );

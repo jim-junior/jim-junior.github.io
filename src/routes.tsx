@@ -6,6 +6,7 @@ import BlogPostPage from "./pages/post";
 import ProjectsPage from "./pages/projects";
 import ResumePage from "./pages/resume";
 import PublicationPage from "./pages/publication";
+import TVCartlogPage from "./pages/tv";
 
 function getBlogPostRotes() {
   const publicationRoutes: {
@@ -54,6 +55,10 @@ export const router = createHashRouter([
   {
     path: "/cv",
     element: <ResumePage />,
+  },
+  {
+    path: "/tv",
+    element: <TVCartlogPage />,
   },
   {
     path: "*",
