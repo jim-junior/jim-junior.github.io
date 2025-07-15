@@ -62,7 +62,7 @@ const Navbar = () => {
       >
         /blog
       </Typography>
-      <Typography
+      {/*<Typography
         sx={{
           fontFamily: "monospace",
         }}
@@ -72,7 +72,7 @@ const Navbar = () => {
         level="h4"
       >
         /tv🍿
-      </Typography>
+      </Typography>*/}
     </Box>
   );
 };
