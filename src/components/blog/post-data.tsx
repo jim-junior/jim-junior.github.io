@@ -9,7 +9,8 @@ import ReactJSMedia from "./blogs/how-to-create-a-responsive-custom-video-player
 import URLShortner from "./blogs/url-shortner.md";
 import DarkWeb from "./blogs/tor.md";
 //import ETCD from "./blogs/etcd.md";
-import Thoughts from "./blogs/hierarchy.md";
+import Pipelines from "./blogs/conveyor-pipelines.md";
+//import Thoughts from "./blogs/hierarchy.md";
 import Scheduler from "./blogs/conveyor-scheduling.md";
 import ContributingToCDR from "./blogs/contributing-to-conveyor.md";
 import EventDrivenArchitecture from "./blogs/event-driven-architecture.mdx";
@@ -92,6 +93,18 @@ export const posts: Array<Post | Publication> = [
     centered: false,
     itemType: "post",
   },*/
+  {
+    title: "Designing The Conveyor CI Pipeline Workflow",
+    description: ".",
+    date: "2025-07-20",
+    slug: "conveyor-pipelines",
+    image:
+      "https://fulcrum.rocks/blog/wp-content/uploads/2022/04/ci-cd-pipeline-7.png",
+    cartegory: "CLOUD NATIVE",
+    content: <Pipelines components={COMPONENTS} />,
+    centered: false,
+    itemType: "post",
+  },
   {
     title: "A Guide to contributing to the Conveyor CI Driver Runtime",
     description:
@@ -236,7 +249,7 @@ export const posts: Array<Post | Publication> = [
     content: <ReactLibrary components={COMPONENTS} />,
     itemType: "post",
   },
-  {
+  /*{
     title: "Institution, Hierarchy and the myth of Individualism",
     description: "World View...",
     date: "2021-01-28",
@@ -246,5 +259,5 @@ export const posts: Array<Post | Publication> = [
     cartegory: "THOUGHTS",
     content: <Thoughts components={COMPONENTS} />,
     itemType: "post",
-  },
+  },*/
 ];
