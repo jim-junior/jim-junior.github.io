@@ -96,7 +96,7 @@ export const posts: Array<Post | Publication> = [
   {
     title: "Designing The Conveyor CI Pipeline Workflow",
     description: ".",
-    date: "2025-07-20",
+    date: "2025-07-25",
     slug: "conveyor-pipelines",
     image:
       "https://fulcrum.rocks/blog/wp-content/uploads/2022/04/ci-cd-pipeline-7.png",

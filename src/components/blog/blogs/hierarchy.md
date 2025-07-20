@@ -1,4 +1,6 @@
-# Hierarchy, Institution and the myth of Individualism
+# World View
+
+I Initially wanted to write this as one blog post, but considering the ideas written in this document come up at random points in time, i have decided to adopt sam altmans writing style of back then when he was starting to write, by writing short, meaningfull articles. All in one document
 
 ## 1. Hierarchy
 

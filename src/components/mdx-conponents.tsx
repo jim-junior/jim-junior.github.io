@@ -29,11 +29,10 @@ export const COMPONENTS = {
         fontSize: "clamp(2rem, 5vw, 3rem)",
         fontFamily: "charter, serif",
         fontWeight: "bold",
-        background:
-          "linear-gradient(45deg, var(--joy-palette-primary-500), var(--joy-palette-primary-700))",
-        backgroundClip: "text",
-        WebkitBackgroundClip: "text",
-        WebkitTextFillColor: "transparent",
+        color: "var(--joy-palette-primary-700)",
+        //backgroundClip: "text",
+        //WebkitBackgroundClip: "text",
+        //WebkitTextFillColor: "transparent",
         letterSpacing: "-0.02em",
       }}
       level="h1"
@@ -402,11 +401,11 @@ export const COMPONENTS = {
 
   // Inline code - Enhanced
   code: (props: any) => (
-    <Typography
-      component="code"
+    <code
+      //component="code"
       //variant="soft"
-      size="sm"
-      sx={{
+      //size="sm"
+      style={{
         fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
         fontSize: "0.875em",
         //backgroundColor: "var(--joy-palette-background-level2)",
