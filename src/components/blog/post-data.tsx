@@ -95,7 +95,8 @@ export const posts: Array<Post | Publication> = [
   },*/
   {
     title: "Designing The Conveyor CI Pipeline Workflow",
-    description: ".",
+    description:
+      "This article explains how Conveyor CI is adding pipeline functionality to enable ordered driver execution, inspired by conveyor belt systems, using Go routines, NATS Jetstream, and ETCD for efficient, predictable CI/CD workflows.",
     date: "2025-07-25",
     slug: "conveyor-pipelines",
     image:
