@@ -2,6 +2,7 @@ import { COMPONENTS } from "../mdx-conponents";
 import BuildingKubernetesOperator from "./blogs/building-a-kubernetes-operator.md";
 //import CognitiveModeling from "./blogs/cognitive-modeling.md";
 import SupervisedLearning from "./blogs/deep-learning/supervised-learning.md";
+import ShallowNN from "./blogs/deep-learning/shallow-neural-networks.md";
 import JavaScriptProxies from "./blogs/javascript-proxies-a-beginners-guide.md";
 import OrbitonJSBlog from "./blogs/3-minutes-to-orbiton-js-the-ultimate-javascript-ui-library.md";
 import ReactLibrary from "./blogs/how-to-create-an-npm-library-from-react-components.md";
@@ -61,6 +62,18 @@ export const DeepLearningPublication: Publication = {
       centered: false,
       itemType: "post",
     },
+    {
+      title: "Shallow Neural Networks",
+      description:
+        "In this article we shall take a look at Shallow Neural Networks",
+      date: "2025-07-22",
+      slug: "shallow-neural-networks",
+      image: "https://scipython.com/media/old_blog/shallow-neural-net/snn.png",
+      cartegory: "DEEP LEARNING",
+      content: <ShallowNN components={COMPONENTS} />,
+      centered: false,
+      itemType: "post",
+    },
   ],
 };
 // 0705650532
@@ -97,7 +110,7 @@ export const posts: Array<Post | Publication> = [
     title: "Designing The Conveyor CI Pipeline Workflow",
     description:
       "This article explains how Conveyor CI is adding pipeline functionality to enable ordered driver execution, inspired by conveyor belt systems, using Go routines, NATS Jetstream, and ETCD for efficient, predictable CI/CD workflows.",
-    date: "2025-07-25",
+    date: "2025-07-21",
     slug: "conveyor-pipelines",
     image:
       "https://fulcrum.rocks/blog/wp-content/uploads/2022/04/ci-cd-pipeline-7.png",

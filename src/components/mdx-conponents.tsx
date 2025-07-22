@@ -11,7 +11,6 @@ import {
   Chip,
   Card,
   CardContent,
-  AspectRatio,
   AccordionGroup,
   Accordion,
   AccordionSummary,
