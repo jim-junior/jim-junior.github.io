@@ -2,7 +2,7 @@ import { COMPONENTS } from "../mdx-conponents";
 import BuildingKubernetesOperator from "./blogs/building-a-kubernetes-operator.md";
 //import CognitiveModeling from "./blogs/cognitive-modeling.md";
 import SupervisedLearning from "./blogs/deep-learning/supervised-learning.md";
-import ShallowNN from "./blogs/deep-learning/shallow-neural-networks.md";
+import ShallowNN from "./blogs/deep-learning/shallow-neural-networks.mdx";
 import JavaScriptProxies from "./blogs/javascript-proxies-a-beginners-guide.md";
 import OrbitonJSBlog from "./blogs/3-minutes-to-orbiton-js-the-ultimate-javascript-ui-library.md";
 import ReactLibrary from "./blogs/how-to-create-an-npm-library-from-react-components.md";

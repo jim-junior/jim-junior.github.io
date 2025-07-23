@@ -25,6 +25,7 @@
     "react-router-dom": "^6.26.2",
     "react-to-print": "^3.0.4",
     "reactjs-media": "^3.1.5",
+    "recharts": "^3.1.0",
     "rehype-katex": "^7.0.1",
     "rehype-mdx-title": "^3.1.0",
     "rehype-pretty-code": "^0.14.0",

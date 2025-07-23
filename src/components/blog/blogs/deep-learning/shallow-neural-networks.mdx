@@ -52,6 +52,7 @@ $$
 
 Activation functions accomplish this non-linearity by determining what neuron in the neural network is active or inactive basing on the input. Take an example where we have the following parameters.
 
+import ShallowNN from "../../../dl/snn.tsx"
 
 
 | Parameter     | Value |
@@ -177,6 +178,10 @@ As $x$ increases, **hidden units "turn on"** at different points:
 * $h_3$ activates first at $x > -1$
 * $h_2$ activates at $x > 0$
 * $h_1$ activates at $x > 1$
+
+#### Interactive Graph Demo
+
+<ShallowNN />
 
 ### Universal Approximatation Theorem
 
