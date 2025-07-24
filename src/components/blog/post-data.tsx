@@ -85,7 +85,7 @@ export const posts: Array<Post | Publication> = [
       "A Deep dive into etcd: The Distributed Key-Value Store Powering Cloud Infrastructure",
     description:
       "In this article, we will explore etcd, a distributed key-value store that is widely used in cloud-native applications and microservices architectures.",
-    date: "2025-04-15",
+    date: "2025-07-25",
     slug: "introduction-to-etcd-the-distributed-key-value-store",
     image:
       "https://abdelouahabmbarki.com/content/images/size/w2000/2023/06/Screenshot-from-2023-06-11-12-32-10.png",
