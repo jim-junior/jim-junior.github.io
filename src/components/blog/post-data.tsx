@@ -11,6 +11,7 @@ import URLShortner from "./blogs/url-shortner.md";
 import DarkWeb from "./blogs/tor.md";
 import ETCD from "./blogs/etcd.md";
 import Pipelines from "./blogs/conveyor-pipelines.md";
+import TBC from "./blogs/to-be-continued.md";
 //import Thoughts from "./blogs/hierarchy.md";
 import Scheduler from "./blogs/conveyor-scheduling.md";
 import ContributingToCDR from "./blogs/contributing-to-conveyor.md";
@@ -80,6 +81,17 @@ export const DeepLearningPublication: Publication = {
 
 export const posts: Array<Post | Publication> = [
   DeepLearningPublication,
+  {
+    title: "To be continued",
+    description: "Coming of age.....",
+    date: "2025-07-26",
+    slug: "to-be-continued",
+    image: "/IMG_20191221_153252.jpg",
+    cartegory: "MIO",
+    content: <TBC components={COMPONENTS} />,
+    centered: true,
+    itemType: "post",
+  },
   {
     title:
       "A Deep dive into etcd: The Distributed Key-Value Store Powering Cloud Infrastructure",

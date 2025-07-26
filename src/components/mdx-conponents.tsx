@@ -119,7 +119,7 @@ export const COMPONENTS = {
         fontFamily: "charter, serif",
         lineHeight: 1.7,
         fontSize: "1.125rem",
-        textAlign: "justify",
+        textAlign: "inherit",
         hyphens: "auto",
       }}
       level="body-lg"
