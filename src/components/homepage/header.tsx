@@ -109,6 +109,15 @@ const Header = () => {
           }}
           level="body-lg"
         >
+          WHAT I GOT IS SOME SERIOUS PROBLEM SOLVING SKILLS. GIVE ME A PROJECT,
+          AND I WILL CODE MY WAY THROUGH IT.
+        </Typography>
+        <Typography
+          sx={{
+            fontFamily: "monospace",
+          }}
+          level="body-lg"
+        >
           I am also building{" "}
           <Link href="https://conveyor.open.ug/" target="_blank">
             Conveyor CI
