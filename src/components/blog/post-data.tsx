@@ -87,7 +87,7 @@ export const posts: Array<Post | Publication> = [
     date: "2025-07-26",
     slug: "to-be-continued",
     image: "/IMG_20191221_153252.jpg",
-    cartegory: "MIO",
+    cartegory: "a mí",
     content: <TBC components={COMPONENTS} />,
     centered: true,
     itemType: "post",
