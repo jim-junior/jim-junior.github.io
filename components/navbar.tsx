@@ -57,7 +57,7 @@ const Navbar = () => {
         sx={{
           fontFamily: "monospace",
         }}
-        component={Link}
+        component="a"
         color="primary"
         href="/blog"
         level="h4"
