@@ -283,8 +283,8 @@ const ShallowNN = () => {
             x: xi,
             y: linearFunction(
               xi,
-              parameters[`theta_${value}0`],
-              parameters[`theta_${value}1`]
+              parameters[`theta_${value}0` as keyof typeof parameters],
+              parameters[`theta_${value}1` as keyof typeof parameters]
             ),
           };
         }),
