@@ -1,4 +1,5 @@
 "use client";
+
 import {
   Alert,
   Box,
@@ -49,7 +50,21 @@ const X = [
   -0.1, 0.2, 0.5, 0.8, 1.1, 1.4, 1.7, 2, 2.3, 2.6, 2.9, 3.2, 3.5, 3.8, 4,
 ];
 
-const ChartComp = ({ config, data }) => (
+const ChartComp = ({
+  config,
+  data,
+}: {
+  config: {
+    title: string;
+    xLabel: string;
+    yLabel: string;
+    color?: string;
+    showDots?: boolean;
+    strokeWidth?: number;
+    grid?: boolean;
+  };
+  data: { x: number; y: number }[];
+}) => (
   <ResponsiveContainer width="100%" height={400}>
     <AreaChart
       title={config.title}
@@ -87,7 +102,20 @@ const ChartComp = ({ config, data }) => (
   </ResponsiveContainer>
 );
 
-function CustomTooltip({ active, payload, label, config }) {
+function CustomTooltip({
+  active,
+  payload,
+  label,
+  config,
+}: {
+  active?: boolean;
+  payload: { value: number }[];
+  label?: string;
+  config: {
+    xLabel: string;
+    yLabel: string;
+  };
+}) {
   if (active) {
     return (
       <Card>
@@ -261,7 +289,7 @@ const ShallowNN = () => {
           };
         }),
       };
-    });
+    }) as any;
 
     setText(
       "Hidden Units without activation layer are just normal Linear functions, as you can see displayed on the graphs below"
