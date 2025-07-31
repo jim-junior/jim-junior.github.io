@@ -1,21 +1,3 @@
-import { COMPONENTS } from "../mdx-conponents";
-import BuildingKubernetesOperator from "./blogs/building-a-kubernetes-operator.md";
-//import CognitiveModeling from "./blogs/cognitive-modeling.md";
-import SupervisedLearning from "./blogs/deep-learning/supervised-learning.md";
-import ShallowNN from "./blogs/deep-learning/shallow-neural-networks.mdx";
-import JavaScriptProxies from "./blogs/javascript-proxies-a-beginners-guide.md";
-import OrbitonJSBlog from "./blogs/3-minutes-to-orbiton-js-the-ultimate-javascript-ui-library.md";
-import ReactLibrary from "./blogs/how-to-create-an-npm-library-from-react-components.md";
-import ReactJSMedia from "./blogs/how-to-create-a-responsive-custom-video-player-in-react.md";
-import URLShortner from "./blogs/url-shortner.md";
-import DarkWeb from "./blogs/tor.md";
-import ETCD from "./blogs/etcd.md";
-import Pipelines from "./blogs/conveyor-pipelines.md";
-import TBC from "./blogs/to-be-continued.md";
-//import Thoughts from "./blogs/hierarchy.md";
-import Scheduler from "./blogs/conveyor-scheduling.md";
-import ContributingToCDR from "./blogs/contributing-to-conveyor.md";
-import EventDrivenArchitecture from "./blogs/event-driven-architecture.mdx";
 import React from "react";
 
 export type Post = {
@@ -24,7 +6,6 @@ export type Post = {
   date: string;
   slug: string;
   image: string;
-  content: React.ReactElement;
   cartegory: string;
   centered?: boolean;
   audio?: string;
@@ -59,7 +40,6 @@ export const DeepLearningPublication: Publication = {
       slug: "an-introduction-to-supervised-learning",
       image: "/sl.png",
       cartegory: "DEEP LEARNING",
-      content: <SupervisedLearning components={COMPONENTS} />,
       centered: false,
       itemType: "post",
     },
@@ -71,7 +51,6 @@ export const DeepLearningPublication: Publication = {
       slug: "shallow-neural-networks",
       image: "https://scipython.com/media/old_blog/shallow-neural-net/snn.png",
       cartegory: "DEEP LEARNING",
-      content: <ShallowNN components={COMPONENTS} />,
       centered: false,
       itemType: "post",
     },
@@ -88,7 +67,6 @@ export const posts: Array<Post | Publication> = [
     slug: "to-be-continued",
     image: "/IMG_20191221_153252.jpg",
     cartegory: "a mí",
-    content: <TBC components={COMPONENTS} />,
     centered: true,
     itemType: "post",
   },
@@ -102,7 +80,6 @@ export const posts: Array<Post | Publication> = [
     image:
       "https://abdelouahabmbarki.com/content/images/size/w2000/2023/06/Screenshot-from-2023-06-11-12-32-10.png",
     cartegory: "CLOUD NATIVE",
-    content: <ETCD components={COMPONENTS} />,
     centered: false,
     itemType: "post",
   },
@@ -127,7 +104,6 @@ export const posts: Array<Post | Publication> = [
     image:
       "https://fulcrum.rocks/blog/wp-content/uploads/2022/04/ci-cd-pipeline-7.png",
     cartegory: "CLOUD NATIVE",
-    content: <Pipelines components={COMPONENTS} />,
     centered: false,
     itemType: "post",
   },
@@ -140,7 +116,6 @@ export const posts: Array<Post | Publication> = [
     image:
       "https://fulcrum.rocks/blog/wp-content/uploads/2022/04/ci-cd-pipeline-7.png",
     cartegory: "CLOUD NATIVE",
-    content: <ContributingToCDR components={COMPONENTS} />,
     centered: false,
     itemType: "post",
   },
@@ -153,7 +128,6 @@ export const posts: Array<Post | Publication> = [
     image:
       "https://fulcrum.rocks/blog/wp-content/uploads/2022/04/ci-cd-pipeline-7.png",
     cartegory: "CLOUD NATIVE",
-    content: <Scheduler components={COMPONENTS} />,
     centered: false,
     itemType: "post",
   },
@@ -165,7 +139,6 @@ export const posts: Array<Post | Publication> = [
     slug: "how-to-deploy-a-website-on-the-dark-web",
     image: "https://cdn.mos.cms.futurecdn.net/hK9M3qPnakKGmDP9cDwPTh.jpg",
     cartegory: "NETWORKING",
-    content: <DarkWeb components={COMPONENTS} />,
     centered: false,
     itemType: "post",
     medium:
@@ -197,7 +170,6 @@ export const posts: Array<Post | Publication> = [
       "https://www.cncf.io/wp-content/uploads/2023/10/Screenshot-2023-10-27-at-16.36.16.png",
     cartegory: "SOFTWARE ARCHITECTURE",
     itemType: "post",
-    content: <EventDrivenArchitecture components={COMPONENTS} />,
     centered: false,
     audio:
       "https://res.cloudinary.com/blurify-ml/video/upload/v1737739518/Event-Driven_Architecture__A_Practical_Introduction_mvky8r.wav",
@@ -211,7 +183,6 @@ export const posts: Array<Post | Publication> = [
     image:
       "https://www.epsglobal.com/Media-Library/EPSGlobal/Blog/kubernets2.jpg",
     cartegory: "CLOUD NATIVE",
-    content: <BuildingKubernetesOperator components={COMPONENTS} />,
     centered: false,
     itemType: "post",
   },
@@ -224,7 +195,6 @@ export const posts: Array<Post | Publication> = [
     image:
       "https://dev-to-uploads.s3.amazonaws.com/uploads/articles/se424m2u3q6cs4hs01x6.png",
     cartegory: "REACT JS",
-    content: <ReactJSMedia components={COMPONENTS} />,
     itemType: "post",
   },
   {
@@ -236,7 +206,6 @@ export const posts: Array<Post | Publication> = [
     image:
       "https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fzqnl7ongem2tduxe49s7.png",
     cartegory: "PYTHON DJANGO",
-    content: <URLShortner components={COMPONENTS} />,
     itemType: "post",
   },
   {
@@ -248,7 +217,6 @@ export const posts: Array<Post | Publication> = [
     image:
       "https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fj1uhtplbinmdsfaoeymn.png",
     cartegory: "JAVASCRIPT",
-    content: <JavaScriptProxies components={COMPONENTS} />,
     itemType: "post",
   },
   {
@@ -260,7 +228,6 @@ export const posts: Array<Post | Publication> = [
     image:
       "https://dev-to-uploads.s3.amazonaws.com/uploads/articles/f4o5sini57do8wxonqgk.png",
     cartegory: "JAVASCRIPT",
-    content: <OrbitonJSBlog components={COMPONENTS} />,
     itemType: "post",
   },
   {
@@ -272,7 +239,6 @@ export const posts: Array<Post | Publication> = [
     image:
       "https://media.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F9g61nl2hsvczgjgdx4ta.png",
     cartegory: "REACT JS",
-    content: <ReactLibrary components={COMPONENTS} />,
     itemType: "post",
   },
   /*{

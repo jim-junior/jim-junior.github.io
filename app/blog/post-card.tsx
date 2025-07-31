@@ -7,7 +7,7 @@ import SvgIcon from "@mui/joy/SvgIcon";
 import Typography from "@mui/joy/Typography";
 import { format } from "date-fns";
 import { Post, Publication } from "./post-data";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 export default function BlogPostCard({ post }: { post: Post }) {
   return (
@@ -42,7 +42,7 @@ export default function BlogPostCard({ post }: { post: Post }) {
         level="body-sm"
         fontWeight="lg"
         component={Link}
-        to={`/blog/${post.slug}`}
+        href={`/blog/${post.slug}`}
         startDecorator={
           <SvgIcon>
             <svg
@@ -135,7 +135,7 @@ export const PublicationCard = ({
             <Typography level="body-xs">{displayPosts.length} posts</Typography>
             <JoyLink
               component={Link}
-              to={`/blog/publication/${publication.id}`}
+              href={`/blog/publication/${publication.id}`}
               endDecorator={
                 <SvgIcon>
                   <svg

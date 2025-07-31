@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
+import App from "./App.jsx";
 import { RouterProvider } from "react-router-dom";
-import { router } from "./routes";
+import { router } from "./routes.jsx";
 import { HelmetProvider } from "react-helmet-async";
 import { MDXProvider } from "@mdx-js/react";
-import { COMPONENTS } from "./components/mdx-conponents.tsx";
+import { COMPONENTS } from "./components/mdx-conponents.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
