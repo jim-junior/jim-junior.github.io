@@ -56,7 +56,6 @@ export const DeepLearningPublication: Publication = {
     },
   ],
 };
-// 0705650532
 
 export const posts: Array<Post | Publication> = [
   DeepLearningPublication,
@@ -76,7 +75,7 @@ export const posts: Array<Post | Publication> = [
     description:
       "In this article, we will explore etcd, a distributed key-value store that is widely used in cloud-native applications and microservices architectures.",
     date: "2025-07-25",
-    slug: "introduction-to-etcd-the-distributed-key-value-store",
+    slug: "a-complete-guide-to-etcd",
     image:
       "https://abdelouahabmbarki.com/content/images/size/w2000/2023/06/Screenshot-from-2023-06-11-12-32-10.png",
     cartegory: "CLOUD NATIVE",
@@ -100,7 +99,7 @@ export const posts: Array<Post | Publication> = [
     description:
       "This article explains how Conveyor CI is adding pipeline functionality to enable ordered driver execution, inspired by conveyor belt systems, using Go routines, NATS Jetstream, and ETCD for efficient, predictable CI/CD workflows.",
     date: "2025-07-21",
-    slug: "conveyor-pipelines",
+    slug: "conveyor-pipelines-design",
     image:
       "https://fulcrum.rocks/blog/wp-content/uploads/2022/04/ci-cd-pipeline-7.png",
     cartegory: "CLOUD NATIVE",

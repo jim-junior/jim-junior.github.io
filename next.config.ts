@@ -1,5 +1,12 @@
 import createMDX from "@next/mdx";
 import { NextConfig } from "next";
+import rehypeMdxTitle from "rehype-mdx-title";
+import rehypePrettyCode from "rehype-pretty-code";
+import moonlightTheme from './assets/moonlight-ii.json' with { type: 'json' };
+import remarkMath from 'remark-math'
+import remarkGFM from "remark-gfm"
+import rehypeKatex from 'rehype-katex'
+import withMarkdoc from "@markdoc/next.js";
 
 const nextConfig: NextConfig = {
   output: "export",
@@ -10,7 +17,21 @@ const nextConfig: NextConfig = {
 
 const withMDX = createMDX({
   extension: /\.(md|mdx)$/,
+  options:{
+    remarkPlugins: [
+      remarkGFM,
+              remarkMath
+            ],
+    rehypePlugins: [
+              rehypeKatex, [
+              rehypePrettyCode,
+              {
+                keepBackground: false,
+                theme: moonlightTheme,
+              },
+            ],rehypeMdxTitle],
+  }
 });
 
 // @ts-ignore
-export default withMDX(nextConfig);
+export default (withMDX(nextConfig));
