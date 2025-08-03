@@ -120,20 +120,6 @@ export const posts: Array<Post | Publication> = [
     centered: false,
     itemType: "post",
   },
-  {
-    title: "How to deploy a website on the Dark Web",
-    description:
-      "In this article we shall look at how you can deploy your site on the Tor network, which is a Dark web that allows clients and Servers to navigate and exist on the Internet Anonymously.",
-    date: "2025-03-19",
-    slug: "how-to-deploy-a-website-on-the-dark-web",
-    image: "https://cdn.mos.cms.futurecdn.net/hK9M3qPnakKGmDP9cDwPTh.jpg",
-    cartegory: "NETWORKING",
-    centered: false,
-    itemType: "post",
-    medium:
-      "https://medium.com/devops-dev/how-to-deploy-an-anonymous-website-on-the-dark-web-3c357129b245",
-    premium: true,
-  },
 
   /*{
     title:
@@ -174,6 +160,20 @@ export const posts: Array<Post | Publication> = [
     cartegory: "CLOUD NATIVE",
     centered: false,
     itemType: "post",
+  },
+  {
+    title: "How to deploy a website on the Dark Web",
+    description:
+      "In this article we shall look at how you can deploy your site on the Tor network, which is a Dark web that allows clients and Servers to navigate and exist on the Internet Anonymously.",
+    date: "2025-03-19",
+    slug: "how-to-deploy-a-website-on-the-dark-web",
+    image: "https://cdn.mos.cms.futurecdn.net/hK9M3qPnakKGmDP9cDwPTh.jpg",
+    cartegory: "NETWORKING",
+    centered: false,
+    itemType: "post",
+    medium:
+      "https://medium.com/devops-dev/how-to-deploy-an-anonymous-website-on-the-dark-web-3c357129b245",
+    premium: true,
   },
   {
     title: "How to create a responsive custom video player in React",
