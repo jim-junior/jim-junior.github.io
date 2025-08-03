@@ -10,6 +10,7 @@ import {
 } from "react-icons/fa";
 import React, { useEffect, useRef, useState } from "react";
 import photo from "@/assets/passport_photo.jpg";
+import { SiCncf } from "react-icons/si";
 
 const Header = () => {
   const data = [
@@ -167,6 +168,15 @@ const Header = () => {
               }}
             >
               <FaMastodon />
+            </IconButton>
+          </Link>
+          <Link component={"a"} href="https://community.cncf.io/u/mm8h43/">
+            <IconButton
+              sx={{
+                fontSize: "2rem",
+              }}
+            >
+              <SiCncf />
             </IconButton>
           </Link>
         </Box>
