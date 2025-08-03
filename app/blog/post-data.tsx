@@ -60,16 +60,6 @@ export const DeepLearningPublication: Publication = {
 export const posts: Array<Post | Publication> = [
   DeepLearningPublication,
   {
-    title: "To be continued",
-    description: "Coming of age.....",
-    date: "2025-07-26",
-    slug: "to-be-continued",
-    image: "/IMG_20191221_153252.jpg",
-    cartegory: "a mí",
-    centered: true,
-    itemType: "post",
-  },
-  {
     title:
       "A Deep dive into etcd: The Distributed Key-Value Store Powering Cloud Infrastructure",
     description:
@@ -238,6 +228,16 @@ export const posts: Array<Post | Publication> = [
     image:
       "https://media.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F9g61nl2hsvczgjgdx4ta.png",
     cartegory: "REACT JS",
+    itemType: "post",
+  },
+  {
+    title: "To be continued",
+    description: "Coming of age.....",
+    date: "2025-07-26",
+    slug: "to-be-continued",
+    image: "/IMG_20191221_153252.jpg",
+    cartegory: "a mí",
+    centered: true,
     itemType: "post",
   },
   /*{
