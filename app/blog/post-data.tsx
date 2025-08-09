@@ -60,8 +60,18 @@ export const DeepLearningPublication: Publication = {
 export const posts: Array<Post | Publication> = [
   DeepLearningPublication,
   {
+    title: "Implementing Resource Versioning in Conveyor CI",
+    description: "This article.",
+    date: "2025-08-10",
+    slug: "resource-versioning-in-conveyor",
+    image: "/img/conveyor-ci.png",
+    cartegory: "CLOUD NATIVE",
+    centered: false,
+    itemType: "post",
+  },
+  {
     title:
-      "A Deep dive into etcd: The Distributed Key-Value Store Powering Cloud Infrastructure",
+      "A Complete Guide to etcd: The Distributed Key-Value Store Powering Cloud Infrastructure",
     description:
       "In this article, we will explore etcd, a distributed key-value store that is widely used in cloud-native applications and microservices architectures.",
     date: "2025-07-25",
@@ -72,26 +82,13 @@ export const posts: Array<Post | Publication> = [
     centered: false,
     itemType: "post",
   },
-  /*{
-    title: "Understanding the Raft Concensus Algorithm",
-    description:
-      "In this article, we will explore the Raft consensus algorithm, a distributed consensus algorithm that is widely used in cloud-native applications and microservices architectures.",
-    date: "2025-03-30",
-    slug: "understanding-the-raft-consensus-algorithm",
-    image: "https://raft.github.io/logo/solo.svg",
-    cartegory: "CLOUD NATIVE",
-    content: <ETCD components={COMPONENTS} />,
-    centered: false,
-    itemType: "post",
-  },*/
   {
     title: "Designing The Conveyor CI Pipeline Workflow",
     description:
       "This article explains how Conveyor CI is adding pipeline functionality to enable ordered driver execution, inspired by conveyor belt systems, using Go routines, NATS Jetstream, and ETCD for efficient, predictable CI/CD workflows.",
     date: "2025-07-21",
     slug: "conveyor-pipelines-design",
-    image:
-      "https://fulcrum.rocks/blog/wp-content/uploads/2022/04/ci-cd-pipeline-7.png",
+    image: "/img/conveyor-ci.png",
     cartegory: "CLOUD NATIVE",
     centered: false,
     itemType: "post",
@@ -102,8 +99,7 @@ export const posts: Array<Post | Publication> = [
       "In this article, we will explore how to contribute to the Conveyor CI Driver Runtime (CDR). We will cover the basics of the CDR, how to set up your development environment, and how to contribute to the project.",
     date: "2025-06-20",
     slug: "contributing-to-conveyor-ci-driver-runtime",
-    image:
-      "https://fulcrum.rocks/blog/wp-content/uploads/2022/04/ci-cd-pipeline-7.png",
+    image: "/img/conveyor-ci.png",
     cartegory: "CLOUD NATIVE",
     centered: false,
     itemType: "post",
@@ -120,21 +116,6 @@ export const posts: Array<Post | Publication> = [
     centered: false,
     itemType: "post",
   },
-
-  /*{
-    title:
-      "From Frustration to Flow: How Cognitive Modeling Shapes Better Developer Tools, Libraries, and Frameworks",
-    description:
-      "In this article. We shall have explore how Cognitive Modeling can be used to shape better developer tools, libraries and frameworks. We shall look at different real world examples where it has played a key role in the success of certain tools.",
-    date: "2025-01-19",
-    slug: "cognitive-modeling-for-better-developer-tools",
-    image:
-      "https://infiniticube.com/wp-content/uploads/2024/05/20-Key-Elements-for-Real-Life-Applications-of-Cognitive-Models-2.webp",
-    cartegory: "SOFTWARE DESIGN",
-    content: <CognitiveModeling components={COMPONENTS} />,
-    centered: false,
-    itemType: "post",
-  },*/
   {
     title: "A Practical Introduction to The Event Driven Architecture",
     description:
