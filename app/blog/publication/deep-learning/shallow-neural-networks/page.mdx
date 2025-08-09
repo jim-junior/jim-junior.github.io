@@ -197,11 +197,11 @@ $$
 y_j = \phi_{j0} + \sum_{d=1}^{D} \phi_{jd} h_d
 $$
 
-In summary, the Universal Approximatation Theorem proves that *or any continuous function, there exists a shallow network that can approximate this function to any specified precision.*
+In summary, the Universal Approximatation Theorem proves that *for any continuous function, there exists a shallow network that can approximate this function to any specified precision.*
 
 ### Multivariant Inputs and Outputs
 
-THe above example that we have been working with only has one input and one output. But in the gereal case you will find that, you have a neural network that takes in multiple inputs and predicts multiple outputs. In that case the functional representation changes. Lets take and example of a neural network that has 3 inputs $x=[x_1, x_2, x_3]$ and 3 outputs $y=[y_1, y_2]$, in that case we can represent the hidden units as follows:
+The above example that we have been working with only has one input and one output. But in the gereal case you will find that, you have a neural network that takes in multiple inputs and predicts multiple outputs. In that case the functional representation changes. Lets take and example of a neural network that has 3 inputs $x=[x_1, x_2, x_3]$ and 3 outputs $y=[y_1, y_2]$, in that case we can represent the hidden units as follows:
 
 $$
 h_1 = \text{ReLU}(\theta_{10} + \theta_{11}x_1 + \theta_{12}x_2 + \theta_{13}x_3)
