@@ -7,6 +7,8 @@ const DeepLearningPublication = {
   title: "Understanding Deep Learning",
   description:
     "A series of blog post explaining Different deep learning concepts",
+  longdescritpion:
+    "Personal Notes curated as I study deep learning via the Understanding Deep Learning Book.",
   posts: [
     {
       title: "An Introduction to Supervised Learning",
@@ -36,7 +38,7 @@ const DeepLearningPublication = {
 export const metadata = {
   title: "Understanding Deep Learning | Beingana Jim Junior",
   description:
-    "Explore my deep learning publication, where I delve into the intricacies of neural networks, machine learning algorithms, and their applications in real-world scenarios.",
+    "Personal Notes curated as i study deep learning via the Understanding Deep Learning Book. ",
 };
 
 const PublicationPage = () => {

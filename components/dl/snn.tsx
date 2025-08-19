@@ -369,7 +369,7 @@ const ShallowNN = () => {
           size="sm"
           variant="outlined"
           component="a"
-          href="https://github.com/jim-junior/jim-junior.github.io/blob/main/src/components/dl/snn.tsx"
+          href="https://github.com/jim-junior/jim-junior.github.io/blob/main/components/dl/snn.tsx"
           target="_blank"
           startDecorator={<FaGithub />}
         >
