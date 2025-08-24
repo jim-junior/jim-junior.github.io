@@ -14,7 +14,6 @@ import { SiCncf } from "react-icons/si";
 
 const Header = () => {
   const data = [
-    "am a Software Engineering Student at Makerere University",
     "am a DevOps Engineer",
     "am a Web Developer",
     "am a Technical Writer",
@@ -97,17 +96,6 @@ const Header = () => {
         <Typography
           sx={{
             fontFamily: "monospace",
-            fontStyle: "italic",
-            color: "var(--joy-palette-neutral-500)",
-          }}
-          level="body-lg"
-        >
-          "We are all in the gutter, but some of us are looking to the stars" -
-          Oscar Wilde
-        </Typography>
-        <Typography
-          sx={{
-            fontFamily: "monospace",
           }}
           level="body-lg"
         >
@@ -180,17 +168,6 @@ const Header = () => {
             </IconButton>
           </Link>
         </Box>
-      </Box>
-
-      <Box
-        className="imgcover"
-        sx={{ width: 400, height: 400, borderRadius: 10, ml: "auto" }}
-      >
-        <img
-          src={photo.src}
-          alt="Beingana Jim Junior Profile photo"
-          style={{ width: "100%", height: "100%", objectFit: "cover" }}
-        />
       </Box>
     </Box>
   );
