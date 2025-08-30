@@ -17,8 +17,20 @@ import StepIndicator, { stepIndicatorClasses } from "@mui/joy/StepIndicator";
 import { FaGithub } from "react-icons/fa";
 import { MdLaunch } from "react-icons/md";
 
-const ProjectTimeline = ({ projects }) => {
-  const renderGithubButtons = (github) => {
+const ProjectTimeline = ({
+  projects,
+}: {
+  projects: Array<{
+    name: string;
+    description: string;
+    icon?: string;
+    github?: string | Array<{ name: string; url: string }>;
+    website?: string;
+    stage?: string;
+    startDate: string;
+  }>;
+}) => {
+  const renderGithubButtons = (github: any) => {
     if (!github) return null;
 
     // Handle multiple repositories
@@ -262,7 +274,7 @@ const sampleProjects = [
     description: "A python library for building URL shorteners in Django.",
     github: "https://github.com/jim-junior/django-urlshortner",
     website: null,
-    // No icon - will show default dot
+    icon: null,
   },
   {
     startDate: "Dec 1, 2021",
@@ -294,7 +306,7 @@ const sampleProjects = [
     description: "A React.js library for building media players.",
     github: "https://github.com/jim-junior/reactjs-media",
     website: null,
-    // No icon - will show default dot
+    icon: null,
   },
   {
     startDate: "Dec 2020",
@@ -312,13 +324,17 @@ const sampleProjects = [
       },
     ],
     website: null,
+    icon: null,
   },
 ];
 
 export default function App() {
   return (
     <Box sx={{ minHeight: "100vh", bgcolor: "background.body", py: 4 }}>
-      <ProjectTimeline projects={sampleProjects} />
+      <ProjectTimeline
+        // @ts-ignore
+        projects={sampleProjects}
+      />
     </Box>
   );
 }
