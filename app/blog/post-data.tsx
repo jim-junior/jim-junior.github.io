@@ -211,7 +211,7 @@ export const posts: Array<Post | Publication> = [
     cartegory: "REACT JS",
     itemType: "post",
   },
-  /*{
+  {
     title: "To be continued",
     description: "Coming of age.....",
     date: "2025-07-26",
@@ -221,7 +221,7 @@ export const posts: Array<Post | Publication> = [
     centered: true,
     itemType: "post",
   },
-  {
+  /*{
     title: "Institution, Hierarchy and the myth of Individualism",
     description: "World View...",
     date: "2021-01-28",
