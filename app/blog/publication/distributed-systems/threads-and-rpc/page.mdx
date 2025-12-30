@@ -1,0 +1,50 @@
+# Threads and RPC
+
+In distributed systems, threads and Remote Procedure Calls (RPC) are fundamental concepts that facilitate communication and concurrency across different machines in a network.
+
+
+## Go lang and Threads
+
+Go contains a Gabage collector ans having a gabage collectore in threads is a huge advantage.
+
+Check out the document Effective Go.
+
+Threads in go are called Go routines. On top on a single thread, go also multiplexes and creates virtual threads on top of the single thread.
+
+## Threads
+
+Threads a way to help your program to carry out different things at once.
+
+In a single thread program, you have one execution thread in your program address space. With multiple threads, that address space is separated into multiple stacks. 
+
+### Why use threads
+
+#### I/O Concurrency
+
+This occurs in a scenario when you have multiple I/O operations being carried out by threads in your program. eg once thread is trying to read from the disk, another is trying to make a remote procedure call over a network.
+
+#### Parallelism
+
+To have your program run multiple executions at the same time, forexample if your CPU has multipe cores, you can use threads to ensure maximum usage of all cares.
+
+#### Convenience
+
+Having multiple threads with each doing a specific function rather than having once main thread carring out many acivities at once.
+
+### Thread Challanges
+
+1. Shared Data: Sharing data among threads. for example a global value n is to incremented with command n = n + 1 in 2 threads. if they all call that at the same time, and n was zero, the resultant value of n will be 1 yet it had to be 2. We could use `mutation locks` 
+
+2. Co ordination
+
+In certain scenarios, you would want threads to interact or co ordinate with each other as they carry out a task, for example, on thread might need data that is produced by another thread so it has to wait for the other thread to finish a certain task, meaning it need to have some kind of mechanisim of interacting with the other thread to know its prograss in the task.
+
+Go has a bunch of techniques to help like
+
+- channels, used to share data among go routines
+- conditionals variables
+- wait groups
+
+3. Dead lock
+
+

@@ -1,3 +1,4 @@
+import { Link, Typography } from "@mui/joy";
 import React from "react";
 
 export type Post = {
@@ -21,6 +22,7 @@ export type Publication = {
   itemType: "publication";
   title: string;
   description: string;
+  longdescription?: React.ReactNode;
   posts: Array<Post>;
   hidden?: boolean;
 };
@@ -31,6 +33,27 @@ export const DeepLearningPublication: Publication = {
   title: "Understanding Deep Learning",
   description:
     "A series of blog post explaining Different deep learning concepts",
+  longdescription: (
+    <Typography>
+      Personal Notes curated as I study deep learning using the{" "}
+      <Link
+        href="https://udlbook.github.io/udlbook/"
+        target="_blank"
+        rel="noopener"
+      >
+        Understanding Deep Learning Book
+      </Link>{" "}
+      and Video Lectures from the CMPS 497 Deep Learning Course by Qatar
+      University taught Dr. Tamer Elsayed at:{" "}
+      <Link
+        href="https://youtube.com/playlist?list=PLRdABJkXXytCz19PsZ1PCQBKoZGV069k3&si=Q6hIlF8_ay7Bdxm4"
+        target="_blank"
+        rel="noopener"
+      >
+        https://youtube.com/playlist?list=PLRdABJkXXytCz19PsZ1PCQBKoZGV069k3&si=Q6hIlF8_ay7Bdxm4
+      </Link>
+    </Typography>
+  ),
   posts: [
     {
       title: "An Introduction to Supervised Learning",
@@ -57,8 +80,44 @@ export const DeepLearningPublication: Publication = {
   ],
 };
 
+export const DistributedSystemsPublication: Publication = {
+  id: "distributed-systems",
+  itemType: "publication",
+  title: "Distributed Systems",
+  description:
+    "A series of blog post explaining Different Distributed Systems concepts from the MIT 6.824 Distributed Systems course.",
+  longdescription: (
+    <Typography>
+      Personal Notes curated as I study distributed systems via the MIT 6.824
+      Distributed Systems course. Video Lectures accessible at:
+      <Link
+        href="https://youtube.com/playlist?list=PLrw6a1wE39_tb2fErI4-WkMbsvGQk9_UB&si=499UyzBchMQojAN7"
+        target="_blank"
+        rel="noopener"
+      >
+        https://youtube.com/playlist?list=PLrw6a1wE39_tb2fErI4-WkMbsvGQk9_UB&si=499UyzBchMQojAN7
+      </Link>{" "}
+    </Typography>
+  ),
+  posts: [
+    {
+      title: "Threads in Go",
+      description:
+        "In this article we shall take a look at how Go implements threads using Goroutines and how they compare to traditional threads.",
+      date: "2025-12-29",
+      slug: "threads-and-rpc",
+      image:
+        "https://scaler.com/topics/images/multitasking-and-parallelism.webp",
+      cartegory: "DEEP LEARNING",
+      centered: false,
+      itemType: "post",
+    },
+  ],
+};
+
 export const posts: Array<Post | Publication> = [
   DeepLearningPublication,
+  DistributedSystemsPublication,
   {
     title: "Implementing Resource Versioning in Conveyor CI",
     description: "This article.",

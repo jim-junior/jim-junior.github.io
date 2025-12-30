@@ -53,6 +53,9 @@ export const PublicationDetailPage = ({
           <Typography level="body-lg" sx={{ mb: 3 }}>
             {publication.description}
           </Typography>
+          <Typography level="body-md" sx={{ mb: 3 }}>
+            {publication.longdescription}
+          </Typography>
         </CardContent>
       </Card>
 

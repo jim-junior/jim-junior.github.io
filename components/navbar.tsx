@@ -42,17 +42,6 @@ const Navbar = () => {
       >
         /code👨🏾‍💻
       </Typography>
-      {/* <Typography
-        sx={{
-          fontFamily: "monospace",
-        }}
-        component={Link}
-        to="/cv"
-        color="primary"
-        level="h4"
-      >
-        /cv
-      </Typography> */}
       <Typography
         sx={{
           fontFamily: "monospace",

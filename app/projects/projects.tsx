@@ -224,6 +224,16 @@ const ProjectTimeline = ({
 // Example usage with sample data
 const sampleProjects = [
   {
+    startDate: "December 2025",
+    stage: "Project - Closed Source/Proprietary",
+    name: "Hope Haven Student Grade Analysis Tool",
+    description:
+      "A data analysis tool used by administrators to analyse trends and insights in student grades. Used by Hope Haven Christian School, Rwanda.",
+    github: [],
+    website: "https://hope-haven-report-analysis.cranom.tech",
+    icon: "https://hope-haven-report-analysis.cranom.tech/icon.webp",
+  },
+  {
     startDate: "March 2025",
     stage: "Internship",
     name: "Crane Cloud Mira",

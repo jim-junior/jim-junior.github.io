@@ -1,9 +1,9 @@
 import { Divider } from "@mui/joy";
 import PublicationDetailPage from "@/components/publication";
-import { DeepLearningPublication } from "../../post-data";
+import { DistributedSystemsPublication } from "../../post-data";
 
 export const metadata = {
-  title: "Understanding Deep Learning | Beingana Jim Junior",
+  title: DistributedSystemsPublication.title + " | Beingana Jim Junior",
   description:
     "Personal Notes curated as i study deep learning via the Understanding Deep Learning Book. ",
 };
@@ -12,7 +12,7 @@ const PublicationPage = () => {
   return (
     <>
       <Divider />
-      <PublicationDetailPage publication={DeepLearningPublication} />
+      <PublicationDetailPage publication={DistributedSystemsPublication} />
     </>
   );
 };
