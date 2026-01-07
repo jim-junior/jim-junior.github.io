@@ -226,9 +226,9 @@ const sampleProjects = [
   {
     startDate: "December 2025",
     stage: "Project - Closed Source/Proprietary",
-    name: "Hope Haven Student Grade Analysis Tool",
+    name: "Hope Haven Grade Analysis Platform",
     description:
-      "A data analysis tool used by administrators to analyse trends and insights in student grades. Used by Hope Haven Christian School, Rwanda.",
+      "A Data Analysis Software used by administrators to analyse trends, insights and predictions in student grades and performance. Used by Hope Haven Christian School, Rwanda.",
     github: [],
     website: "https://hope-haven-report-analysis.cranom.tech",
     icon: "https://hope-haven-report-analysis.cranom.tech/icon.webp",
