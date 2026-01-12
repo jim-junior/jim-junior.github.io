@@ -230,7 +230,7 @@ const sampleProjects = [
     description:
       "A Data Analysis Software used by administrators to analyse trends, insights and predictions in student grades and performance. Used by Hope Haven Christian School, Rwanda.",
     github: [],
-    website: "https://hope-haven-report-analysis.cranom.tech",
+    website: "https://www.hopehavenrwanda.org/",
     icon: "https://hope-haven-report-analysis.cranom.tech/icon.webp",
   },
   {
