@@ -1,10 +1,66 @@
 "use client";
-import { Box, Button, Container, Divider, Typography } from "@mui/joy";
+import {
+  Box,
+  Button,
+  Container,
+  CssVarsProvider,
+  Divider,
+  extendTheme,
+  Typography,
+} from "@mui/joy";
 import React from "react";
 import CVContainer from "./cv";
 import { useReactToPrint } from "react-to-print";
 import { useRef } from "react";
 import { FaPrint } from "react-icons/fa";
+
+// Print theme: a theme optimized for printing, font sizes, family, colors, etc.
+const printTheme = extendTheme({
+  typography: {
+    h1: {
+      fontFamily: "'Times New Roman', Times, serif",
+    },
+    h2: {
+      fontFamily: "'Times New Roman', Times, serif",
+    },
+    h3: {
+      fontFamily: "'Times New Roman', Times, serif",
+    },
+    h4: {
+      fontFamily: "'Times New Roman', Times, serif",
+    },
+    "body-lg": {
+      fontFamily: "'Times New Roman', Times, serif",
+    },
+    "body-md": {
+      fontFamily: "'Times New Roman', Times, serif",
+    },
+    "body-sm": {
+      fontFamily: "'Times New Roman', Times, serif",
+    },
+    "body-xs": {
+      fontFamily: "'Times New Roman', Times, serif",
+    },
+    "title-lg": {
+      fontFamily: "'Times New Roman', Times, serif",
+    },
+    "title-md": {
+      fontFamily: "'Times New Roman', Times, serif",
+    },
+    "title-sm": {
+      fontFamily: "'Times New Roman', Times, serif",
+    },
+  },
+  colorSchemes: {
+    light: {
+      palette: {
+        text: {
+          primary: "black",
+        },
+      },
+    },
+  },
+});
 
 const ResumePage = () => {
   const contentRef = useRef<HTMLDivElement>(null);
@@ -33,8 +89,11 @@ const ResumePage = () => {
           </Button>
         </Box>
         <Divider />
+
         <Container ref={contentRef}>
-          <CVContainer />
+          <CssVarsProvider theme={printTheme}>
+            <CVContainer />
+          </CssVarsProvider>
         </Container>
       </Container>
     </>

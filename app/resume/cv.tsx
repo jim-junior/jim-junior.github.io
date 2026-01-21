@@ -10,10 +10,9 @@ const CVContainer = () => {
   return (
     <>
       <Contacts />
-      <Bio />
+      <Education />
       <Skills />
       <WorkExperience />
-      <Education />
       <Articles />
       <ProjectsAndOpenSource />
       <Certifications />

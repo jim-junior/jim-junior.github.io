@@ -117,7 +117,7 @@ export const DistributedSystemsPublication: Publication = {
 
 export const posts: Array<Post | Publication> = [
   DeepLearningPublication,
-  DistributedSystemsPublication,
+  //DistributedSystemsPublication,
   {
     title: "Implementing Resource Versioning in Conveyor CI",
     description: "This article.",

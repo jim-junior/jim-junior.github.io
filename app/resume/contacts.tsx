@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/joy";
 import React from "react";
 import { FaGithub, FaLinkedin, FaPhoneAlt } from "react-icons/fa";
-import { SiGmail } from "react-icons/si";
+import { MdEmail } from "react-icons/md";
 
 const Contacts = () => {
   return (
@@ -33,11 +33,10 @@ const Contacts = () => {
           target="_blank"
           sx={{
             textDecoration: "none",
-            color: "blue",
             mx: 1,
           }}
         >
-          Github
+          github.com/jim-junior
         </Typography>
         <Typography
           startDecorator={<FaLinkedin />}
@@ -46,20 +45,18 @@ const Contacts = () => {
           target="_blank"
           sx={{
             textDecoration: "none",
-            color: "blue",
             mx: 1,
           }}
         >
-          LinkedIn
+          in/jim-junior-beingana
         </Typography>
         <Typography
-          startDecorator={<SiGmail />}
+          startDecorator={<MdEmail />}
           component="a"
           href="mailto:jimjunior854@gmail.com"
           target="_blank"
           sx={{
             textDecoration: "none",
-            color: "blue",
             mx: 1,
           }}
         >
@@ -72,11 +69,10 @@ const Contacts = () => {
           target="_blank"
           sx={{
             textDecoration: "none",
-            color: "blue",
             mx: 1,
           }}
         >
-          +256-704203035
+          +256 768639966
         </Typography>
       </Box>
     </Box>

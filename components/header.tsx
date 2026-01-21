@@ -9,11 +9,11 @@ import {
   FaMedium,
 } from "react-icons/fa";
 import React, { useEffect, useRef, useState } from "react";
-import photo from "@/assets/passport_photo.jpg";
 import { SiCncf } from "react-icons/si";
 
 const Header = () => {
   const data = [
+    "am a Software Engineering Student",
     "am a DevOps Engineer",
     "am a Web Developer",
     "am a Technical Writer",
@@ -22,43 +22,22 @@ const Header = () => {
   const [text, randomText] = useTextDecryption(data);
   return (
     <Box
-      sx={[
-        (theme) => ({
-          position: "relative",
-          minHeight: "100vh",
-          display: "flex",
-          alignItems: "center",
-          py: 1,
-          gap: 2,
-          [theme.breakpoints.up(834)]: {
-            flexDirection: "row",
-            gap: 2,
-          },
-          [theme.breakpoints.up(1199)]: {
-            gap: 2,
-          },
-        }),
-        { flexDirection: "column" },
-      ]}
+      sx={{
+        display: "flex",
+        flexDirection: { xs: "column", md: "row" },
+        alignItems: { xs: "flex-start", md: "center" },
+        justifyContent: "space-between",
+        gap: "2rem",
+        mb: "4rem",
+      }}
     >
       <Box
-        sx={(theme) => ({
+        sx={{
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
           gap: "1rem",
-          maxWidth: "50ch",
-          textAlign: "center",
-          flexShrink: 999,
-          [theme.breakpoints.up(834)]: {
-            minWidth: 420,
-            alignItems: "flex-start",
-            textAlign: "initial",
-          },
-          [`& .${typographyClasses.root}`]: {
-            textWrap: "balance",
-          },
-        })}
+          width: { xs: "100%", md: "40%" },
+        }}
       >
         <Typography
           sx={{
@@ -97,12 +76,19 @@ const Header = () => {
           sx={{
             fontFamily: "monospace",
           }}
-          level="body-lg"
+          level="body-sm"
         >
-          I am also building{" "}
-          <Link href="https://conveyor.open.ug/" target="_blank">
-            Conveyor CI
-          </Link>{" "}
+          I am Software Engineering Student at Makerere University mainly
+          interested in Cloud Infrastructure, Distributed Systems, Web
+          Development and Statistics.
+        </Typography>
+        <Typography
+          sx={{
+            fontFamily: "monospace",
+          }}
+          level="body-sm"
+        >
+          Recently I have also developed a keen interest in Financial Technology
         </Typography>
         <Box
           sx={{
@@ -169,6 +155,19 @@ const Header = () => {
           </Link>
         </Box>
       </Box>
+      {/* RESUME PDF /files/Resume_Beingana_Jim_Junior.pdf */}
+      <Box
+        sx={{
+          width: { xs: "100%", md: "60%" },
+          height: "90vh",
+          border: "1px solid var(--joy-palette-divider)",
+          borderRadius: "8px",
+          boxShadow: "0 2px 12px rgba(0,0,0,0.1)",
+        }}
+        component="iframe"
+        src="/files/Resume_Beingana_Jim_Junior.pdf"
+        title="Resume of Beingana Jim Junior"
+      />
     </Box>
   );
 };
