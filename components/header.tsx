@@ -13,11 +13,11 @@ import { SiCncf } from "react-icons/si";
 
 const Header = () => {
   const data = [
-    "am a Software Engineering Student",
-    "am a DevOps Engineer",
-    "am a Web Developer",
-    "am a Technical Writer",
-    "am an Open Source Contributor",
+    "a Software Engineering Student",
+    "a DevOps Engineer",
+    "a Web Developer",
+    "a Technical Writer",
+    "an Open Source Contributor",
   ];
   const [text, randomText] = useTextDecryption(data);
   return (
@@ -59,7 +59,7 @@ const Header = () => {
             whiteSpace: "nowrap",
           }}
         >
-          I {text}
+          I'm {text}
           <Typography
             sx={{
               background:
@@ -89,6 +89,22 @@ const Header = () => {
           level="body-sm"
         >
           Recently I have also developed a keen interest in Financial Technology
+        </Typography>
+        <Typography
+          sx={{
+            fontFamily: "monospace",
+          }}
+          level="body-sm"
+        >
+          In my free time, I am building{" "}
+          <Typography
+            component={Link}
+            href="https://infralane.cloud"
+            underline="hover"
+            target="_blank"
+          >
+            Infralane
+          </Typography>
         </Typography>
         <Box
           sx={{
