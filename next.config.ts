@@ -7,6 +7,7 @@ import remarkMath from 'remark-math'
 import remarkGFM from "remark-gfm"
 import rehypeKatex from 'rehype-katex'
 import withMarkdoc from "@markdoc/next.js";
+import remarkMermaid from "remark-mermaidjs";
 
 const nextConfig: NextConfig = {
   output: "export",
@@ -20,7 +21,8 @@ const withMDX = createMDX({
   options:{
     remarkPlugins: [
       remarkGFM,
-              remarkMath
+              remarkMath,
+              remarkMermaid
             ],
     rehypePlugins: [
               rehypeKatex, [

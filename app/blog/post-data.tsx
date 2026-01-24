@@ -119,6 +119,17 @@ export const posts: Array<Post | Publication> = [
   DeepLearningPublication,
   //DistributedSystemsPublication,
   {
+    title: "Driver Runtime Software Design Document(SDD) v0.5.0",
+    description:
+      "Conveyor CI Client SDKs/Libraries Software Design Document. This document serves as a reference for implementing Client SDK libraries for Conveyor CI.",
+    date: "2026-01-20",
+    slug: "sdk-software-design-document-v0.5.0",
+    image: "/img/conveyor-ci.png",
+    cartegory: "CLOUD NATIVE",
+    centered: false,
+    itemType: "post",
+  },
+  {
     title: "Implementing Resource Versioning in Conveyor CI",
     description: "This article.",
     date: "2025-08-10",

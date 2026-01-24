@@ -20,6 +20,9 @@ jobs:
       - name: Install dependencies
         uses: bahmutov/npm-install@v1
 
+      - name: Playright install
+        run: npx playwright install
+
       - name: Build project
         run: npm run build
 
