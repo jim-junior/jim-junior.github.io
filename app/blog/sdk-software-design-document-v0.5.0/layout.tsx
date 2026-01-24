@@ -5,13 +5,5 @@ export const metadata = {
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return (
-    <div
-      style={{
-        textAlign: "center",
-      }}
-    >
-      {children}
-    </div>
-  );
+  return <>{children}</>;
 }
