@@ -1,5 +1,7 @@
 # GFS: distributed storage systems(DSS)
 
+> These are personal notes, NOT formal articles
+
 ## WHY IS IT HARD TO BUILD DSS
 
 The main reason people create distributed systems is to get huge aggregate performce of using many servers to get work done.

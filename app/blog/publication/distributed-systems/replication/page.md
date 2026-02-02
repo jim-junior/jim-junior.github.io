@@ -1,5 +1,7 @@
 # Primary Backup Replication
 
+> These are personal notes, NOT formal articles
+
 ## failures
 
 This kind of Replication cannot deal with all types of failuress. It can mainly deal with:

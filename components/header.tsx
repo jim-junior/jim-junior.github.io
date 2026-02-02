@@ -104,6 +104,15 @@ const Header = () => {
             target="_blank"
           >
             Infralane
+          </Typography>{" "}
+          and love going to the{" "}
+          <Typography
+            component={Link}
+            href="https://en.wikipedia.org/wiki/Cinema"
+            underline="hover"
+            target="_blank"
+          >
+            cinema 🎬
           </Typography>
         </Typography>
         <Box

@@ -101,14 +101,38 @@ export const DistributedSystemsPublication: Publication = {
   ),
   posts: [
     {
-      title: "Threads in Go",
+      title: "Lecture 1: Threads and Concurrency",
       description:
-        "In this article we shall take a look at how Go implements threads using Goroutines and how they compare to traditional threads.",
+        "Notes on threads and concurrency from the MIT 6.824 Distributed Systems course.",
       date: "2025-12-29",
       slug: "threads-and-rpc",
       image:
         "https://scaler.com/topics/images/multitasking-and-parallelism.webp",
-      cartegory: "DEEP LEARNING",
+      cartegory: "DISTRIBUTED SYSTEMS",
+      centered: false,
+      itemType: "post",
+    },
+    {
+      title: "Lecture 2: Distributed Storage Systems",
+      description:
+        "Notes on distributed storage systems from the MIT 6.824 Distributed Systems course.",
+      date: "2025-12-29",
+      slug: "gfs-storage-systems",
+      image:
+        "https://scaler.com/topics/images/multitasking-and-parallelism.webp",
+      cartegory: "DISTRIBUTED SYSTEMS",
+      centered: false,
+      itemType: "post",
+    },
+    {
+      title: "Lecture 3: Replication",
+      description:
+        "Notes on replication from the MIT 6.824 Distributed Systems course.",
+      date: "2025-12-29",
+      slug: "replication",
+      image:
+        "https://scaler.com/topics/images/multitasking-and-parallelism.webp",
+      cartegory: "DISTRIBUTED SYSTEMS",
       centered: false,
       itemType: "post",
     },
@@ -117,7 +141,6 @@ export const DistributedSystemsPublication: Publication = {
 
 export const posts: Array<Post | Publication> = [
   DeepLearningPublication,
-  //DistributedSystemsPublication,
   {
     title: "Driver Runtime Software Design Document(SDD) v0.5.0",
     description:
@@ -281,6 +304,7 @@ export const posts: Array<Post | Publication> = [
     cartegory: "REACT JS",
     itemType: "post",
   },
+  DistributedSystemsPublication,
   /*{
     title: "To be continued",
     description: "Coming of age.....",
