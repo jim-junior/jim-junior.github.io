@@ -180,7 +180,7 @@ const Header = () => {
           </Link>
         </Box>
       </Box>
-      {/* RESUME PDF /files/Resume_Beingana_Jim_Junior.pdf */}
+      {/* RESUME PDF /files/Resume_Beingana_Jim_Junior.pdf 
       <Box
         sx={{
           width: { xs: "100%", md: "60%" },
@@ -193,6 +193,7 @@ const Header = () => {
         src="/files/Resume_Beingana_Jim_Junior.pdf"
         title="Resume of Beingana Jim Junior"
       />
+      */}
     </Box>
   );
 };
