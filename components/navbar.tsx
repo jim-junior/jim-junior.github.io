@@ -12,7 +12,7 @@ const Navbar = () => {
       <div className="flex items-center gap-8">
         <div className="hidden md:flex gap-6">
           <a
-            href="/me"
+            href="/"
             className="uppercase tracking-[0.1em] text-[0.6875rem] text-blue-600 dark:text-blue-500 font-bold border-b border-blue-600 transition-colors duration-200"
           >
             /me
