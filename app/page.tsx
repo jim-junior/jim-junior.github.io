@@ -1,5 +1,8 @@
-import { Container } from "@mui/joy";
-import Header from "@/components/header";
+import { About } from "./bio";
+import { Contact } from "./contact";
+import Hero from "./hero";
+import { Hobbies } from "./hobbies";
+import { ProjectSpotlight } from "./spotlight";
 
 export const metadata = {
   title: "Beingana Jim Junior | About Me",
@@ -10,9 +13,11 @@ export const metadata = {
 const Home = () => {
   return (
     <>
-      <Container>
-        <Header />
-      </Container>
+      <Hero />
+      <About />
+      <ProjectSpotlight />
+      <Hobbies />
+      <Contact />
     </>
   );
 };

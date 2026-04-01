@@ -1,6 +1,7 @@
 import React from "react";
 import { RootLayout } from "@/components/root";
 import "katex/dist/katex.min.css";
+import "./global.css";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (

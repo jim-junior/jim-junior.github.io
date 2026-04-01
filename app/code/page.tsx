@@ -1,6 +1,6 @@
 import { Container } from "@mui/joy";
-import Header from "./header";
 import Projects from "./projects";
+import Header from "./header";
 
 export const metadata = {
   title: "Projects | Beingana Jim Junior",
@@ -11,10 +11,8 @@ export const metadata = {
 const ProjectsPage = () => {
   return (
     <>
-      <Container>
-        <Header />
-        <Projects />
-      </Container>
+      <Header />
+      <Projects />
     </>
   );
 };

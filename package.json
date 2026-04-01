@@ -19,13 +19,16 @@
     "@mdx-js/rollup": "^3.0.1",
     "@mui/joy": "^5.0.0-beta.48",
     "@next/mdx": "^15.4.5",
+    "@tailwindcss/postcss": "^4.2.2",
     "@types/mdx": "^2.0.13",
     "axios": "^1.7.7",
     "date-fns": "^4.1.0",
     "firebase": "^10.14.1",
+    "lucide-react": "^1.7.0",
     "mermaid": "^11.12.2",
     "next": "^15.4.5",
     "playwright": "^1.58.0",
+    "postcss": "^8.5.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet-async": "^2.0.5",
@@ -42,7 +45,8 @@
     "remark-gfm": "^4.0.0",
     "remark-math": "^6.0.0",
     "remark-mermaidjs": "^7.0.0",
-    "shiki": "^1.21.0"
+    "shiki": "^1.21.0",
+    "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.64",
