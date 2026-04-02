@@ -8,30 +8,30 @@ export const Contact = () => {
           something precise.
         </h2>
         <a
-          href="mailto:hello@jimjunior.com"
+          href="mailto:beingana.jimjunior@students.mak.ac.ug"
           className="text-[#0053a1] text-xl font-medium hover:underline underline-offset-8 transition-all"
         >
-          hello@jimjunior.com
+          beingana.jimjunior@students.mak.ac.ug
         </a>
       </div>
       <div className="flex gap-6">
         <a
-          href="#"
+          href="https://github.com/jim-junior"
           className="text-[0.6875rem] tracking-widest hover:text-[#0053a1] transition-colors"
         >
           GITHUB
         </a>
         <a
-          href="#"
+          href="https://www.linkedin.com/in/jim-junior-beingana/"
           className="text-[0.6875rem] tracking-widest hover:text-[#0053a1] transition-colors"
         >
           LINKEDIN
         </a>
         <a
-          href="#"
+          href="https://jimjunior.medium.com/"
           className="text-[0.6875rem] tracking-widest hover:text-[#0053a1] transition-colors"
         >
-          TWITTER
+          MEDIUM
         </a>
       </div>
     </section>

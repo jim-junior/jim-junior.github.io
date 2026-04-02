@@ -19,7 +19,7 @@ export const Hobbies = () => {
               When not optimizing clusters, I find solace in{" "}
               <span className="text-[#1a1c1d] font-medium">Cinema</span>. I
               appreciate films that treat cinematography as a technical
-              discipline—where every frame is as deliberate as a line of clean
+              discipline where every frame is as deliberate as a line of clean
               code.
             </p>
           </div>
