@@ -15,21 +15,24 @@ export const ProjectSpotlight = () => {
 
         <div className="lg:w-1/2 z-10">
           <span className="text-[0.6875rem] text-[#0053a1] font-bold tracking-widest mb-6 block uppercase">
-            Project Spotlight
+            In my freetime, I am building...
           </span>
           <h3 className="text-4xl md:text-5xl font-bold mb-8 tracking-tighter">
             Infralane.
           </h3>
           <p className="text-lg text-[#414752] mb-10 max-w-md leading-relaxed">
-            My primary venture into automated infrastructure management.
-            Infralane aims to simplify the deployment lifecycle for distributed
-            applications without sacrificing the control engineers demand.
+            Combining my passion for software engineering and cloud
+            infrastructure, Infralane is a project that aims to simplify the
+            complexities of cloud management. It aims to build a PaaS platform
+            that abstracts away the intricacies of cloud infrastructure,
+            allowing developers to focus on building applications without
+            worrying about the underlying infrastructure.
           </p>
           <a
-            href="#"
+            href="https://www.infralane.cloud"
             className="inline-flex items-center gap-2 text-[0.6875rem] font-bold text-[#0053a1] group"
           >
-            EXPLORE REPOSITORY
+            ACCESS IT ON THE WEB
             <FaArrowRight
               size={16}
               className="transition-transform group-hover:translate-x-1"

@@ -7,25 +7,25 @@ export const About = () => {
       number: "001",
       title: "Cloud Infrastructure",
       description:
-        "Scaling beyond the machine. Specializing in high-availability environments and container orchestration.",
+        "Building the backbone of the internet. Designing and maintaining scalable, reliable, and secure cloud platforms that power modern applications.",
     },
     {
       number: "002",
       title: "Distributed Systems",
       description:
-        "Ensuring consistency and fault tolerance in complex, multi-node environments.",
+        "Building software that can operate at massive scale across multiple machines. Designing systems that are resilient, efficient, and can handle the complexities of distributed computing. Am still a newbie, but it interests me.",
     },
     {
       number: "003",
       title: "Web Development",
       description:
-        "Crafting editorial digital experiences that bridge the gap between technical logic and human interaction.",
+        "The Web has been my playground since I started coding. Not just building websites, but all the complex technologies that go into it.",
     },
     {
       number: "004",
-      title: "Statistics",
+      title: "Statistics, Data Science and Deep Learning",
       description:
-        "The mathematical backbone of engineering. Leveraging data to predict system behavior and performance.",
+        "Exploring the intersection of mathematics, data analysis, and artificial intelligence to build intelligent systems.",
     },
   ];
 
@@ -39,23 +39,33 @@ export const About = () => {
       <div className="lg:col-span-9 space-y-16">
         <div className="max-w-3xl">
           <p className="text-lg leading-relaxed mb-6">
-            My path in engineering began with a curiosity about how data moves
-            through global networks. Currently pursuing my degree at{" "}
-            <span className="font-bold">Makerere University</span>, I've pivoted
-            my focus toward the robustness of distributed architectures.
+            My path in engineering began with a curiosity about how computers
+            worked, at 15, wrote my first piece of code, and never looked back
+            since then. Currently pursuing my degree at{" "}
+            <span className="font-bold">Makerere University</span>, I work on
+            any code base that piques my interest, from open source projects to
+            personal experiments. No matter the field.
           </p>
           <p className="text-lg leading-relaxed">
-            I believe that software is more than code—it's a technical document
-            that should be engineered with the same precision as a physical
-            structure. This philosophy led me to explore{" "}
+            However more specifically, I am interested in buuidling software
+            that powers{" "}
+            <a
+              href="#"
+              className="text-[#0053a1] hover:underline underline-offset-4"
+            >
+              Cloud Infrastructure
+            </a>{" "}
+            and furthermore any comcept that goes into building and maintaining
+            large scale, distributed systems. I am also interested in building
+            software that powers{" "}
             <a
               href="#"
               className="text-[#0053a1] hover:underline underline-offset-4"
             >
               Financial Technology
             </a>
-            , where reliability and performance are not optional, but
-            foundational.
+            , where reliability, correctness and performance are not optional,
+            but foundational.
           </p>
         </div>
 

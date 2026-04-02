@@ -3,20 +3,32 @@ const Hero = () => {
     <header className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-32">
       <div className="lg:col-span-8">
         <p className="text-[#0053a1] font-medium tracking-[0.2em] uppercase mb-4 text-[0.6875rem]">
-          Engineer / Architect / Strategist
+          Software Engineering Student
         </p>
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-tight mb-8">
           /me — <span className="text-[#5d5e60]/20">Beingana</span> Jim Junior.
         </h1>
         <p className="text-xl md:text-2xl font-light text-[#414752] leading-relaxed max-w-2xl">
-          An engineering student at Makerere University specializing in the
-          intersection of{" "}
+          I am a Software Engineering Student at{" "}
+          <a
+            className="text-[#1a1c1d] font-medium underline decoration-[#0053a1]/30 underline-offset-4"
+            href="https://www.mak.ac.ug"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Makerere University
+          </a>{" "}
+          with interests in{" "}
           <span className="text-[#1a1c1d] font-medium underline decoration-[#0053a1]/30 underline-offset-4">
-            Distributed Systems
+            Cloud Computing
+          </span>{" "}
+          ,{" "}
+          <span className="text-[#1a1c1d] font-medium underline decoration-[#0053a1]/30 underline-offset-4">
+            Artificial Intelligence
           </span>{" "}
           and{" "}
           <span className="text-[#1a1c1d] font-medium underline decoration-[#0053a1]/30 underline-offset-4">
-            Financial Technology
+            Open Source Software
           </span>
           .
         </p>

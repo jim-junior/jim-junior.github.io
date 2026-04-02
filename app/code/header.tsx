@@ -13,8 +13,9 @@ const Header = () => {
           Technical Evolution
         </h1>
         <p className="text-lg text-[#414752] max-w-xl leading-relaxed">
-          A chronological trace of distributed systems research, infrastructure
-          design, and technical milestones.
+          A chronological trace of software engineering projects, experiments,
+          and insights that have shaped my journey as a developer. This logbook
+          serves as a window into my technical evolution
         </p>
       </div>
       <div className="hidden lg:block text-right">
