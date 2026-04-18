@@ -1,5 +1,6 @@
 import { Link, Typography } from "@mui/joy";
 import React from "react";
+import her from "../../assets/her.jpg";
 
 export type Post = {
   title: string;
@@ -314,7 +315,7 @@ export const posts: Array<Post | Publication> = [
     cartegory: "a mí",
     centered: true,
     itemType: "post",
-  },
+  } 
   {
     title: "Institution, Hierarchy and the myth of Individualism",
     description: "World View...",
