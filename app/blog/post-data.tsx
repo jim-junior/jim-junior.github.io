@@ -143,6 +143,17 @@ export const DistributedSystemsPublication: Publication = {
 export const posts: Array<Post | Publication> = [
   DeepLearningPublication,
   {
+    title: "Understanding the OCI Runtime Architecture and Lifecycle",
+    description:
+      "In this article, we will explore the OCI Runtime Architecture and Lifecycle. We will cover the different components of the OCI runtime, how they interact with each other, and the lifecycle of a container.",
+    date: "2026-05-06",
+    slug: "understanding-the-oci-runtime-architecture-and-lifecycle",
+    image: "/img/oci-banner.png",
+    cartegory: "CLOUD NATIVE",
+    centered: false,
+    itemType: "post",
+  },
+  {
     title: "Driver Runtime Software Design Document(SDD) v0.5.0",
     description:
       "Conveyor CI Client SDKs/Libraries Software Design Document. This document serves as a reference for implementing Client SDK libraries for Conveyor CI.",
