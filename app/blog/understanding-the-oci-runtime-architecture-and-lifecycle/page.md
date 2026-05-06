@@ -18,3 +18,108 @@ The OCI Runtime Specification is a set of rules and standards that define how a 
 - urunc: Another early stage container runtime that allows you to run unikernels as containers.
 
 This specification focuses on three primary areas whih are the Filesystem Bundle, Configuration and Container Lifecycle.
+
+### Filesystem Bundle
+
+The filesystem bundle is the unpacked container data and configuration. The specification defines a standard format that should be followed when storing a container and its data on disk. The spec expects you to have a configuration file `config.json` and the containers root file system `rootfs` in a single directory at the top level. The root file system directory is referenced within the `config.json` file via the `root.path` configuration variable. The final bubdle structure is expected to look similar to this:
+
+```sh
+my-bundle/
+├── config.json
+└── rootfs/
+    ├── bin/
+    ├── lib/
+    └── ...
+```
+
+### Configuration
+
+The configuration is stored in the erlier mentioned `config.json` and it consists of metadata that defines how the Container Runtime will run the container. It is stored in json format and detailed JSON schema can be found in the [official schema config](https://github.com/opencontainers/runtime-spec/blob/main/schema/config-schema.json). However we shall look at the common important configuration fields. These include:
+
+1. Specification version
+
+This is a required field that defines what OCI Runtime specification version is being used. denoted by `ociVersion` and accepts a SemVer format value.
+
+2. Root
+
+The `root` field as metioned above is used to specifiy the path to the root file system of the container. It is an object has two values, `path` and `readonly`. Path specifies the path to the path to the root file system and can be either absolute or relative to `config.json`. The `readonly` field is used to specify whether the filesystem should be readonly in the container, THis field is not required in windows containers.
+
+3. Process
+
+The next important field is the `process` field. This is an object that contains configurations about the runtime process of the container and how it will be triggered and run. It contains child values that include `env` that tores an array of environment variables that will be used when running the container process. `cwd` this specifies the current working directory that the process will be run in. `args` stores and array of the process command and its arguments that will be run eg `python manage.py runserver` will be `["python", "manage.py", "runserver"]`. Another important one is the `user` object that contains the configuration values of the user and group that will be used to run the process in the container.
+
+4. Hooks
+
+Hooks are one other important configuration value that is stored in the `config.json`. It contains definitions of standard hooks that will be run at the different stages of the Runtime lifecycle(We shall look at it below). The list of hooks that are used include that following, `prestart`, `createRuntime`, `createContainer`, `startContainer`, `poststart` and `poststop`. We shall look at when each is triggered in the Runtime Lifecycle section.
+
+Other fields such as Annotaions, Hostname, Domainnamme and mounts also exist, you can check them out in the [OCI Runtime Specification Document](https://github.com/opencontainers/runtime-spec/blob/main/config.md)
+
+A `config.json` file is expected to look something similar to this:
+
+```json
+{
+    "ociVersion": "1.0.1",
+    "process": {
+        "terminal": true,
+        "user": {
+            "uid": 1,
+            "gid": 1,
+            "additionalGids": [
+                5,
+                6
+            ]
+        },
+        "args": [
+            "sh"
+        ],
+        "env": [
+            "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+            "TERM=xterm"
+        ],
+        "cwd": "/",
+    },
+    "root": {
+        "path": "rootfs",
+        "readonly": true
+    },
+    "hostname": "slartibartfast",
+    "hooks": {
+        "prestart": [
+            {
+                "path": "/usr/bin/fix-mounts",
+                "args": [
+                    "fix-mounts",
+                    "arg1",
+                    "arg2"
+                ],
+                "env": [
+                    "key1=value1"
+                ]
+            },
+            {
+                "path": "/usr/bin/setup-network"
+            }
+        ],
+        "poststart": [
+            {
+                "path": "/usr/bin/notify-start",
+                "timeout": 5
+            }
+        ],
+        "poststop": [
+            {
+                "path": "/usr/sbin/cleanup.sh",
+                "args": [
+                    "cleanup.sh",
+                    "-f"
+                ]
+            }
+        ]
+    },
+
+  // other fields too
+}
+```
+
+### Lifecycle
+
