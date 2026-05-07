@@ -143,7 +143,8 @@ export const DistributedSystemsPublication: Publication = {
 export const posts: Array<Post | Publication> = [
   DeepLearningPublication,
   {
-    title: "Understanding the OCI Runtime Architecture and Lifecycle",
+    title:
+      "Understanding OCI Runtimes: containerd, Shims, and the Container Lifecycle",
     description:
       "In this article, we will explore the OCI Runtime Architecture and Lifecycle. We will cover the different components of the OCI runtime, how they interact with each other, and the lifecycle of a container.",
     date: "2026-05-06",

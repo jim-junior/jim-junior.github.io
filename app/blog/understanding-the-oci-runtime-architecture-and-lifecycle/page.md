@@ -1,23 +1,23 @@
-# Understanding the OCI Runtime Architecture and Lifecycle
+# Understanding OCI Runtimes: containerd, Shims, and the Container Lifecycle
 
 ![](/img/oci-banner.png)
 
-"it works on my machine" is a phrase that was once common in the Software Engineering World. It often was used in situtations where teams of multiple people where working on a project and often faced incompatability issues as the software project was used across different mochine environments.
+"it works on my machine" is a phrase that was once common in the Software Engineering World. It often was used in situtations where teams of multiple people were working on a project and often faced incompatability issues as the software project was used across different machine environments.
 
-As DevOps became more standardised, it brought a necessity of having a standard way to package software applications that allowed them to be used accross different machine configurations. This led to the birth of "containers". However, for a while there where multiple continer technologies such as Docker, rkt, Warden, LXC. To solve this, a bunch of industry leaders decided to come together and decided to draft a standardized specification for containers which resulted into The Open Container Initiative.
+As DevOps became more standardised, it brought a necessity of having a standard way to package software applications that allowed them to be used accross different machine configurations. This led to the birth of "containers". However, for a while there where multiple continer technologies such as Docker, rkt, Warden, LXC. To solve this, a bunch of industry leaders decided to come together and decided to draft a standardized specification for containers which resulted into [The Open Container Initiative](https://opencontainers.org/).
 
 There are currently three OCI specifications in development and use: the Runtime Specification (runtime-spec), the Image Specification (image-spec), and the Distribution Specification (distribution-spec). This article will focus on the Runtime Spec
 
 ## The OCI Runtime Specification
 
-The OCI Runtime Specification is a set of rules and standards that define how a container should be run after its unpacked from an image. It follows the Image Spec that defines how software should be packaged into containers. The Runtime Spec is impelemented by what are called container runtimes. And each often has it own advantage over the other. Notable Container runtimes include:
+The OCI Runtime Specification is a set of rules and standards that define how a container should be run after it is unpacked from an image. It follows the Image Spec that defines how software should be packaged into containers. The Runtime Spec is implemented by what are called **OCI runtimes**. And each often has it own advantage over the other. Notable OCI runtimes include:
 
 - `runc`: The most popular runtime which was originally donated by Docker to serve as the industry's reference standard
 - Kata Containers: Uses lightweight VMs for stronger isolation.
 - gVisor: Provides a sandboxed kernel for enhanced security
-- urunc: Another early stage container runtime that allows you to run unikernels as containers.
+- urunc: Another early stage OCI runtime that allows you to run unikernels as containers.
 
-This specification focuses on three primary areas whih are the Filesystem Bundle, Configuration and Container Lifecycle.
+This specification focuses on three primary areas which are the Filesystem Bundle, Configuration and Container Lifecycle.
 
 ### Filesystem Bundle
 
@@ -34,7 +34,7 @@ my-bundle/
 
 ### Configuration
 
-The configuration is stored in the erlier mentioned `config.json` and it consists of metadata that defines how the Container Runtime will run the container. It is stored in json format and detailed JSON schema can be found in the [official schema config](https://github.com/opencontainers/runtime-spec/blob/main/schema/config-schema.json). However we shall look at the common important configuration fields. These include:
+The configuration is stored in the erlier mentioned `config.json` and it consists of metadata that defines how the OCI runtime will run the container. It is stored in json format and detailed JSON schema can be found in the [official schema config](https://github.com/opencontainers/runtime-spec/blob/main/schema/config-schema.json). However we shall look at the common important configuration fields. These include:
 
 1. Specification version
 
@@ -123,7 +123,7 @@ A `config.json` file is expected to look something similar to this:
 
 ### Lifecycle and Standard Operations
 
-The Specification defines a standard lifecycle that containers are supposed to follow though out their existance and execution by the container runtime.
+The Specification defines a standard lifecycle that containers are supposed to follow though out their existance and execution by the OCI runtime.
 
 At the core, the container has state that defines different properties of the container at a certain point in the lifecycle. This state defines properties like the container ID, status, Process ID, Bundle Path and annotations. It will often look like this
 
@@ -197,3 +197,102 @@ The lifecycle describes the timeline of events that happen from when a container
 ![](/img/oci-lifecyle.png)
 
 ## The Architecture: Shim-v2 and the Communication Flow
+
+Having looked at the OCI runtime specification. Lets now look at how its works in real life from when you run a command like `docker run ....` or start a container in a Kubernetes Pod.
+
+The communication flow from when you run a command to create or start a container to the actual program that starts the container is composed of multiple layers. This assuming you are using a command line tool like `nerdctl` the communication flow will be as follows:
+
+```sh
+Client (ctr / nerdctl / Kubernetes): The client you interact with
+    ↓
+containerd: The High level manager or container runtime daemon
+    ↓
+containerd-shim: runtime shim
+    ↓
+runc: OCI runtime
+```
+
+Before continuing, it is important to understand the distinction between these terms:
+
+- Docker / nerdctl / Kubernetes → user-facing tools
+- `containerd` → high-level container manager
+- OCI Runtime (runc, crun, kata) → low-level runtime that actually creates containers
+- OCI Runtime Specification → the standard runtimes must follow
+
+The OCI Runtime Specification is not software itself. It is a contract that runtimes implement.
+
+In the above layout, you can notice that components are split up into multiple layers, this comes with many advantages and also improves isolation. lets look at layer by layer and what its role is.
+
+### containerd
+
+This is a long running process or deamon that is in charge of managing containers at a high level. Its the program that your Client interacts with when you run a command to interact with the container. `containerd` exposes and API that clients can interact with. 
+
+It is incharge of carrying out functions like:
+
+- image pulling/unpacking
+- snapshots/filesystems
+- container metadata
+- lifecycle management
+- networking integration hooks
+- task supervision
+- CRI integration for Kubernetes
+
+However, when it comes to the function of creating the actual container process. It delegates this task to the OCI runtimes like `runc`, `urunc` and Kata containers etc.
+
+However, even `containerd` does not interact directly with the OCI runtime, It rather leaves this task to a specific layer called the `containerd-shim`.
+
+### The Shim
+
+The `containerd-shim` is the middleman between the OCI runtime and `containerd`, its often OCI runtime-specific meaning, there is no single shim program for all OCI runtimes. They are often named following the `containerd-shim-<runtime>-v2` pattern e.g `containerd-shim-runc-v2`.
+
+Historically in `shim-v1`, the shim was mantained by the `containerd` mantainers but as containers and OCI runtimes became more complex and robust handling different concerns. The shim had to be split and each OCI runtime was left to impelement its own shim. The only shim mantained by the `containerd` mantainers is the `containerd-shim-runc-v2` since its an industry standard.
+
+This spliting of the shim from the main containerd process means even if `containerd` crashes, or restarts. The containers will not also crash or stop but rather continue running.
+
+The main roles of the shim include:
+
+- Launching OCI runtime binaries, i.e calling the `create/start/delete container` commands.
+- Reconnecting containers after daemon restart
+- Reporting events, state and metrics
+- Supervising Containers
+- managing stdio pipes
+- process reaping
+- checkpoint coordination
+
+etc.
+
+### OCI runtime
+
+The shim guaranties that the OCI runtimes focuses on ensuring the OCI specification is met. This means that the OCI runtime has to focus on exposing the commands states in the spec which are `create/start/delete container`. Implying that the OCI runtime is NOT a deamon but rather a commandline program that is called by the shim to run those commands and exists after a command is run.
+
+### containerd Plugin Architecture
+
+As mentioned before, the OCI specification is just a standard or contract for containers and there are multiple types of OCI runtimes. And `containerd` ensures to be as modular as possible to be able to support any runtime that respects the OCI runtime specification.
+
+To make this possible, `containerd` uses a plugin model, where, runtimes, CRIs and other dependencies can be configured dynamically as plugins. Almost everything inside it is a plugin, even core functionality.
+
+Instead of being one large hardcoded system, `containerd` is more like the plugin manager combined + API + dependency graph. At startup it loads the plugins, resolve the dependencies and initializes their services.
+
+The plugins come in different types and some include:
+
+| Plugin Type | Purpose                  |
+| ----------- | ------------------------ |
+| Content     | image layer storage      |
+| Snapshotter | filesystem layers        |
+| Runtime     | container execution      |
+| Metadata    | container/image metadata |
+| GRPC        | API services             |
+| CRI         | Kubernetes integration   |
+| Diff        | filesystem diffing       |
+| Event       | pub/sub events           |
+| Task        | process lifecycle        |
+
+Plugins are configured in the `/etc/containerd/config.toml` and you can read more about the plugin model in the [containerd Plugin documentation](https://github.com/containerd/containerd/blob/main/docs/PLUGINS.md)
+
+## Beyond Containers
+
+This standardisation of the OCI runtime and the plugable nature of its other components has led to new amazing kinds of runtimes that go beyond just containers. These runtimes now use this specification to solve different needs in the cloud native ecosystem.
+
+Some amazing OCI runtimes to look out for that solve special needs include `urunc`, a runtime that focuses on uniKernels, Kata Containers, this focuses on lightweight Virtual machines, and new runtimes that are enabling execution of WebAssembly modules.
+
+Thats it for today, you can always check out the formal detail OCI Runtime Specification and the ither two specifications at [opencontainers.org](https://opencontainers.org/)
