@@ -20,7 +20,7 @@ const Hero = () => {
           </a>{" "}
           with interests in{" "}
           <span className="text-[#1a1c1d] font-medium underline decoration-[#0053a1]/30 underline-offset-4">
-            Cloud Computing
+            Cloud Computing and Linux System Research
           </span>{" "}
           ,{" "}
           <span className="text-[#1a1c1d] font-medium underline decoration-[#0053a1]/30 underline-offset-4">

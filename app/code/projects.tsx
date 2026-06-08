@@ -10,6 +10,15 @@ import {
 
 export const sampleProjects = [
   {
+    startDate: "June 2026",
+    stage: "Internship",
+    name: "CNCF LFX Mentee - urunc Project",
+    description: "",
+    github: [],
+    website: "https://www.hopehavenrwanda.org/",
+    icon: "https://analysis.hopehaven.cranom.tech/icon.webp",
+  },
+  {
     startDate: "December 2025",
     stage: "Project - Closed Source/Proprietary",
     name: "Hope Haven Grade Analysis Platform",
