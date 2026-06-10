@@ -12,11 +12,25 @@ export const sampleProjects = [
   {
     startDate: "June 2026",
     stage: "Internship",
-    name: "CNCF LFX Mentee - urunc Project",
+    name: "LFX Mentee - urunc Project",
+    description: "",
+    github: [
+      {
+        name: "Repository",
+        url: "https://github.com/urunc-dev/urunc",
+      },
+    ],
+    website: "https://urunc.io/",
+    icon: "https://urunc.io/assets/images/urunc-logo-light.svg",
+  },
+  {
+    startDate: "June 2026",
+    stage: "Internship",
+    name: "SWE Intern - Sunbird AI",
     description: "",
     github: [],
-    website: "https://www.hopehavenrwanda.org/",
-    icon: "https://analysis.hopehaven.cranom.tech/icon.webp",
+    website: "https://sunbird.ai/",
+    icon: "/img/sunbird.jpg",
   },
   {
     startDate: "December 2025",
