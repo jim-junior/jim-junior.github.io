@@ -24,19 +24,31 @@ const Navbar = () => {
               href="/"
               className="uppercase tracking-[0.1em] text-[0.6875rem] text-blue-600 dark:text-blue-500 font-bold border-b border-blue-600 transition-colors duration-200"
             >
-              /me
+              ABOUT
             </a>
             <a
-              href="/code"
+              href="/experience"
               className="uppercase tracking-[0.1em] text-[0.6875rem] text-zinc-500 dark:text-zinc-400 hover:text-blue-600 transition-colors duration-200"
             >
-              /code
+              EXPERIENCE
             </a>
             <a
               href="/blog"
               className="uppercase tracking-[0.1em] text-[0.6875rem] text-zinc-500 dark:text-zinc-400 hover:text-blue-600 transition-colors duration-200"
             >
-              /blog
+              PROJECTS
+            </a>
+            <a
+              href="/blog"
+              className="uppercase tracking-[0.1em] text-[0.6875rem] text-zinc-500 dark:text-zinc-400 hover:text-blue-600 transition-colors duration-200"
+            >
+              BLOG
+            </a>
+            <a
+              href="/blog"
+              className="uppercase tracking-[0.1em] text-[0.6875rem] text-zinc-500 dark:text-zinc-400 hover:text-blue-600 transition-colors duration-200"
+            >
+              NOTES
             </a>
           </div>
 

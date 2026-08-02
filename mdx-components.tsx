@@ -1,906 +1,434 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import {
-  Typography,
-  Link,
-  Box,
-  Table,
-  List,
-  ListItem,
-  ListItemDecorator,
-  Divider,
-  Chip,
-  Card,
-  CardContent,
-  AccordionGroup,
-  Accordion,
-  AccordionSummary,
-  ListItemContent,
-} from "@mui/joy";
-import { MdFiberManualRecord } from "react-icons/md";
+import type { ComponentPropsWithoutRef } from "react";
 import type { MDXComponents } from "mdx/types";
 
+type CodeProps = ComponentPropsWithoutRef<"code"> & {
+  "data-language"?: string;
+};
+
+const cn = (...classes: Array<string | undefined>) =>
+  classes.filter(Boolean).join(" ");
+
 const COMPONENTS: MDXComponents = {
-  // Headings - Enhanced with better typography scale
-  h1: (props: any) => (
-    <Typography
-      sx={{
-        my: 4,
-        textAlign: "center",
-        fontSize: "clamp(2rem, 5vw, 3rem)",
-        fontFamily: "charter, serif",
-        fontWeight: "bold",
-        color: "var(--joy-palette-primary-700)",
-        //backgroundClip: "text",
-        //WebkitBackgroundClip: "text",
-        //WebkitTextFillColor: "transparent",
-        letterSpacing: "-0.02em",
-      }}
-      level="h1"
-      component="h1"
+  h1: ({ className, ...props }: ComponentPropsWithoutRef<"h1">) => (
+    <h1
+      className={cn(
+        "mb-8 mt-2 text-balance text-3xl font-bold leading-[1.12] tracking-[-0.035em] text-slate-950 sm:text-4xl",
+        "[font-family:'Space_Grotesk',ui-sans-serif,system-ui,sans-serif]",
+        className,
+      )}
       {...props}
     />
   ),
-  h2: (props: any) => (
-    <Typography
-      level="h2"
-      sx={{
-        my: 3,
-        fontSize: "clamp(1.5rem, 4vw, 2.25rem)",
-        fontFamily: "charter, serif",
-        fontWeight: "600",
-        borderBottom: "2px solid var(--joy-palette-divider)",
-        pb: 1,
-        letterSpacing: "-0.01em",
-      }}
-      component="h2"
+  h2: ({ className, ...props }: ComponentPropsWithoutRef<"h2">) => (
+    <h2
+      className={cn(
+        "mb-4 mt-12 scroll-mt-28 border-b border-slate-200 pb-3 text-2xl font-semibold leading-tight tracking-[-0.025em] text-slate-900 sm:text-[1.75rem]",
+        "[font-family:'Space_Grotesk',ui-sans-serif,system-ui,sans-serif]",
+        className,
+      )}
       {...props}
     />
   ),
-  h3: (props: any) => (
-    <Typography
-      level="h3"
-      sx={{
-        my: 2.5,
-        fontSize: "clamp(1.25rem, 3vw, 1.875rem)",
-        fontFamily: "charter, serif",
-        fontWeight: "600",
-        color: "var(--joy-palette-primary-600)",
-      }}
-      component="h3"
+  h3: ({ className, ...props }: ComponentPropsWithoutRef<"h3">) => (
+    <h3
+      className={cn(
+        "mb-3 mt-9 scroll-mt-28 text-xl font-semibold leading-snug tracking-[-0.018em] text-slate-900 sm:text-[1.375rem]",
+        "[font-family:'Space_Grotesk',ui-sans-serif,system-ui,sans-serif]",
+        className,
+      )}
       {...props}
     />
   ),
-  h4: (props: any) => (
-    <Typography
-      level="h4"
-      sx={{
-        my: 2,
-        fontSize: "clamp(1.125rem, 2.5vw, 1.5rem)",
-        fontFamily: "charter, serif",
-        fontWeight: "500",
-      }}
-      component="h4"
+  h4: ({ className, ...props }: ComponentPropsWithoutRef<"h4">) => (
+    <h4
+      className={cn(
+        "mb-2 mt-7 scroll-mt-28 text-lg font-semibold leading-snug text-slate-900",
+        "[font-family:'Space_Grotesk',ui-sans-serif,system-ui,sans-serif]",
+        className,
+      )}
       {...props}
     />
   ),
-  h5: (props: any) => (
-    <Typography
-      level="h5"
-      sx={{
-        my: 1.5,
-        fontSize: "clamp(1rem, 2vw, 1.25rem)",
-        fontFamily: "charter, serif",
-        fontWeight: "500",
-      }}
-      component="h5"
+  h5: ({ className, ...props }: ComponentPropsWithoutRef<"h5">) => (
+    <h5
+      className={cn(
+        "mb-2 mt-6 text-base font-semibold uppercase tracking-[0.04em] text-slate-800",
+        "[font-family:'Space_Grotesk',ui-sans-serif,system-ui,sans-serif]",
+        className,
+      )}
       {...props}
     />
   ),
-  h6: (props: any) => (
-    <Typography
-      level="h6"
-      sx={{
-        my: 1,
-        fontSize: "clamp(0.875rem, 1.5vw, 1.125rem)",
-        fontFamily: "charter, serif",
-        fontWeight: "500",
-        color: "var(--joy-palette-text-secondary)",
-      }}
-      component="h6"
+  h6: ({ className, ...props }: ComponentPropsWithoutRef<"h6">) => (
+    <h6
+      className={cn(
+        "mb-2 mt-6 text-sm font-semibold uppercase tracking-[0.08em] text-slate-600",
+        "[font-family:'Space_Grotesk',ui-sans-serif,system-ui,sans-serif]",
+        className,
+      )}
       {...props}
     />
   ),
 
-  // Text elements - Enhanced
-  p: (props: any) => (
-    <Typography
-      sx={{
-        my: 1.5,
-        width: "100%",
-        fontFamily: "charter, serif",
-        lineHeight: 1.7,
-        fontSize: "1.125rem",
-        textAlign: "inherit",
-        hyphens: "auto",
-      }}
-      level="body-lg"
+  p: ({ className, ...props }: ComponentPropsWithoutRef<"p">) => (
+    <p
+      className={cn(
+        "my-5 text-[1.0625rem] leading-[1.8] text-slate-700 sm:text-lg",
+        className,
+      )}
       {...props}
     />
   ),
+  a: ({ className, href, ...props }: ComponentPropsWithoutRef<"a">) => {
+    const isExternal = href?.startsWith("http://") || href?.startsWith("https://");
 
-  // Links - Enhanced with better hover effects
-  a: (props: any) => (
-    <Link target="_blank" rel="noopener noreferrer" {...props} />
-  ),
-
-  // Emphasis and strong
-  em: (props: any) => (
-    <em
-      style={{
-        fontStyle: "italic",
-        fontFamily: "charter, serif",
-      }}
-      {...props}
-    />
-  ),
-  strong: (props: any) => (
-    <Typography
-      component="strong"
-      sx={{
-        fontWeight: "bold",
-        display: "inline-block",
-        fontFamily: "charter, serif",
-        color: "var(--joy-palette-primary-600)",
-      }}
-      {...props}
-    />
-  ),
-
-  // Strike through and underline
-  s: (props: any) => (
-    <Typography
-      component="s"
-      sx={{
-        textDecoration: "line-through",
-        color: "var(--joy-palette-text-secondary)",
-      }}
-      {...props}
-    />
-  ),
-  u: (props: any) => (
-    <Typography
-      component="u"
-      sx={{
-        textDecoration: "underline",
-        textUnderlineOffset: "3px",
-      }}
-      {...props}
-    />
-  ),
-
-  // Mark/highlight
-  mark: (props: any) => (
-    <Typography
-      component="mark"
-      sx={{
-        backgroundColor: "var(--joy-palette-warning-100)",
-        color: "var(--joy-palette-warning-800)",
-        padding: "0.1em 0.2em",
-        borderRadius: "2px",
-      }}
-      {...props}
-    />
-  ),
-
-  // Small text
-  small: (props: any) => (
-    <Typography
-      component="small"
-      sx={{
-        fontSize: "0.85em",
-        color: "var(--joy-palette-text-secondary)",
-      }}
-      {...props}
-    />
-  ),
-
-  // Subscript and superscript
-  sub: (props: any) => (
-    <Typography
-      component="sub"
-      sx={{
-        fontSize: "0.75em",
-        verticalAlign: "sub",
-      }}
-      {...props}
-    />
-  ),
-  sup: (props: any) => (
-    <Typography
-      component="sup"
-      sx={{
-        fontSize: "0.75em",
-        verticalAlign: "super",
-      }}
-      {...props}
-    />
-  ),
-
-  // Abbreviation
-  abbr: (props: any) => (
-    <Typography
-      component="abbr"
-      sx={{
-        textDecoration: "underline dotted",
-        cursor: "help",
-        borderBottom: "1px dotted var(--joy-palette-text-secondary)",
-      }}
-      {...props}
-    />
-  ),
-
-  // Lists - Enhanced with better styling
-  ul: (props: any) => (
-    <List
-      sx={{
-        my: 2,
-        pl: 0,
-        "--List-gap": "0.5rem",
-      }}
-      {...props}
-    />
-  ),
-  ol: (props: any) => (
-    <List
-      sx={{
-        my: 2,
-        pl: 0,
-        "--List-gap": "0.5rem",
-        counterReset: "ordered-list",
-      }}
-      component="ol"
-      {...props}
-    />
-  ),
-  li: (props: any) => {
-    const isOrdered =
-      props.node?.tagName === "li" && props.node?.parent?.tagName === "ol";
     return (
-      <ListItem
-        sx={{
-          fontFamily: "charter, serif",
-          fontSize: "1.125rem",
-          lineHeight: 1.6,
-          pl: 1,
-          ...(isOrdered && {
-            counterIncrement: "ordered-list",
-            "&::before": {
-              content: "counter(ordered-list) '.'",
-              fontWeight: "bold",
-              color: "var(--joy-palette-primary-500)",
-              minWidth: "1.5em",
-              mr: 1,
-            },
-          }),
-        }}
-        {...props}
-      >
-        {!isOrdered && (
-          <ListItemDecorator sx={{ minInlineSize: "1.5em" }}>
-            <MdFiberManualRecord
-              style={{
-                fontSize: "0.5em",
-                color: "var(--joy-palette-primary-500)",
-              }}
-            />
-          </ListItemDecorator>
+      <a
+        href={href}
+        className={cn(
+          "font-medium text-blue-700 underline decoration-blue-300 decoration-1 underline-offset-[3px] transition-colors hover:text-blue-900 hover:decoration-blue-600 focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600",
+          className,
         )}
-        <ListItemContent>{props.children}</ListItemContent>
-      </ListItem>
-    );
-  },
-
-  // Definition lists
-  dl: (props: any) => (
-    <Box
-      component="dl"
-      sx={{
-        my: 2,
-        fontFamily: "charter, serif",
-      }}
-      {...props}
-    />
-  ),
-  dt: (props: any) => (
-    <Typography
-      component="dt"
-      sx={{
-        fontWeight: "bold",
-        mt: 1,
-        mb: 0.5,
-        color: "var(--joy-palette-primary-600)",
-      }}
-      {...props}
-    />
-  ),
-  dd: (props: any) => (
-    <Typography
-      component="dd"
-      sx={{
-        ml: 2,
-        mb: 1,
-        fontStyle: "italic",
-        color: "var(--joy-palette-text-secondary)",
-      }}
-      {...props}
-    />
-  ),
-
-  // Blockquote - Enhanced
-  blockquote: (props: any) => (
-    <Card
-      variant="soft"
-      sx={{
-        my: 3,
-        mx: 2,
-        borderLeft: "4px solid var(--joy-palette-primary-500)",
-        borderRadius: "0 8px 8px 0",
-        background: "var(--joy-palette-background-level1)",
-      }}
-      {...props}
-    >
-      <CardContent sx={{ py: 2 }}>
-        <Typography
-          sx={{
-            fontStyle: "italic",
-            fontFamily: "charter, serif",
-            fontSize: "1.125rem",
-            lineHeight: 1.6,
-            color: "var(--joy-palette-text-secondary)",
-            "&::before": {
-              content: '"❝"',
-              fontSize: "1.5em",
-              color: "var(--joy-palette-primary-400)",
-              marginRight: "0.5rem",
-            },
-          }}
-          level="body-lg"
-        >
-          {props.children}
-        </Typography>
-      </CardContent>
-    </Card>
-  ),
-
-  // Code blocks - Enhanced
-
-  pre: (props: any) => {
-    return (
-      <Box
-        component={"pre"}
-        sx={{
-          my: 2,
-          p: 2,
-          borderRadius: 5,
-          fontSize: "0.875rem",
-          backgroundColor: "#0d1117",
-          fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
-          overflow: "auto",
-          "& code": {
-            fontSize: "inherit",
-            fontFamily: "inherit",
-            //color: "inherit",
-            //background: "none",
-            padding: 0,
-          },
-        }}
+        target={isExternal ? "_blank" : undefined}
+        rel={isExternal ? "noopener noreferrer" : undefined}
         {...props}
       />
     );
   },
+  em: ({ className, ...props }: ComponentPropsWithoutRef<"em">) => (
+    <em className={cn("italic text-slate-800", className)} {...props} />
+  ),
+  strong: ({ className, ...props }: ComponentPropsWithoutRef<"strong">) => (
+    <strong className={cn("font-bold text-slate-900", className)} {...props} />
+  ),
+  s: ({ className, ...props }: ComponentPropsWithoutRef<"s">) => (
+    <s className={cn("text-slate-500", className)} {...props} />
+  ),
+  u: ({ className, ...props }: ComponentPropsWithoutRef<"u">) => (
+    <u className={cn("decoration-slate-400 underline-offset-4", className)} {...props} />
+  ),
+  mark: ({ className, ...props }: ComponentPropsWithoutRef<"mark">) => (
+    <mark
+      className={cn(
+        "rounded-sm bg-amber-100 px-1 py-0.5 text-amber-950",
+        className,
+      )}
+      {...props}
+    />
+  ),
+  small: ({ className, ...props }: ComponentPropsWithoutRef<"small">) => (
+    <small className={cn("text-sm leading-relaxed text-slate-500", className)} {...props} />
+  ),
+  sub: ({ className, ...props }: ComponentPropsWithoutRef<"sub">) => (
+    <sub className={cn("text-[0.75em]", className)} {...props} />
+  ),
+  sup: ({ className, ...props }: ComponentPropsWithoutRef<"sup">) => (
+    <sup className={cn("text-[0.75em]", className)} {...props} />
+  ),
+  abbr: ({ className, ...props }: ComponentPropsWithoutRef<"abbr">) => (
+    <abbr
+      className={cn(
+        "cursor-help decoration-dotted underline-offset-4",
+        className,
+      )}
+      {...props}
+    />
+  ),
 
-  // Inline code - Enhanced
-  code: (props: any) => (
+  ul: ({ className, ...props }: ComponentPropsWithoutRef<"ul">) => (
+    <ul
+      className={cn(
+        "my-5 list-disc space-y-2 pl-6 text-[1.0625rem] leading-[1.75] text-slate-700 marker:text-blue-600 sm:pl-7 sm:text-lg [&_ol]:my-2 [&_ul]:my-2",
+        className,
+      )}
+      {...props}
+    />
+  ),
+  ol: ({ className, ...props }: ComponentPropsWithoutRef<"ol">) => (
+    <ol
+      className={cn(
+        "my-5 list-decimal space-y-2 pl-6 text-[1.0625rem] leading-[1.75] text-slate-700 marker:font-semibold marker:text-blue-700 sm:pl-7 sm:text-lg [&_ol]:my-2 [&_ul]:my-2",
+        className,
+      )}
+      {...props}
+    />
+  ),
+  li: ({ className, ...props }: ComponentPropsWithoutRef<"li">) => (
+    <li
+      className={cn(
+        "pl-1.5 [&>p]:my-2 [&>p]:text-[inherit] [&>p]:leading-[inherit]",
+        className,
+      )}
+      {...props}
+    />
+  ),
+  dl: ({ className, ...props }: ComponentPropsWithoutRef<"dl">) => (
+    <dl className={cn("my-6 space-y-1", className)} {...props} />
+  ),
+  dt: ({ className, ...props }: ComponentPropsWithoutRef<"dt">) => (
+    <dt className={cn("mt-5 font-bold text-slate-900", className)} {...props} />
+  ),
+  dd: ({ className, ...props }: ComponentPropsWithoutRef<"dd">) => (
+    <dd className={cn("ml-5 leading-relaxed text-slate-600", className)} {...props} />
+  ),
+
+  blockquote: ({ className, ...props }: ComponentPropsWithoutRef<"blockquote">) => (
+    <blockquote
+      className={cn(
+        "my-8 rounded-r-xl border-l-4 border-blue-600 bg-blue-50/70 px-5 py-1 text-slate-700 shadow-sm ring-1 ring-inset ring-blue-100",
+        "[&>p]:my-4 [&>p]:text-[1.0625rem] [&>p]:italic [&>p]:leading-[1.75] [&_code]:bg-white",
+        className,
+      )}
+      {...props}
+    />
+  ),
+
+  pre: ({ className, ...props }: ComponentPropsWithoutRef<"pre">) => (
+    <pre
+      className={cn(
+        "my-8 overflow-x-auto rounded-xl border border-slate-800 bg-[#0b1020] py-5 text-[0.8125rem] leading-6 text-slate-100 shadow-[0_18px_45px_-24px_rgba(15,23,42,0.75)] sm:text-sm",
+        "[font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation_Mono',monospace]",
+        "[tab-size:2] [&>code]:grid [&>code]:min-w-full [&>code]:w-max [&>code]:bg-transparent [&>code]:p-0 [&>code]:text-inherit [&_[data-highlighted-line]]:border-l-2 [&_[data-highlighted-line]]:border-blue-400 [&_[data-highlighted-line]]:bg-blue-400/10 [&_[data-line]]:px-5",
+        className,
+      )}
+      {...props}
+    />
+  ),
+  code: ({ className, "data-language": language, ...props }: CodeProps) => (
     <code
-      //component="code"
-      //variant="soft"
-      //size="sm"
-      style={{
-        fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
-        fontSize: "0.875em",
-        //backgroundColor: "var(--joy-palette-background-level2)",
-        color: "var(--joy-palette-success-600)",
-        //px: 1,
-        //py: 0.25,
-        //mx: 0.25,
-        borderRadius: "4px",
-        //verticalAlign: "baseline",
-      }}
+      data-language={language}
+      className={cn(
+        "rounded-md bg-slate-100 px-1.5 py-0.5 text-[0.84em] font-medium text-slate-800 ring-1 ring-inset ring-slate-200",
+        "[font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation_Mono',monospace]",
+        language ? "bg-transparent p-0 text-[inherit] font-normal ring-0" : undefined,
+        className,
+      )}
+      {...props}
+    />
+  ),
+  kbd: ({ className, ...props }: ComponentPropsWithoutRef<"kbd">) => (
+    <kbd
+      className={cn(
+        "mx-0.5 inline-flex min-w-6 items-center justify-center rounded border border-slate-300 border-b-slate-400 bg-white px-1.5 py-0.5 text-[0.75em] font-semibold text-slate-700 shadow-[0_1px_0_#94a3b8]",
+        "[font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace]",
+        className,
+      )}
+      {...props}
+    />
+  ),
+  samp: ({ className, ...props }: ComponentPropsWithoutRef<"samp">) => (
+    <samp
+      className={cn(
+        "rounded bg-slate-100 px-1.5 py-0.5 text-[0.85em] text-emerald-800",
+        "[font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace]",
+        className,
+      )}
+      {...props}
+    />
+  ),
+  var: ({ className, ...props }: ComponentPropsWithoutRef<"var">) => (
+    <var
+      className={cn(
+        "rounded bg-amber-50 px-1 py-0.5 text-[0.85em] text-amber-900",
+        "[font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace]",
+        className,
+      )}
       {...props}
     />
   ),
 
-  // Keyboard input
-  kbd: (props: any) => (
-    <Chip
-      variant="outlined"
-      size="sm"
-      sx={{
-        fontFamily: "'JetBrains Mono', monospace",
-        fontSize: "0.8em",
-        backgroundColor: "var(--joy-palette-background-surface)",
-        border: "1px solid var(--joy-palette-divider)",
-        borderBottomWidth: "2px",
-        borderBottomColor: "var(--joy-palette-neutral-400)",
-        borderRadius: "4px",
-        px: 1,
-        py: 0.25,
-        mx: 0.25,
-        verticalAlign: "baseline",
-      }}
-      {...props}
-    />
-  ),
-
-  // Sample output
-  samp: (props: any) => (
-    <Typography
-      component="samp"
-      sx={{
-        fontFamily: "'JetBrains Mono', monospace",
-        fontSize: "0.875em",
-        backgroundColor: "var(--joy-palette-background-level2)",
-        color: "var(--joy-palette-success-600)",
-        px: 1,
-        py: 0.25,
-        borderRadius: "4px",
-        display: "inline-block",
-      }}
-      {...props}
-    />
-  ),
-
-  // Variable
-  var: (props: any) => (
-    <Typography
-      component="var"
-      sx={{
-        fontFamily: "'JetBrains Mono', monospace",
-        fontSize: "0.875em",
-        fontStyle: "italic",
-        color: "var(--joy-palette-warning-600)",
-        backgroundColor: "var(--joy-palette-warning-50)",
-        px: 0.5,
-        py: 0.25,
-        borderRadius: "2px",
-      }}
-      {...props}
-    />
-  ),
-
-  // Images - Enhanced with aspect ratio support
-  img: (props: any) => (
+  img: ({ className, alt = "", loading, ...props }: ComponentPropsWithoutRef<"img">) => (
+    // Markdown images are content, so a useful alt should still be supplied in the post.
+    // The empty fallback prevents a missing alt attribute from hurting accessibility.
+    // eslint-disable-next-line @next/next/no-img-element
     <img
-      style={{
-        maxWidth: "100%",
-        display: "block",
-        margin: "auto",
-        borderRadius: 5,
-      }}
+      alt={alt}
+      loading={loading ?? "lazy"}
+      decoding="async"
+      className={cn(
+        "my-8 h-auto w-full rounded-xl border border-slate-200 bg-white object-contain shadow-[0_18px_50px_-30px_rgba(15,23,42,0.45)]",
+        className,
+      )}
+      {...props}
+    />
+  ),
+  figure: ({ className, ...props }: ComponentPropsWithoutRef<"figure">) => (
+    <figure className={cn("my-9", className)} {...props} />
+  ),
+  figcaption: ({ className, ...props }: ComponentPropsWithoutRef<"figcaption">) => (
+    <figcaption
+      className={cn(
+        "-mt-5 text-center text-sm leading-relaxed text-slate-500",
+        className,
+      )}
       {...props}
     />
   ),
 
-  // Tables - Enhanced
-  table: (props: any) => (
-    <Box sx={{ my: 3, overflow: "auto" }}>
-      <Table
-        aria-labelledby="tableTitle"
-        stickyHeader
-        hoverRow
-        variant="outlined"
-        sx={{
-          "--TableCell-headBackground": "var(--joy-palette-background-level1)",
-          "--Table-headerUnderlineThickness": "2px",
-          "--TableRow-hoverBackground": "var(--joy-palette-background-level1)",
-          "--TableCell-paddingY": "12px",
-          "--TableCell-paddingX": "16px",
-          "--TableCell-footerBackground":
-            "var(--joy-palette-background-level1)",
-          fontFamily: "charter, serif",
-          minWidth: "100%",
-        }}
+  table: ({ className, ...props }: ComponentPropsWithoutRef<"table">) => (
+    <div className="my-8 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
+      <table
+        className={cn(
+          "w-full min-w-[36rem] border-collapse text-left text-[0.9375rem] leading-6 text-slate-700",
+          className,
+        )}
         {...props}
       />
-    </Box>
+    </div>
   ),
-
-  thead: (props: any) => (
-    <thead
-      style={{
-        backgroundColor: "var(--joy-palette-background-level2)",
-      }}
-      {...props}
-    />
+  thead: ({ className, ...props }: ComponentPropsWithoutRef<"thead">) => (
+    <thead className={cn("bg-slate-100 text-slate-900", className)} {...props} />
   ),
-
-  tbody: (props: any) => <tbody {...props} />,
-
-  tfoot: (props: any) => (
-    <tfoot
-      style={{
-        backgroundColor: "var(--joy-palette-background-level1)",
-        fontWeight: "bold",
-      }}
-      {...props}
-    />
+  tbody: ({ className, ...props }: ComponentPropsWithoutRef<"tbody">) => (
+    <tbody className={cn("divide-y divide-slate-200", className)} {...props} />
   ),
-
-  tr: (props: any) => <tr {...props} />,
-
-  th: (props: any) => (
+  tfoot: ({ className, ...props }: ComponentPropsWithoutRef<"tfoot">) => (
+    <tfoot className={cn("border-t-2 border-slate-300 bg-slate-50 font-semibold", className)} {...props} />
+  ),
+  tr: ({ className, ...props }: ComponentPropsWithoutRef<"tr">) => (
+    <tr className={cn("transition-colors hover:bg-blue-50/40", className)} {...props} />
+  ),
+  th: ({ className, ...props }: ComponentPropsWithoutRef<"th">) => (
     <th
-      style={{
-        fontWeight: "bold",
-        textAlign: "left",
-        color: "var(--joy-palette-primary-600)",
-        borderBottom: "2px solid var(--joy-palette-divider)",
-      }}
+      className={cn(
+        "border-b border-slate-200 px-4 py-3 text-xs font-bold uppercase tracking-[0.06em]",
+        className,
+      )}
+      {...props}
+    />
+  ),
+  td: ({ className, ...props }: ComponentPropsWithoutRef<"td">) => (
+    <td className={cn("px-4 py-3 align-top", className)} {...props} />
+  ),
+
+  hr: ({ className, ...props }: ComponentPropsWithoutRef<"hr">) => (
+    <hr className={cn("my-12 border-0 border-t border-slate-200", className)} {...props} />
+  ),
+  br: (props: ComponentPropsWithoutRef<"br">) => <br {...props} />,
+  details: ({ className, ...props }: ComponentPropsWithoutRef<"details">) => (
+    <details
+      className={cn(
+        "group my-7 rounded-xl border border-slate-200 bg-white px-5 py-4 shadow-sm open:ring-1 open:ring-blue-100",
+        className,
+      )}
+      {...props}
+    />
+  ),
+  summary: ({ className, ...props }: ComponentPropsWithoutRef<"summary">) => (
+    <summary
+      className={cn(
+        "cursor-pointer font-semibold text-slate-900 marker:text-blue-600 transition-colors hover:text-blue-700",
+        "[font-family:'Space_Grotesk',ui-sans-serif,system-ui,sans-serif]",
+        className,
+      )}
+      {...props}
+    />
+  ),
+  address: ({ className, ...props }: ComponentPropsWithoutRef<"address">) => (
+    <address className={cn("my-5 not-italic leading-relaxed text-slate-600", className)} {...props} />
+  ),
+  time: ({ className, ...props }: ComponentPropsWithoutRef<"time">) => (
+    <time
+      className={cn(
+        "text-[0.9em] tabular-nums text-slate-500",
+        "[font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace]",
+        className,
+      )}
+      {...props}
+    />
+  ),
+  cite: ({ className, ...props }: ComponentPropsWithoutRef<"cite">) => (
+    <cite className={cn("italic text-slate-600", className)} {...props} />
+  ),
+  q: ({ className, ...props }: ComponentPropsWithoutRef<"q">) => (
+    <q className={cn("italic text-slate-800", className)} {...props} />
+  ),
+  del: ({ className, ...props }: ComponentPropsWithoutRef<"del">) => (
+    <del className={cn("rounded bg-rose-50 px-1 text-rose-800", className)} {...props} />
+  ),
+  ins: ({ className, ...props }: ComponentPropsWithoutRef<"ins">) => (
+    <ins className={cn("rounded bg-emerald-50 px-1 text-emerald-800", className)} {...props} />
+  ),
+  ruby: ({ className, ...props }: ComponentPropsWithoutRef<"ruby">) => (
+    <ruby className={cn("inline-block", className)} {...props} />
+  ),
+  rt: ({ className, ...props }: ComponentPropsWithoutRef<"rt">) => (
+    <rt className={cn("text-[0.5em] leading-none", className)} {...props} />
+  ),
+  rp: ({ className, ...props }: ComponentPropsWithoutRef<"rp">) => (
+    <rp className={cn("text-[0.8em] text-slate-500", className)} {...props} />
+  ),
+  bdi: (props: ComponentPropsWithoutRef<"bdi">) => <bdi {...props} />,
+  bdo: (props: ComponentPropsWithoutRef<"bdo">) => <bdo {...props} />,
+  wbr: (props: ComponentPropsWithoutRef<"wbr">) => <wbr {...props} />,
+  data: ({ className, ...props }: ComponentPropsWithoutRef<"data">) => (
+    <data
+      className={cn(
+        "text-[0.9em] text-blue-700",
+        "[font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace]",
+        className,
+      )}
+      {...props}
+    />
+  ),
+  progress: ({ className, ...props }: ComponentPropsWithoutRef<"progress">) => (
+    <progress
+      className={cn("my-2 h-2 w-full overflow-hidden rounded-full accent-blue-600", className)}
+      {...props}
+    />
+  ),
+  meter: ({ className, ...props }: ComponentPropsWithoutRef<"meter">) => (
+    <meter
+      className={cn("my-2 h-2 w-full overflow-hidden rounded-full accent-emerald-600", className)}
       {...props}
     />
   ),
 
-  td: (props: any) => (
-    <td
-      style={{
-        borderBottom: "1px solid var(--joy-palette-divider)",
-        verticalAlign: "top",
-      }}
+  section: ({ className, ...props }: ComponentPropsWithoutRef<"section">) => (
+    <section className={cn("my-10", className)} {...props} />
+  ),
+  article: ({ className, ...props }: ComponentPropsWithoutRef<"article">) => (
+    <article
+      className={cn(
+        "my-8 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-7",
+        className,
+      )}
       {...props}
     />
   ),
-
-  // Horizontal rule
-  hr: (props: any) => (
-    <Divider
-      sx={{
-        my: 4,
-        "--Divider-thickness": "2px",
-        "--Divider-color": "var(--joy-palette-divider)",
-      }}
+  aside: ({ className, ...props }: ComponentPropsWithoutRef<"aside">) => (
+    <aside
+      className={cn(
+        "my-8 rounded-r-xl border-l-4 border-amber-500 bg-amber-50 px-5 py-3 text-slate-700 ring-1 ring-inset ring-amber-100",
+        className,
+      )}
       {...props}
     />
   ),
-
-  // Line break
-  br: (props: any) => <br {...props} />,
-
-  // Details and Summary (collapsible sections)
-  details: (props: any) => (
-    <AccordionGroup sx={{ my: 2 }}>
-      <Accordion {...props} />
-    </AccordionGroup>
-  ),
-
-  summary: (props: any) => (
-    <AccordionSummary
-      sx={{
-        fontWeight: "bold",
-        color: "var(--joy-palette-primary-600)",
-        fontFamily: "charter, serif",
-      }}
+  nav: ({ className, ...props }: ComponentPropsWithoutRef<"nav">) => (
+    <nav
+      className={cn(
+        "my-8 rounded-xl border border-slate-200 bg-slate-50 p-5",
+        className,
+      )}
       {...props}
     />
   ),
-
-  // Figure and figcaption
-  figure: (props: any) => (
-    <Box
-      component="figure"
-      sx={{
-        my: 3,
-        mx: 0,
-        //textAlign: "center",
-      }}
+  header: ({ className, ...props }: ComponentPropsWithoutRef<"header">) => (
+    <header className={cn("mb-8 border-b border-slate-200 pb-6", className)} {...props} />
+  ),
+  footer: ({ className, ...props }: ComponentPropsWithoutRef<"footer">) => (
+    <footer
+      className={cn(
+        "mt-10 border-t border-slate-200 pt-6 text-sm text-slate-500",
+        className,
+      )}
       {...props}
     />
   ),
-
-  figcaption: (props: any) => (
-    <Typography
-      component="figcaption"
-      sx={{
-        mt: 1,
-        fontSize: "0.875rem",
-        color: "var(--joy-palette-text-secondary)",
-        fontStyle: "italic",
-        textAlign: "center",
-      }}
-      {...props}
-    />
+  main: ({ className, ...props }: ComponentPropsWithoutRef<"main">) => (
+    <main className={cn("w-full", className)} {...props} />
   ),
-
-  // Address
-  address: (props: any) => (
-    <Typography
-      component="address"
-      sx={{
-        fontStyle: "italic",
-        color: "var(--joy-palette-text-secondary)",
-        my: 2,
-      }}
-      {...props}
-    />
-  ),
-
-  // Time
-  time: (props: any) => (
-    <Typography
-      component="time"
-      sx={{
-        fontFamily: "'JetBrains Mono', monospace",
-        fontSize: "0.9em",
-        color: "var(--joy-palette-text-secondary)",
-      }}
-      {...props}
-    />
-  ),
-
-  // Cite
-  cite: (props: any) => (
-    <Typography
-      component="cite"
-      sx={{
-        fontStyle: "italic",
-        color: "var(--joy-palette-text-secondary)",
-      }}
-      {...props}
-    />
-  ),
-
-  // Quote (inline)
-  q: (props: any) => (
-    <Typography
-      component="q"
-      sx={{
-        fontStyle: "italic",
-        "&::before": { content: '"❝"' },
-        "&::after": { content: '"❞"' },
-      }}
-      {...props}
-    />
-  ),
-
-  // Deleted and inserted text
-  del: (props: any) => (
-    <Typography
-      component="del"
-      sx={{
-        textDecoration: "line-through",
-        color: "var(--joy-palette-danger-500)",
-        backgroundColor: "var(--joy-palette-danger-50)",
-        px: 0.5,
-        borderRadius: "2px",
-      }}
-      {...props}
-    />
-  ),
-
-  ins: (props: any) => (
-    <Typography
-      component="ins"
-      sx={{
-        textDecoration: "underline",
-        color: "var(--joy-palette-success-600)",
-        backgroundColor: "var(--joy-palette-success-50)",
-        px: 0.5,
-        borderRadius: "2px",
-      }}
-      {...props}
-    />
-  ),
-
-  // Ruby annotations (for East Asian typography)
-  ruby: (props: any) => (
-    <Typography
-      component="ruby"
-      sx={{
-        display: "inline-block",
-      }}
-      {...props}
-    />
-  ),
-
-  rt: (props: any) => (
-    <Typography
-      component="rt"
-      sx={{
-        fontSize: "0.5em",
-        lineHeight: 1,
-        textAlign: "center",
-        display: "block",
-      }}
-      {...props}
-    />
-  ),
-
-  rp: (props: any) => (
-    <Typography
-      component="rp"
-      sx={{
-        fontSize: "0.8em",
-        color: "var(--joy-palette-text-secondary)",
-      }}
-      {...props}
-    />
-  ),
-
-  // Bidirectional text
-  bdi: (props: any) => (
-    <Typography
-      component="bdi"
-      sx={{
-        unicodeBidi: "isolate",
-      }}
-      {...props}
-    />
-  ),
-
-  bdo: (props: any) => (
-    <Typography
-      component="bdo"
-      sx={{
-        unicodeBidi: "bidi-override",
-      }}
-      {...props}
-    />
-  ),
-
-  // Word break opportunity
-  wbr: (props: any) => <wbr {...props} />,
-
-  // Data and meter elements
-  data: (props: any) => (
-    <Typography
-      component="data"
-      sx={{
-        fontFamily: "'JetBrains Mono', monospace",
-        fontSize: "0.9em",
-        color: "var(--joy-palette-primary-600)",
-      }}
-      {...props}
-    />
-  ),
-
-  // Progress and meter
-  progress: (props: any) => (
-    <Box
-      component="progress"
-      sx={{
-        width: "100%",
-        height: "8px",
-        my: 1,
-        appearance: "none",
-        "&::-webkit-progress-bar": {
-          backgroundColor: "var(--joy-palette-background-level2)",
-          borderRadius: "4px",
-        },
-        "&::-webkit-progress-value": {
-          backgroundColor: "var(--joy-palette-primary-500)",
-          borderRadius: "4px",
-        },
-      }}
-      {...props}
-    />
-  ),
-
-  meter: (props: any) => (
-    <Box
-      component="meter"
-      sx={{
-        width: "100%",
-        height: "8px",
-        my: 1,
-        appearance: "none",
-        "&::-webkit-meter-bar": {
-          backgroundColor: "var(--joy-palette-background-level2)",
-          borderRadius: "4px",
-        },
-        "&::-webkit-meter-optimum-value": {
-          backgroundColor: "var(--joy-palette-success-500)",
-          borderRadius: "4px",
-        },
-      }}
-      {...props}
-    />
-  ),
-
-  // Generic containers
-  //div: (props: any) => <Box {...props} />,
-  //span: (props: any) => <Typography component="span" {...props} />,
-
-  // Section elements
-  section: (props: any) => (
-    <Box
-      component="section"
-      sx={{
-        my: 3,
-        px: 2,
-        py: 1,
-        borderRadius: "8px",
-        backgroundColor: "var(--joy-palette-background-level1)",
-      }}
-      {...props}
-    />
-  ),
-
-  article: (props: any) => (
-    <Box
-      component="article"
-      sx={{
-        my: 3,
-        p: 3,
-        borderRadius: "12px",
-        backgroundColor: "var(--joy-palette-background-surface)",
-        boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
-      }}
-      {...props}
-    />
-  ),
-
-  aside: (props: any) => (
-    <Card
-      variant="soft"
-      sx={{
-        my: 2,
-        p: 2,
-        borderLeft: "4px solid var(--joy-palette-warning-400)",
-        backgroundColor: "var(--joy-palette-warning-50)",
-      }}
-      {...props}
-    />
-  ),
-
-  nav: (props: any) => (
-    <Box
-      component="nav"
-      sx={{
-        my: 2,
-        p: 2,
-        borderRadius: "8px",
-        backgroundColor: "var(--joy-palette-background-level1)",
-      }}
-      {...props}
-    />
-  ),
-
-  header: (props: any) => (
-    <Box
-      component="header"
-      sx={{
-        my: 2,
-        p: 2,
-        borderBottom: "2px solid var(--joy-palette-divider)",
-      }}
-      {...props}
-    />
-  ),
-
-  footer: (props: any) => (
-    <Box
-      component="footer"
-      sx={{
-        my: 2,
-        p: 2,
-        borderTop: "2px solid var(--joy-palette-divider)",
-        color: "var(--joy-palette-text-secondary)",
-        fontSize: "0.9em",
-      }}
-      {...props}
-    />
-  ),
-
-  main: (props: any) => <Box component="main" {...props} />,
 };
 
 export function useMDXComponents(): MDXComponents {

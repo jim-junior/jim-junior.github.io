@@ -1,9 +1,9 @@
-"use client";
-import { Container } from "@mui/joy";
-import React from "react";
+import type { ReactNode } from "react";
 
-const layout = ({ children }: { children: React.ReactNode }) => {
-  return <Container>{children}</Container>;
-};
-
-export default layout;
+export default function BlogLayout({ children }: { children: ReactNode }) {
+  return (
+    <article className="mx-auto w-full max-w-[52rem] pb-10 text-slate-700 [font-family:charter,Georgia,'Times_New_Roman',serif]">
+      {children}
+    </article>
+  );
+}

@@ -10,44 +10,47 @@ import {
 
 export const sampleProjects = [
   {
-    startDate: "June 2026",
+    startDate: "June 2026 - August 2026",
     stage: "Internship",
     name: "LFX Mentee - urunc Project",
-    description: "",
+    description: `My work focuses on benchmarking the performance and scalability of sandboxed execution models across runc, gVisor, Kata Containers, and urunc. I am designing a reproducible benchmarking suite in Go and Python to measure runtime overhead across container lifecycle latency, CPU performance, memory usage, storage I/O, and network performance.
+
+Key areas include measuring the “virtualization tax” of microVM-backed runtimes such as Firecracker and QEMU, comparing guest unikernel execution against traditional containers, collecting Linux system metrics using perf, cgroups, procfs, smem, and containerd events, and running repeated benchmark trials to produce reliable results.`,
     github: [
       {
         name: "Repository",
-        url: "https://github.com/urunc-dev/urunc",
+        url: "https://github.com/urunc-dev/evaluation_suite",
       },
     ],
     website: "https://urunc.io/",
     icon: "https://urunc.io/assets/images/urunc-logo-light.svg",
   },
   {
-    startDate: "June 2026",
+    startDate: "June 2026 - July 2026",
     stage: "Internship",
     name: "SWE Intern - Sunbird AI",
-    description: "",
+    description:
+      "Focused on Sahara Benchmark evaluation for Sunbird’s Sunflower models. I studied the benchmark paper and codebase; curated supported tasks and language coverage; ran Sahara Benchmark experiments on Sunflower-14B, Sunflower-Qwen3.5-9B; benchmarked Qwen 3.5-9B for comparison; and generated a report analyzing model performance across selected African language tasks.",
     github: [],
     website: "https://sunbird.ai/",
     icon: "/img/sunbird.jpg",
   },
   {
-    startDate: "December 2025",
-    stage: "Project - Closed Source/Proprietary",
-    name: "Hope Haven Grade Analysis Platform",
+    startDate: "December 2025 - Feb 2025",
+    stage: "Internship",
+    name: "Hope Haven Christian School",
     description:
-      "A Data Analysis Software used by administrators to analyse trends, insights and predictions in student grades and performance. Used by Hope Haven Christian School, Rwanda.",
+      "Developed Hope Haven Grade Analysis Platform, a Data Analysis Software used by administrators to analyse trends, insights and predictions in student grades and performance. Worked with Network administrators to setup and internal network connected to the school server ensuring the application is only accessible internally.",
     github: [],
     website: "https://www.hopehavenrwanda.org/",
-    icon: "https://analysis.hopehaven.cranom.tech/icon.webp",
+    icon: "https://hopehaven.infralane.cloud/icon.webp",
   },
   {
-    startDate: "March 2025",
+    startDate: "March 2025 - August 2025",
     stage: "Internship",
-    name: "Crane Cloud Mira",
+    name: "Crane Cloud",
     description:
-      "Crane Cloud Mira is a software platform that automatically turns source code into container images.",
+      "Developed Crane Cloud Mira, a software platform that automatically turns source code into container images.",
     github: [
       {
         name: "Repository",
@@ -55,95 +58,7 @@ export const sampleProjects = [
       },
     ],
     website: "https://cranecloud.io/",
-    icon: "https://cranecloud.io/_next/static/media/logo.b4c3ef7e.svg",
-  },
-  {
-    startDate: "Sep 2024",
-    stage: "Third Year, Undergraduate - Open Source",
-    name: "Conveyor CI",
-    description:
-      "Developed Conveyor CI a lightweight, distributed CI/CD engine built for platform developers who demand simplicity without compromise",
-    github: "https://github.com/open-ug/conveyor",
-    website: "https://conveyor.open.ug/",
-    icon: "https://conveyor.open.ug/logos/icon.svg",
-  },
-  {
-    startDate: "April 2022",
-    stage: "First Year - Undergraduate - Personal Project",
-    name: "Cranom Cloud",
-    description:
-      "A Cloud PaaS for deploying general purpose applications powered by Kubernetes with inbuilt SSL management, Database as a Service (DBaaS), Auto Containerization, Ingress, Domain Management etc. and can be deployed anywhere.",
-    github: [
-      {
-        name: "Frontend",
-        url: "https://github.com/jim-junior/cranom",
-      },
-      {
-        name: "Backend",
-        url: "https://github.com/jim-junior/cranom-backend",
-      },
-    ],
-    website: null,
-    icon: null,
-  },
-  {
-    startDate: "Aug 2022",
-    stage: "First Year - Undergraduate, Open Source",
-    name: "django-urlshortner",
-    description: "A python library for building URL shorteners in Django.",
-    github: "https://github.com/jim-junior/django-urlshortner",
-    website: null,
-    icon: null,
-  },
-  {
-    startDate: "Dec 1, 2021",
-    stage: "High School gap year - Open Source Learning Project",
-    name: "Orbiton JS",
-    description:
-      "A JavaScript library for building interactive user interfaces.(React JS Clone)",
-    github: [
-      {
-        name: "Core Library",
-        url: "https://github.com/Orbitonjs/orbiton",
-      },
-      {
-        name: "Babel Plugin",
-        url: "https://github.com/Orbitonjs/orbiton/tree/dev/packages/babel-plugin-orbiton-jsx",
-      },
-      {
-        name: "ESLint Plugin",
-        url: "https://github.com/Orbitonjs/utils/tree/main/packages/eslint-plugin-orbiton",
-      },
-    ],
-    website: "https://orbiton.js.org/",
-    icon: "https://orbiton.js.org/b0fc9b8a348d80d150fe.svg",
-  },
-  {
-    startDate: "Jan 2021",
-    stage: "High School Final Year - Open Source Personal Project",
-    name: "reactjs-media",
-    description: "A React.js library for building media players.",
-    github: "https://github.com/jim-junior/reactjs-media",
-    website: null,
-    icon: null,
-  },
-  {
-    startDate: "Dec 2020",
-    stage: "COVID-19 Pandemic - Personal Project",
-    name: "Blurify",
-    description: "A Social Media site for sharing images.(Instagram Clone)",
-    github: [
-      {
-        name: "Frontend",
-        url: "https://github.com/jim-junior/blurify",
-      },
-      {
-        name: "Backend",
-        url: "https://github.com/jim-junior/blurify-backend",
-      },
-    ],
-    website: null,
-    icon: null,
+    icon: "/icons/cranecloud.svg",
   },
 ];
 
@@ -290,27 +205,29 @@ export default function CodePage() {
               Technical Proficiency
             </h3>
             <p className="text-[#414752] max-w-md leading-relaxed mb-12">
-              Evolution condensed into core competencies. My expertise lies in
-              distributed computing, systems programming, and cloud-native
-              infrastructure.
+              Over the years, I have cultivated a diverse skill set in software
+              engineering, spanning multiple programming languages, cloud
+              platforms, and database systems. My expertise lies in building
+              scalable, secure, and high-performance applications that meet the
+              demands of modern software development.
             </p>
 
             <div className="space-y-6">
               {[
                 {
                   title: "Core Languages",
-                  time: "8 YEARS",
-                  stack: "Go, Rust, TypeScript, C++, Python",
+                  time: "7 YEARS",
+                  stack: "Go, Rust, TypeScript, C, Python",
                 },
                 {
                   title: "Infrastructure",
-                  time: "5 YEARS",
-                  stack: "Kubernetes, Docker, Terraform, AWS, GCP",
+                  time: "4 YEARS",
+                  stack: "Linux, Kubernetes, GCP, GitHub",
                 },
                 {
                   title: "Databases",
-                  time: "6 YEARS",
-                  stack: "PostgreSQL, Redis, ScyllaDB, etcd",
+                  time: "3 YEARS",
+                  stack: "PostgreSQL, Redis, etcd",
                 },
               ].map((skill) => (
                 <div

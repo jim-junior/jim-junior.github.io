@@ -13,14 +13,18 @@ export const Hobbies = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div className="space-y-6">
             <h3 className="text-2xl font-bold tracking-tight">
-              I love the Art of Film
+              In my free time...
             </h3>
             <p className="text-[#414752] leading-relaxed">
               When not working on code, I find solace in{" "}
               <span className="text-[#1a1c1d] font-medium">Cinema</span>. I
-              appreciate films that treat cinematography as a technical
-              discipline where every frame is as deliberate as a line of clean
-              code.
+              enjoy exploring the art of storytelling through film, analyzing
+              cinematography, and appreciating the nuances of different genres.
+              Additionally, I have a passion for{" "}
+              <span className="text-[#1a1c1d] font-medium">Photography</span>,
+              capturing moments and landscapes that tell a story. These hobbies
+              allow me to express creativity and find inspiration outside the
+              realm of software engineering.
             </p>
           </div>
           <div className="relative group">

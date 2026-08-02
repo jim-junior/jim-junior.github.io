@@ -3,9 +3,7 @@ export const Contact = () => {
     <section className="border-t border-[#c1c6d4]/20 pt-16 flex flex-col md:flex-row justify-between items-end gap-12">
       <div>
         <h2 className="text-4xl font-bold tracking-tighter mb-4">
-          Let's build
-          <br />
-          something precise.
+          Need to reach out?
         </h2>
         <a
           href="mailto:jimjunior854@gmail.com"

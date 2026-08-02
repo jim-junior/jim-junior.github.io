@@ -6,10 +6,10 @@ const Hero = () => {
           Software Engineering Student
         </p>
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-tight mb-8">
-          /me — <span className="text-[#5d5e60]/20">Beingana</span> Jim Junior.
+          I'm — <span className="text-[#5d5e60]/20">Beingana</span> Jim Junior.
         </h1>
         <p className="text-xl md:text-2xl font-light text-[#414752] leading-relaxed max-w-2xl">
-          I am a Software Engineering Student at{" "}
+          A Software Engineering Student at{" "}
           <a
             className="text-[#1a1c1d] font-medium underline decoration-[#0053a1]/30 underline-offset-4"
             href="https://www.mak.ac.ug"
@@ -36,7 +36,7 @@ const Hero = () => {
       <div className="lg:col-span-4 flex justify-end items-start pt-12">
         <div className="relative w-full aspect-[3/4] bg-[#f4f3f4] overflow-hidden group">
           <img
-            src="/photo.jpg"
+            src="/img/me.jpg"
             alt="Modern minimalist portrait"
             className="w-full h-full object-cover grayscale contrast-125 opacity-90 group-hover:scale-105 transition-transform duration-700"
           />
