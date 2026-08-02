@@ -8,10 +8,10 @@ export const Contact = () => {
           something precise.
         </h2>
         <a
-          href="mailto:beingana.jimjunior@students.mak.ac.ug"
+          href="mailto:jimjunior854@gmail.com"
           className="text-[#0053a1] text-xl font-medium hover:underline underline-offset-8 transition-all"
         >
-          beingana.jimjunior@students.mak.ac.ug
+          jimjunior854@gmail.com
         </a>
       </div>
       <div className="flex gap-6">
