@@ -1,131 +1,100 @@
-import Box from "@mui/joy/Box";
-import Breadcrumbs from "@mui/joy/Breadcrumbs";
-import Card from "@mui/joy/Card";
-import CardContent from "@mui/joy/CardContent";
-import CardOverflow from "@mui/joy/CardOverflow";
-import Grid from "@mui/joy/Grid";
-import { Link as JoyLink } from "@mui/joy";
-import AspectRatio from "@mui/joy/AspectRatio";
-import Typography from "@mui/joy/Typography";
-import { FaChevronRight, FaHome } from "react-icons/fa";
 import Link from "next/link";
+import type { Publication } from "@/app/blog/post-data";
 
-export const PublicationDetailPage = ({
+const formatDate = (date: string) =>
+  new Intl.DateTimeFormat("en", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(date));
+
+export function PublicationDetailPage({
   publication,
 }: {
-  publication: any;
-}) => {
-  // In a real app, you would fetch the publication data based on the id
-
+  publication: Publication;
+}) {
   return (
-    <Box sx={{ maxWidth: "1200px", margin: "0 auto", p: 3 }}>
-      {/* Breadcrumbs */}
-      <Breadcrumbs size="sm" separator={<FaChevronRight />} sx={{ mb: 2 }}>
-        <JoyLink
-          component={Link}
-          href="/"
-          underline="none"
-          color="neutral"
-          startDecorator={<FaHome />}
-        >
+    <div className="relative left-1/2 w-[calc(100vw-3rem)] max-w-5xl -translate-x-1/2 [font-family:'Space_Grotesk',ui-sans-serif,system-ui,sans-serif]">
+      <nav aria-label="Breadcrumb" className="mb-8 flex flex-wrap items-center gap-2 text-sm">
+        <Link href="/" className="font-medium text-slate-500 transition-colors hover:text-blue-700">
           Home
-        </JoyLink>
-        <JoyLink component={Link} href="/blog" underline="none" color="neutral">
+        </Link>
+        <span className="text-slate-300" aria-hidden="true">/</span>
+        <Link href="/blog" className="font-medium text-slate-500 transition-colors hover:text-blue-700">
           Blog
-        </JoyLink>
-        <Typography color="primary">{publication.title}</Typography>
-      </Breadcrumbs>
+        </Link>
+        <span className="text-slate-300" aria-hidden="true">/</span>
+        <span className="font-semibold text-slate-800">{publication.title}</span>
+      </nav>
 
-      {/* Publication Header */}
-      <Card
-        variant="outlined"
-        sx={{
-          mb: 4,
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        <CardContent sx={{ position: "relative", zIndex: 1 }}>
-          <Typography level="h1" sx={{ mb: 2 }}>
+      <header className="relative overflow-hidden rounded-3xl border border-blue-200 bg-gradient-to-br from-blue-950 via-blue-900 to-slate-950 px-6 py-10 text-white shadow-[0_25px_65px_-35px_rgba(30,64,175,0.8)] sm:px-10 sm:py-14">
+        <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full border border-blue-300/15" />
+        <div className="absolute -right-12 -top-12 h-48 w-48 rounded-full border border-blue-300/15" />
+        <div className="relative max-w-3xl">
+          <p className="text-xs font-bold uppercase tracking-[0.17em] text-blue-200">
+            Learning series · {publication.posts.length} parts
+          </p>
+          <h1 className="mt-5 text-balance text-3xl font-bold leading-tight tracking-[-0.04em] sm:text-5xl">
             {publication.title}
-          </Typography>
-
-          <Typography level="body-lg" sx={{ mb: 3 }}>
+          </h1>
+          <p className="mt-5 max-w-2xl text-base leading-7 text-blue-100/85 sm:text-lg">
             {publication.description}
-          </Typography>
-          <Typography level="body-md" sx={{ mb: 3 }}>
-            {publication.longdescription}
-          </Typography>
-        </CardContent>
-      </Card>
+          </p>
+          {publication.longdescription && (
+            <div className="mt-5 max-w-2xl text-sm leading-6 text-blue-100/70 [&_a]:font-semibold [&_a]:text-white [&_a]:underline [&_a]:decoration-blue-300/60 [&_a]:underline-offset-4">
+              {publication.longdescription}
+            </div>
+          )}
+        </div>
+      </header>
 
-      {/* Posts Grid */}
-      <Typography level="h2" sx={{ mb: 3 }}>
-        Posts in this series
-      </Typography>
+      <section aria-labelledby="series-posts" className="mt-12">
+        <div className="mb-6 border-b border-slate-200 pb-4">
+          <p className="text-xs font-bold uppercase tracking-[0.15em] text-blue-700">Reading list</p>
+          <h2 id="series-posts" className="mt-2 text-2xl font-semibold tracking-[-0.025em] text-slate-950">
+            Posts in this series
+          </h2>
+        </div>
 
-      <Grid container spacing={2}>
-        {publication.posts.map((post: any) => (
-          <Grid key={post.slug} xs={12} md={6} lg={4}>
-            <Card
-              variant="outlined"
-              sx={{
-                height: "100%",
-                "&:hover": {
-                  borderColor: "primary.500",
-                  boxShadow: "sm",
-                },
-              }}
+        <div className="grid gap-6 md:grid-cols-2">
+          {publication.posts.map((post, index) => (
+            <article
+              key={post.slug}
+              className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_12px_35px_-25px_rgba(15,23,42,0.45)] transition duration-300 hover:-translate-y-1 hover:border-blue-200"
             >
               {post.image && (
-                <CardOverflow>
-                  <AspectRatio ratio="16/9">
-                    <img
-                      src={post.image}
-                      alt={post.title}
-                      style={{ objectFit: "cover" }}
-                    />
-                  </AspectRatio>
-                </CardOverflow>
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={post.image}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                  className="aspect-[16/8] w-full bg-slate-100 object-cover transition duration-500 group-hover:scale-[1.02]"
+                />
               )}
-
-              <CardContent>
-                <Typography level="title-md" sx={{ mb: 1 }}>
+              <div className="p-6">
+                <div className="flex items-center justify-between gap-4 text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">
+                  <span>Part {String(index + 1).padStart(2, "0")}</span>
+                  <time dateTime={post.date}>{formatDate(post.date)}</time>
+                </div>
+                <h3 className="mt-4 text-xl font-semibold leading-snug tracking-[-0.02em] text-slate-950 transition-colors group-hover:text-blue-700">
                   {post.title}
-                </Typography>
-
-                <Typography level="body-sm" sx={{ mb: 2 }}>
-                  {post.description}
-                </Typography>
-
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                  }}
-                >
-                  <Typography level="body-xs">
-                    {new Date(post.date).toLocaleDateString()}
-                  </Typography>
-                </Box>
-
-                <JoyLink
-                  component={Link}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-slate-600">{post.description}</p>
+                <Link
                   href={`/blog/publication/${publication.id}/${post.slug}`}
-                  overlay
-                  underline="none"
-                  sx={{ mt: 2 }}
+                  className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-blue-700 focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-600"
                 >
-                  Read post →
-                </JoyLink>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
-    </Box>
+                  Read part <span aria-hidden="true">→</span>
+                </Link>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    </div>
   );
-};
+}
 
 export default PublicationDetailPage;

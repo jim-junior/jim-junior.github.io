@@ -1,5 +1,4 @@
-import { Link, Typography } from "@mui/joy";
-import React from "react";
+import type { ReactNode } from "react";
 import her from "../../assets/her.jpg";
 
 export type Post = {
@@ -23,7 +22,7 @@ export type Publication = {
   itemType: "publication";
   title: string;
   description: string;
-  longdescription?: React.ReactNode;
+  longdescription?: ReactNode;
   posts: Array<Post>;
   hidden?: boolean;
 };
@@ -35,25 +34,25 @@ export const DeepLearningPublication: Publication = {
   description:
     "A series of blog post explaining Different deep learning concepts",
   longdescription: (
-    <Typography>
+    <p>
       Personal Notes curated as I study deep learning using the{" "}
-      <Link
+      <a
         href="https://udlbook.github.io/udlbook/"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
       >
         Understanding Deep Learning Book
-      </Link>{" "}
+      </a>{" "}
       and Video Lectures from the CMPS 497 Deep Learning Course by Qatar
       University taught Dr. Tamer Elsayed at:{" "}
-      <Link
+      <a
         href="https://youtube.com/playlist?list=PLRdABJkXXytCz19PsZ1PCQBKoZGV069k3&si=Q6hIlF8_ay7Bdxm4"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
       >
-        https://youtube.com/playlist?list=PLRdABJkXXytCz19PsZ1PCQBKoZGV069k3&si=Q6hIlF8_ay7Bdxm4
-      </Link>
-    </Typography>
+        the course playlist
+      </a>
+    </p>
   ),
   posts: [
     {
@@ -75,65 +74,6 @@ export const DeepLearningPublication: Publication = {
       slug: "shallow-neural-networks",
       image: "https://scipython.com/media/old_blog/shallow-neural-net/snn.png",
       cartegory: "DEEP LEARNING",
-      centered: false,
-      itemType: "post",
-    },
-  ],
-};
-
-export const DistributedSystemsPublication: Publication = {
-  id: "distributed-systems",
-  itemType: "publication",
-  title: "Distributed Systems",
-  description:
-    "A series of blog post explaining Different Distributed Systems concepts from the MIT 6.824 Distributed Systems course.",
-  longdescription: (
-    <Typography>
-      Personal Notes curated as I study distributed systems via the MIT 6.824
-      Distributed Systems course. Video Lectures accessible at:
-      <Link
-        href="https://youtube.com/playlist?list=PLrw6a1wE39_tb2fErI4-WkMbsvGQk9_UB&si=499UyzBchMQojAN7"
-        target="_blank"
-        rel="noopener"
-      >
-        https://youtube.com/playlist?list=PLrw6a1wE39_tb2fErI4-WkMbsvGQk9_UB&si=499UyzBchMQojAN7
-      </Link>{" "}
-    </Typography>
-  ),
-  posts: [
-    {
-      title: "Lecture 1: Threads and Concurrency",
-      description:
-        "Notes on threads and concurrency from the MIT 6.824 Distributed Systems course.",
-      date: "2025-12-29",
-      slug: "threads-and-rpc",
-      image:
-        "https://scaler.com/topics/images/multitasking-and-parallelism.webp",
-      cartegory: "DISTRIBUTED SYSTEMS",
-      centered: false,
-      itemType: "post",
-    },
-    {
-      title: "Lecture 2: Distributed Storage Systems",
-      description:
-        "Notes on distributed storage systems from the MIT 6.824 Distributed Systems course.",
-      date: "2025-12-29",
-      slug: "gfs-storage-systems",
-      image:
-        "https://scaler.com/topics/images/multitasking-and-parallelism.webp",
-      cartegory: "DISTRIBUTED SYSTEMS",
-      centered: false,
-      itemType: "post",
-    },
-    {
-      title: "Lecture 3: Replication",
-      description:
-        "Notes on replication from the MIT 6.824 Distributed Systems course.",
-      date: "2025-12-29",
-      slug: "replication",
-      image:
-        "https://scaler.com/topics/images/multitasking-and-parallelism.webp",
-      cartegory: "DISTRIBUTED SYSTEMS",
       centered: false,
       itemType: "post",
     },
@@ -317,7 +257,6 @@ export const posts: Array<Post | Publication> = [
     cartegory: "REACT JS",
     itemType: "post",
   },
-  DistributedSystemsPublication,
   /*{
     title: "To be continued",
     description: "Coming of age.....",

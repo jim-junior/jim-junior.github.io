@@ -19,4 +19,3 @@ But introducing replication rsks causing inconsistency in data.
 To solve this we need to create consistency but this introduces low performance issues  and hence the loop starts again.
 
 > Case Study Used in Lecture: GFS
-

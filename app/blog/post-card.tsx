@@ -1,214 +1,145 @@
-import AspectRatio from "@mui/joy/AspectRatio";
-import Card from "@mui/joy/Card";
-import CardContent from "@mui/joy/CardContent";
-import CardOverflow from "@mui/joy/CardOverflow";
-import { Box, Link as JoyLink, Stack } from "@mui/joy";
-import SvgIcon from "@mui/joy/SvgIcon";
-import Typography from "@mui/joy/Typography";
-import { format } from "date-fns";
-import { Post, Publication } from "./post-data";
 import Link from "next/link";
+import type { Post, Publication } from "./post-data";
 
-export default function BlogPostCard({ post }: { post: Post }) {
+const formatDate = (date: string) =>
+  new Intl.DateTimeFormat("en", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(date));
+
+function ArrowIcon() {
   return (
-    <Card sx={{ borderRadius: 0 }}>
-      <CardOverflow>
-        <AspectRatio>
-          <img src={post.image} />
-          <Typography
-            sx={{
-              position: "absolute",
-              zIndex: 1,
-              fontWeight: "xl",
-              left: "1rem",
-              top: "1rem",
-              color: "white",
-              textShadow: "0 0.05em 0.2em rgba(0,0,0,0.5)",
-            }}
-          >
-            {post.cartegory}
-          </Typography>
-        </AspectRatio>
-      </CardOverflow>
-      <CardContent sx={{ gap: 1 }}>
-        <Typography level="body-xs">
-          {format(new Date(post.date), "MMMM dd, yyyy")}
-        </Typography>
-        <Typography level="title-lg">{post.title}</Typography>
-        <Typography level="body-sm">{post.description}</Typography>
-      </CardContent>
-      <JoyLink
-        overlay
-        level="body-sm"
-        fontWeight="lg"
-        component={Link}
-        href={`/blog/${post.slug}`}
-        startDecorator={
-          <SvgIcon>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12.75 15l3-3m0 0l-3-3m3 3h-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-          </SvgIcon>
-        }
-      >
-        Read more
-      </JoyLink>
-    </Card>
+    <svg viewBox="0 0 20 20" fill="none" className="h-5 w-5" aria-hidden="true">
+      <path
+        d="M4 10h12m0 0-4-4m4 4-4 4"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
   );
 }
 
-export const PublicationCard = ({
-  publication,
+export default function BlogPostCard({
+  post,
+  featured = false,
 }: {
-  publication: Publication;
-}) => {
-  // Display at most 3 posts in the stack
-  const displayPosts = publication.posts?.slice(0, 3) || [];
+  post: Post;
+  featured?: boolean;
+}) {
+  return (
+    <article
+      className={`group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_12px_35px_-25px_rgba(15,23,42,0.45)] transition duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-[0_22px_50px_-28px_rgba(30,64,175,0.35)] ${
+        featured ? "md:col-span-2" : ""
+      }`}
+    >
+      <Link
+        href={`/blog/${post.slug}`}
+        className="relative block overflow-hidden bg-slate-100 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-blue-600"
+        aria-label={`Read ${post.title}`}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={post.image}
+          alt=""
+          loading={featured ? "eager" : "lazy"}
+          decoding="async"
+          className={`w-full object-cover transition duration-500 group-hover:scale-[1.025] ${
+            featured ? "aspect-[16/9] sm:aspect-[2/1]" : "aspect-[16/10]"
+          }`}
+        />
+        <span className="absolute inset-0 bg-gradient-to-t from-slate-950/35 via-transparent to-transparent" />
+        <span className="absolute left-4 top-4 rounded-full border border-white/20 bg-slate-950/75 px-3 py-1 text-[0.625rem] font-bold uppercase tracking-[0.13em] text-white backdrop-blur-md">
+          {post.cartegory}
+        </span>
+      </Link>
+
+      <div className={`flex flex-1 flex-col ${featured ? "p-6 sm:p-7" : "p-5 sm:p-6"}`}>
+        <time
+          dateTime={post.date}
+          className="text-xs font-semibold uppercase tracking-[0.09em] text-slate-500"
+        >
+          {formatDate(post.date)}
+        </time>
+        <h2
+          className={`mt-3 font-semibold leading-tight tracking-[-0.025em] text-slate-950 transition-colors group-hover:text-blue-700 ${
+            featured ? "text-2xl sm:text-[1.75rem]" : "text-xl"
+          }`}
+        >
+          <Link
+            href={`/blog/${post.slug}`}
+            className="rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-600"
+          >
+            {post.title}
+          </Link>
+        </h2>
+        <p
+          className={`mt-3 text-slate-600 ${
+            featured ? "max-w-3xl text-base leading-7" : "text-sm leading-6"
+          }`}
+        >
+          {post.description}
+        </p>
+        <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-5 text-sm font-semibold text-blue-700">
+          <span>Read article</span>
+          <span className="transition-transform duration-300 group-hover:translate-x-1">
+            <ArrowIcon />
+          </span>
+        </div>
+      </div>
+    </article>
+  );
+}
+
+export function PublicationCard({ publication }: { publication: Publication }) {
+  const displayPosts = publication.posts.slice(0, 3);
 
   return (
-    <Box
-      sx={{
-        position: "relative",
-        width: "100%",
-        maxWidth: "500px",
-        margin: "auto",
-      }}
-    >
-      {/* Background overlay effect */}
-      <Box
-        sx={{
-          position: "absolute",
-          top: -10,
-          left: -10,
-          right: -10,
-          bottom: -10,
-          background:
-            "linear-gradient(45deg, var(--joy-palette-primary-softBg), var(--joy-palette-primary-200))",
-          opacity: 0.1,
-          borderRadius: "xl",
-          zIndex: 0,
-        }}
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-blue-200 bg-gradient-to-br from-blue-950 via-blue-900 to-slate-950 p-6 text-white shadow-[0_18px_45px_-28px_rgba(30,64,175,0.8)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_25px_55px_-28px_rgba(30,64,175,0.9)]">
+      <div className="absolute -right-16 -top-16 h-44 w-44 rounded-full border border-blue-400/20" />
+      <div className="absolute -right-8 -top-8 h-28 w-28 rounded-full border border-blue-300/20" />
+
+      <div className="relative flex items-center justify-between">
+        <span className="rounded-full border border-blue-300/25 bg-blue-400/10 px-3 py-1 text-[0.625rem] font-bold uppercase tracking-[0.14em] text-blue-100">
+          Learning series
+        </span>
+        <span className="font-mono text-xs text-blue-200">
+          {publication.posts.length.toString().padStart(2, "0")} parts
+        </span>
+      </div>
+
+      <h2 className="relative mt-7 text-2xl font-semibold leading-tight tracking-[-0.03em]">
+        {publication.title}
+      </h2>
+      <p className="relative mt-3 text-sm leading-6 text-blue-100/80">
+        {publication.description}
+      </p>
+
+      <ol className="relative my-6 divide-y divide-white/10 border-y border-white/10">
+        {displayPosts.map((post, index) => (
+          <li key={post.slug} className="flex gap-3 py-3 text-sm text-blue-50">
+            <span className="font-mono text-[0.6875rem] text-blue-300">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <span className="line-clamp-1">{post.title}</span>
+          </li>
+        ))}
+      </ol>
+
+      <div className="relative mt-auto flex items-center justify-between text-sm font-semibold text-blue-100">
+        <span>Explore series</span>
+        <span className="transition-transform duration-300 group-hover:translate-x-1">
+          <ArrowIcon />
+        </span>
+      </div>
+      <Link
+        href={`/blog/publication/${publication.id}`}
+        className="absolute inset-0 rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500"
+        aria-label={`Explore ${publication.title}`}
       />
-
-      {/* Main publication card */}
-      <Card
-        variant="outlined"
-        sx={{
-          position: "relative",
-          zIndex: 3,
-          backgroundColor: "background.surface",
-          "&::before": {
-            content: '""',
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background:
-              "linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 100%)",
-            zIndex: -1,
-          },
-        }}
-      >
-        <CardContent>
-          <Typography level="title-lg" sx={{ mb: 1 }}>
-            {publication.title}
-          </Typography>
-          <Typography level="body-sm" sx={{ mb: 2 }}>
-            {publication.description}
-          </Typography>
-          <Stack
-            direction="row"
-            justifyContent="space-between"
-            alignItems="center"
-          >
-            <Typography level="body-xs">{displayPosts.length} posts</Typography>
-            <JoyLink
-              component={Link}
-              href={`/blog/publication/${publication.id}`}
-              endDecorator={
-                <SvgIcon>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M12.75 15l3-3m0 0l-3-3m3 3h-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                </SvgIcon>
-              }
-            >
-              Explore Series
-            </JoyLink>
-          </Stack>
-        </CardContent>
-      </Card>
-
-      {/* Stacked blog post previews */}
-      {displayPosts.map((post, index) => (
-        <Card
-          key={post.slug}
-          variant="outlined"
-          sx={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            zIndex: 2 - index,
-            transform: `translate(${index * 8}px, ${index * 8}px)`,
-            opacity: 1 - index * 0.15,
-            transition: "all 0.2s ease-in-out",
-            "&:hover": {
-              transform: `translate(${index * 8}px, ${index * 8 - 4}px)`,
-            },
-            "&::before": {
-              content: '""',
-              position: "absolute",
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              background: `linear-gradient(180deg, 
-                rgba(255,255,255,${0.9 - index * 0.2}) 0%, 
-                rgba(255,255,255,${0.7 - index * 0.2}) 100%)`,
-              zIndex: -1,
-            },
-          }}
-        >
-          <CardContent>
-            <Typography level="title-sm" sx={{ mb: 0.5 }}>
-              {post.title}
-            </Typography>
-            <Typography
-              level="body-xs"
-              sx={{
-                display: "-webkit-box",
-                WebkitLineClamp: 2,
-                WebkitBoxOrient: "vertical",
-                overflow: "hidden",
-              }}
-            >
-              {post.description}
-            </Typography>
-          </CardContent>
-        </Card>
-      ))}
-    </Box>
+    </article>
   );
-};
+}

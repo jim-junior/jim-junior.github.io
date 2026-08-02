@@ -45,7 +45,7 @@ const Navbar = () => {
               BLOG
             </a>
             <a
-              href="/blog"
+              href="/notes"
               className="uppercase tracking-[0.1em] text-[0.6875rem] text-zinc-500 dark:text-zinc-400 hover:text-blue-600 transition-colors duration-200"
             >
               NOTES
@@ -91,6 +91,13 @@ const Navbar = () => {
             className="uppercase tracking-[0.1em] text-[0.75rem] text-zinc-500 dark:text-zinc-400 hover:text-blue-600 transition-colors duration-200 py-2"
           >
             /blog
+          </a>
+          <a
+            href="/notes"
+            onClick={() => setIsOpen(false)}
+            className="uppercase tracking-[0.1em] text-[0.75rem] text-zinc-500 dark:text-zinc-400 hover:text-blue-600 transition-colors duration-200 py-2"
+          >
+            /notes
           </a>
         </div>
       )}

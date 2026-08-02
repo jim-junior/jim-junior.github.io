@@ -1,4 +1,3 @@
-import { Divider } from "@mui/joy";
 import PublicationDetailPage from "@/components/publication";
 import { DeepLearningPublication } from "../../post-data";
 
@@ -9,12 +8,7 @@ export const metadata = {
 };
 
 const PublicationPage = () => {
-  return (
-    <>
-      <Divider />
-      <PublicationDetailPage publication={DeepLearningPublication} />
-    </>
-  );
+  return <PublicationDetailPage publication={DeepLearningPublication} />;
 };
 
 export default PublicationPage;

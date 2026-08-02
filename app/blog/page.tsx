@@ -1,21 +1,18 @@
-import { Container, Divider } from "@mui/joy";
+import type { Metadata } from "next";
 import Header from "./header";
 import BlogPosts from "./blog-posts";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Blog | Beingana Jim Junior",
   description:
-    "Explore my blog for insights on software development, technology trends, and personal projects. Join me on a journey of learning and innovation.",
+    "Long-form writing about software engineering, cloud-native systems, architecture, and lessons learned while building.",
 };
 
-const BlogPage = () => {
+export default function BlogPage() {
   return (
-    <>
+    <div className="relative left-1/2 w-[calc(100vw-3rem)] max-w-6xl -translate-x-1/2 [font-family:'Space_Grotesk',ui-sans-serif,system-ui,sans-serif]">
       <Header />
-      <Divider />
       <BlogPosts />
-    </>
+    </div>
   );
-};
-
-export default BlogPage;
+}
