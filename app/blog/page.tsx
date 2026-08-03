@@ -5,7 +5,7 @@ import BlogPosts from "./blog-posts";
 export const metadata: Metadata = {
   title: "Blog | Beingana Jim Junior",
   description:
-    "Long-form writing about software engineering, cloud-native systems, architecture, and lessons learned while building.",
+    "Long-form writing about software engineering, cloud-native systems, AI, and lessons learned while building.",
 };
 
 export default function BlogPage() {
