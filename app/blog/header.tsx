@@ -9,10 +9,6 @@ export default function Header() {
   return (
     <header className="grid gap-10 border-b border-slate-200 pb-12 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-end">
       <div className="max-w-3xl">
-        <div className="mb-5 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.18em] text-blue-700">
-          <span className="h-px w-8 bg-blue-600" aria-hidden="true" />
-          Engineering journal
-        </div>
         <h1 className="text-balance text-4xl font-bold leading-[1.08] tracking-[-0.045em] text-slate-950 sm:text-5xl lg:text-[3.5rem]">
           Ideas, systems, and lessons from building software.
         </h1>

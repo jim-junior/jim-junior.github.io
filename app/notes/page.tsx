@@ -25,10 +25,6 @@ export default function NotesPage() {
   return (
     <div className="mx-auto w-full max-w-5xl">
       <header className="max-w-3xl border-b border-slate-200 pb-10">
-        <div className="mb-5 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.18em] text-blue-700">
-          <span className="h-px w-8 bg-blue-600" aria-hidden="true" />
-          Working notebook
-        </div>
         <h1 className="text-balance text-4xl font-bold tracking-[-0.04em] text-slate-950 sm:text-5xl">
           Notes, fragments, and things I&apos;m learning.
         </h1>
@@ -51,7 +47,11 @@ export default function NotesPage() {
             <div className="grid gap-6 border-b border-slate-200 pb-7 md:grid-cols-[1fr_auto] md:items-end">
               <div className="max-w-2xl">
                 <p className="mb-2 text-xs font-bold uppercase tracking-[0.14em] text-blue-700">
-                  Subject {String(noteCollections.indexOf(collection) + 1).padStart(2, "0")}
+                  Subject{" "}
+                  {String(noteCollections.indexOf(collection) + 1).padStart(
+                    2,
+                    "0",
+                  )}
                 </p>
                 <h2
                   id={`${collection.slug}-heading`}
