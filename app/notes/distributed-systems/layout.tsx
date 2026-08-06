@@ -10,18 +10,17 @@ export default function DistributedSystemsNotesLayout({
     <article className="mx-auto w-full max-w-[52rem] pb-10 text-slate-700 [font-family:charter,Georgia,'Times_New_Roman',serif]">
       <nav
         aria-label="Breadcrumb"
-        className="mb-8 flex items-center gap-2 border-b border-slate-200 pb-5 text-sm [font-family:'Space_Grotesk',ui-sans-serif,system-ui,sans-serif]"
+        className="mb-8 flex border-2 border-slate-950 bg-zinc-100 text-xs font-bold uppercase tracking-[0.09em] [font-family:'Space_Grotesk',ui-sans-serif,system-ui,sans-serif]"
       >
         <Link
           href="/notes"
-          className="font-semibold text-blue-700 transition-colors hover:text-blue-900"
+          className="border-r-2 border-slate-950 bg-white px-4 py-3 text-[#0053a1] transition-colors hover:bg-black hover:text-white focus-visible:outline-4 focus-visible:outline-offset-[-4px] focus-visible:outline-[#0053a1]"
         >
           Notes
         </Link>
-        <span className="text-slate-300" aria-hidden="true">
-          /
+        <span className="flex items-center px-4 py-3 text-slate-600">
+          Distributed Systems
         </span>
-        <span className="text-slate-500">Distributed Systems</span>
       </nav>
       {children}
     </article>

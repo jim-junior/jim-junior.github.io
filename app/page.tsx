@@ -1,8 +1,6 @@
-import { About } from "./bio";
 import { Contact } from "./contact";
 import Hero from "./hero";
 import { Hobbies } from "./hobbies";
-import { ProjectSpotlight } from "./spotlight";
 
 export const metadata = {
   title: "Beingana Jim Junior | About Me",
