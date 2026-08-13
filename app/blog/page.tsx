@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function BlogPage() {
   return (
-    <div className="relative left-1/2 w-[calc(100vw-3rem)] max-w-6xl -translate-x-1/2 [font-family:'Space_Grotesk',ui-sans-serif,system-ui,sans-serif]">
+    <div className="w-full text-[#1a1c1d]">
       <Header />
       <BlogPosts />
     </div>
