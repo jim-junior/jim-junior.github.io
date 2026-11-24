@@ -36,6 +36,16 @@ Key areas include measuring the “virtualization tax” of microVM-backed runti
     icon: "/img/sunbird.jpg",
   },
   {
+    startDate: "September 2024 - December 2026",
+    stage: "Voluteering",
+    name: "Makerere Computer Science Department",
+    description:
+      "Lead a team of students to develop, mantain and deploy the Makerere University Computer Science Department website.",
+    github: [],
+    website: "https://cs.mak.ac.ug/",
+    icon: "https://cs.mak.ac.ug/images/site/makerere-logo.webp",
+  },
+  {
     startDate: "December 2025 - Feb 2025",
     stage: "Internship",
     name: "Hope Haven Christian School",
@@ -194,82 +204,6 @@ export default function CodePage() {
           <TimelineEntry key={index} project={project} index={index} />
         ))}
       </section>
-
-      {/* Final Summary: Technical Proficiency */}
-      <div className="relative pt-24 mt-24 border-t border-[#c1c6d4]/30">
-        <div className="absolute left-1/2 -translate-x-1/2 -top-1 w-2 h-2 bg-[#0b6bcb] rounded-full hidden md:block z-10"></div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-          <div className="lg:col-span-5">
-            <h3 className="text-4xl font-bold tracking-tight mb-8">
-              Technical Proficiency
-            </h3>
-            <p className="text-[#414752] max-w-md leading-relaxed mb-12">
-              Over the years, I have cultivated a diverse skill set in software
-              engineering, spanning multiple programming languages, cloud
-              platforms, and database systems. My expertise lies in building
-              scalable, secure, and high-performance applications that meet the
-              demands of modern software development.
-            </p>
-
-            <div className="space-y-6">
-              {[
-                {
-                  title: "Core Languages",
-                  time: "7 YEARS",
-                  stack: "Go, Rust, TypeScript, C, Python",
-                },
-                {
-                  title: "Infrastructure",
-                  time: "4 YEARS",
-                  stack: "Linux, Kubernetes, GCP, GitHub",
-                },
-                {
-                  title: "Databases",
-                  time: "3 YEARS",
-                  stack: "PostgreSQL, Redis, etcd",
-                },
-              ].map((skill) => (
-                <div
-                  key={skill.title}
-                  className="group border-b border-[#c1c6d4]/30 pb-4"
-                >
-                  <div className="flex justify-between text-[0.6875rem] font-bold tracking-widest uppercase mb-2">
-                    <span className="text-[#1a1c1d]">{skill.title}</span>
-                    <span className="text-[#5d5e60]">{skill.time}</span>
-                  </div>
-                  <div className="text-sm font-mono text-[#5d5e60]">
-                    {skill.stack}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <ProficiencyCard
-              icon={Cloud}
-              title="Cloud-Native"
-              desc="Building elastic systems that scale horizontally without human intervention."
-            />
-            <ProficiencyCard
-              icon={Shield}
-              title="Secure Design"
-              desc="Zero-trust architecture and automated compliance at the protocol level."
-            />
-            <ProficiencyCard
-              icon={Gauge}
-              title="Performance"
-              desc="Profiling and optimizing at the kernel and network driver layer."
-            />
-            <ProficiencyCard
-              icon={Blocks}
-              title="Clean Code"
-              desc="Technical documentation and maintainable API surface area design."
-            />
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
